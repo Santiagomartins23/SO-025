@@ -24,13 +24,16 @@ liberando os recursos associados ao arquivo aberto.
 
 
   Usando um texto de exemplo:
+
+  ![write2](https://github.com/user-attachments/assets/de884c4f-4ea5-48c2-88ba-426c46e5b8cc)
+
   
- ![write2](https://github.com/user-attachments/assets/0422deb9-7f7e-48a2-9c78-3ea60a74c904)
 
 
 -Usando o comando -strace -c ./write:
 
- ![strace write](https://github.com/user-attachments/assets/d4ea01d3-0dd5-4bad-aca0-aeb5744b0254)
+ ![strace write](https://github.com/user-attachments/assets/568cfaf3-1038-4b6f-99c4-dec48158a1f8)
+
 
 
 
