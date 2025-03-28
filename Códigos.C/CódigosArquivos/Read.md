@@ -6,6 +6,9 @@ Arquivos e E/S
 utiliza open(), close() e write(), no qual o usuário consegue escrever um texto e imprimir dentro do arquivo de texto. A chamada open() abre o arquivo de texto para ser lido e/ou escrito, o close() fecha o arquivo de texto
 liberando os recursos associados ao arquivo aberto.
         
+-Arquivo Read.c:
+  ![Read.c](Imagens/read.c)
+
    
     
 
