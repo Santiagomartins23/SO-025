@@ -7,7 +7,7 @@ utiliza open(), close() e write(), no qual o usuário consegue escrever um texto
 liberando os recursos associados ao arquivo aberto.
         
 -Arquivo Read.c:
-  ![Read](Imagens/read.png)
+ 
 
    
     
