@@ -12,7 +12,7 @@ Neste arquivo, foi utilizada a função `fork()` para criar novos processos.
 - Execução concorrente entre processos pai e filho
 - Uso de `wait()` para sincronização
 
-Ao compilar e executar o programa, obtemos o seguinte output:
+##### Usando o comando " strace -c ./fork ", vamos conseguir estatísticas relacionadas ao uso das chamadas ao sistema e o tempo gasto por elas: 
 <p>&nbsp;</p>
 
 
@@ -38,7 +38,7 @@ Neste arquivo, foram implementados algoritmos de escalonamento utilizando chamad
 - `waitpid()` para controle preciso de espera
 - `sleep()` para simular tempo de execução
 
-
+##### Usando o comando " strace -c ./scheduling ", vamos conseguir estatísticas relacionadas ao uso das chamadas ao sistema e o tempo gasto por elas: 
 ![capturaEscalonamento](https://github.com/user-attachments/assets/942cd56d-e4e2-401a-9aee-53e48e7ae87b)
 <p>&nbsp;</p>
 
@@ -54,7 +54,7 @@ Neste arquivo, foi implementado o tratamento de sinais entre processos utilizand
 
 
 
-
+##### Usando o comando " strace -c ./treatsignal.c ", vamos conseguir estatísticas relacionadas ao uso das chamadas ao sistema e o tempo gasto por elas: 
 ![capturaTratamentoDeSinal](https://github.com/user-attachments/assets/5c50d952-e9d0-419f-b5ec-763d7892233c)
 
 
