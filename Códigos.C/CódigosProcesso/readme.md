@@ -27,6 +27,11 @@ Neste arquivo, foi utilizada a função `fork()` para criar novos processos.
 
 ## Observações:
 
+Principais chamadas de sistema:
+
+wait4 (73.14% do tempo): Indica que o processo pai passa a maior parte do tempo aguardando a finalização dos filhos, caracterizando espera bloqueante.
+
+clone (25.34%): Reflete o custo da criação de processos com fork().
 
 
 ### Arquivo scheduling.c
@@ -47,6 +52,12 @@ Neste arquivo, foram implementados algoritmos de escalonamento utilizando chamad
 
 ## Observações:
 
+wait4 (67.25%): Confirma que o escalonador gasta mais tempo gerenciando processos do que executando tarefas.
+
+clone (20.63%): Custo proporcional ao número de processos criados.
+
+execve (5.11%): Presente se houver substituição de imagem (ex: uso de exec()).
+
 ### Arquivo treatsignal.c
 
 Neste arquivo, foi implementado o tratamento de sinais entre processos utilizando primitivas do sistema Linux. O programa demonstra:
@@ -63,4 +74,16 @@ Neste arquivo, foi implementado o tratamento de sinais entre processos utilizand
 <p>&nbsp;</p>
 
 ## Observações:
+
+kill (5.33%): Tempo gasto no envio de sinais entre processos.
+
+clock_nanosleep (5.31%): Corresponde ao pause() para espera por sinais.
+
+execve (34.73%): Valor anormalmente alto - verificar se há chamadas não intencionais de exec.
+
+Padrão de comunicação:
+
+Eficiência na entrega de sinais (baixo tempo em kill).
+
+wait4 (37.69%) indica sincronização após tratamento de sinais.
 
