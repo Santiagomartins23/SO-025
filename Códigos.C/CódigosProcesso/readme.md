@@ -5,7 +5,9 @@ Foram desenvolvidos 3 programas em C que utilizam primitivas de chamadas de sist
 ---
 
 ### Arquivo fork.c
-Neste arquivo, foi utilizada a função `fork()` para criar novos processos. A implementação demonstra:
+Neste arquivo, foi utilizada a função `fork()` para criar novos processos.
+
+**Funcionalidades principais:**
 - Criação de processos filhos
 - Execução concorrente entre processos pai e filho
 - Uso de `wait()` para sincronização
@@ -50,10 +52,7 @@ Neste arquivo, foi implementado o tratamento de sinais entre processos utilizand
 - Envio de sinais entre processos usando `kill()`
 - Espera assíncrona por sinais com `pause()`
 
-**Casos de uso implementados:**
-1. `SIGUSR1` para comunicação customizada
-2. `SIGTERM` para finalização graciosa
-3. `SIGINT` para tratamento de interrupções (Ctrl+C)
+
 
 
 ![capturaTratamentoDeSinal](https://github.com/user-attachments/assets/5c50d952-e9d0-419f-b5ec-763d7892233c)
