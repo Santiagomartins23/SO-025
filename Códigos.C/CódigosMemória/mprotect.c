@@ -6,8 +6,8 @@
 
 int main() {
     size_t size = 4096;
-    //Aloca memoria com mmap
-    void *mem = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+    
+    void *mem = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0); //Aloca memoria com mmap
     if (mem == MAP_FAILED) {
         perror("mmap falhou");
         return 1;
