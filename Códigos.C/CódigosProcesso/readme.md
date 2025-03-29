@@ -17,5 +17,6 @@ PROCESSOS
 --Tratamento de Sinais
 
 
-![capturaTratamentoDeSinal](https://github.com/user-attachments/assets/522d56e3-50b2-4764-822c-0826fd441083)
+![capturaTratamentoDeSinal](https://github.com/user-attachments/assets/5c50d952-e9d0-419f-b5ec-763d7892233c)
+
 
