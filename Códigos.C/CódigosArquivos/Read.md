@@ -15,7 +15,8 @@ liberando os recursos associados ao arquivo aberto.
 
 -Usando o comando -strace -c ./read, vamos conseguir estatísticas relacionadas ao uso das chamadas ao sistem:
 
- ![strace read](https://github.com/user-attachments/assets/f5e4214f-0cd0-4b2f-b228-f4f0a0c37af1)
+ ![strace read](https://github.com/user-attachments/assets/8c07de01-0c0f-4882-939a-6cd1aa8a9552)
+
 
 
  -Arquivo Write.c: Inicialmente pede para o usuário escrever o que deseja imprimir no arquivo de texto.
@@ -25,14 +26,17 @@ liberando os recursos associados ao arquivo aberto.
 
   Usando um texto de exemplo:
 
-  ![write2](https://github.com/user-attachments/assets/de884c4f-4ea5-48c2-88ba-426c46e5b8cc)
+  ![write2](https://github.com/user-attachments/assets/dd8979bc-31cd-4559-b1be-617804612df3)
+
 
   
 
 
 -Usando o comando -strace -c ./write:
 
- ![strace write](https://github.com/user-attachments/assets/568cfaf3-1038-4b6f-99c4-dec48158a1f8)
+ ![strace write](https://github.com/user-attachments/assets/0a5016e9-124e-422f-9424-ef26580b64e4)
+
+
 
 
 
