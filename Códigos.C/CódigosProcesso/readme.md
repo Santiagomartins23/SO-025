@@ -55,19 +55,6 @@ Neste arquivo, foi implementado o tratamento de sinais entre processos utilizand
 2. `SIGTERM` para finalização graciosa
 3. `SIGINT` para tratamento de interrupções (Ctrl+C)
 
-**Técnicas utilizadas:**
-```c
-// Exemplo do código
-void handler(int signum) {
-    printf("Processo %d recebeu sinal %d\n", getpid(), signum);
-}
-
-int main() {
-    signal(SIGUSR1, handler);  // Registra handler
-    kill(child_pid, SIGUSR1);  // Envia sinal
-    pause();                   // Espera sinal
-}
-
 
 ![capturaTratamentoDeSinal](https://github.com/user-attachments/assets/5c50d952-e9d0-419f-b5ec-763d7892233c)
 
