@@ -2,7 +2,7 @@
 Gerenciamento de Memória
 
  Foram criados 3 programas na linguagem de programação C, cada um desses programas utiliza uma primitiva de chamada de sistema disponível no Linux, as escolhidas para a categoria gerenciamento de memória foram BRK, MMAP e MPROTECT.
-
+<p>&nbsp;</p>
 
  Arquivo BRK.c - Nesse arquivo, foi utilizada a função sbrk() para manipular diretamente a memória heap de um programa. Nele, é alocada memória para a heap, expandida e por fim reduzida. A função sbrk() utilizada no arquivo é uma forma de interação com a primitiva de chamada de sistema brk(). Ao compilarmos e rodarmos o programa é nos dado o seguinte output:
 
@@ -12,13 +12,8 @@ Gerenciamento de Memória
  Usando o comando " strace -c ./BRK ", vamos conseguir estatísticas relacionadas ao uso das chamadas ao sistema e o tempo gasto por elas: 
 
 ![image](https://github.com/user-attachments/assets/949c795b-79ee-4c3d-99c0-47bdb62f6828)
-
-
-
-
-
-
-
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 Arquivo mmap.c - A função mmap() em C é utilizada para mapear arquivos ou alocar memória diretamente, sem depender da heap tradicional ou do sistema de gerenciamento de memória padrão. Neste arquivo, a memória é alocada com mmap() usando a flag MAP_ANONYMOUS, o que significa que a memória não está associada a nenhum arquivo, e a flag MAP_PRIVATE, que cria um mapeamento privado da memória. Após a alocação, a memória é preenchida com valores inteiros, e os primeiros 10 valores são exibidos na tela. Ao compilarmos e rodarmos o programa é nos dado o seguinte output:
 
 ![image](https://github.com/user-attachments/assets/1155a2bc-c22f-48c9-bccb-6d285224a294)
