@@ -40,7 +40,8 @@ liberando os recursos associados ao arquivo aberto.
 
 
 
- Analisando alguns resultados como tempo total, percentual de uso da CPU, tempo em modo kernel, tempo em modo usuário, trocas de contexto voluntárias e trocas de contexto involuntárias notamos que o arquivo/programa Write
+-I/O Bound
+Analisando alguns resultados como tempo total, percentual de uso da CPU, tempo em modo kernel, tempo em modo usuário, trocas de contexto voluntárias e trocas de contexto involuntárias notamos que o arquivo/programa Write
 é um processo I/O Bound.
 
 -Time:
