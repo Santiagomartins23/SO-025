@@ -6,8 +6,8 @@
 int main() {
     size_t size = 4096;
 
-    // Aloca memória com mmap
-    int *mem = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+    
+    int *mem = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0); //Aloca memória com mmap
 
     if (mem == MAP_FAILED) {
         perror("\nmmap falhou");
@@ -16,8 +16,8 @@ int main() {
 
     printf("\nMemoria alocada em: %p\n\n", mem);
 
-    // Preenche a memória com valores
-    for (int i = 0; i < size / sizeof(int); i++) {
+  
+    for (int i = 0; i < size / sizeof(int); i++) { //Preenche a memória com valores
         mem[i] = i * 10;
     }
 
