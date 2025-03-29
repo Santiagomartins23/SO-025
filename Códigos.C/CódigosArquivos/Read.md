@@ -11,6 +11,7 @@ liberando os recursos associados ao arquivo aberto.
 -Arquivo Read.c:
 
 ![read](https://github.com/user-attachments/assets/732edeac-cf66-443d-9775-a7f31a9c83ee)
+
  
 
 -Usando o comando -strace -c ./read, vamos conseguir estatísticas relacionadas ao uso das chamadas ao sistema e o tempo gasto por elas:
@@ -22,6 +23,7 @@ liberando os recursos associados ao arquivo aberto.
  -Arquivo Write.c: Inicialmente pede para o usuário escrever o que deseja imprimir no arquivo de texto.
  
  ![write1](https://github.com/user-attachments/assets/b12ed9d1-8cd5-47f0-adbf-555f0f6b16ec)
+
 
 
   Usando um texto de exemplo:
@@ -37,6 +39,7 @@ liberando os recursos associados ao arquivo aberto.
  ![strace write](https://github.com/user-attachments/assets/0a5016e9-124e-422f-9424-ef26580b64e4)
 
 
+
  Analisando alguns resultados como tempo total, percentual de uso da CPU, tempo em modo kernel, tempo em modo usuário, trocas de contexto voluntárias e trocas de contexto involuntárias notamos que o arquivo/programa Write
 é um processo I/O Bound.
 
@@ -46,6 +49,7 @@ liberando os recursos associados ao arquivo aberto.
  
 Tempo real (6.92s) >> Tempo de CPU (user + sys = 0.004s)
 Quase todo o tempo foi gasto em espera (provavelmente por I/O, como escrita em disco ou entrada do usuário).
+
 
 
 -Usando esse comando: /usr/bin/time -v ./write, obtemos informações sobre tempo total, percentual de uso da CPU, tempo em modo kernel, tempo em modo usuário, trocas de contexto voluntárias e trocas de contexto involuntárias. 
