@@ -23,6 +23,8 @@ Neste arquivo, foi utilizada a função `fork()` para criar novos processos.
 
 ![capturaFork](https://github.com/user-attachments/assets/c20a6304-d2ed-4070-bd30-1ea86e795d57)
 <p>&nbsp;</p>
+
+
 ## Observações:
 
 
@@ -41,6 +43,8 @@ Neste arquivo, foram implementados algoritmos de escalonamento utilizando chamad
 ##### Usando o comando " strace -c ./scheduling ", vamos conseguir estatísticas relacionadas ao uso das chamadas ao sistema e o tempo gasto por elas: 
 ![capturaEscalonamento](https://github.com/user-attachments/assets/942cd56d-e4e2-401a-9aee-53e48e7ae87b)
 <p>&nbsp;</p>
+
+
 ## Observações:
 
 ### Arquivo treatsignal.c
@@ -56,5 +60,7 @@ Neste arquivo, foi implementado o tratamento de sinais entre processos utilizand
 
 ##### Usando o comando " strace -c ./treatsignal.c ", vamos conseguir estatísticas relacionadas ao uso das chamadas ao sistema e o tempo gasto por elas: 
 ![capturaTratamentoDeSinal](https://github.com/user-attachments/assets/5c50d952-e9d0-419f-b5ec-763d7892233c)
+<p>&nbsp;</p>
+
 ## Observações:
 
