@@ -1,11 +1,16 @@
-## Processos
+## Gerenciamento de Processos
 
-### O que são Processos?
-Processos são instâncias independentes de programas em execução, gerenciados pelo sistema operacional. Cada processo possui:
-- **Isolamento de memória** (espaço de endereçamento próprio)
-- **Metadados** (PID, prioridade, estado)
-- **Recursos alocados** (arquivos abertos, conexões de rede)
+Foram desenvolvidos 3 programas em C que utilizam primitivas de chamadas de sistema do Linux para gerenciamento de processos. As primitivas escolhidas para esta categoria foram FORK, SCHEDULING e SIGNAL HANDLING. Todos os códigos referentes a esta seção estão disponíveis nesta pasta.
 
+---
+
+### Arquivo fork.c
+Neste arquivo, foi utilizada a função `fork()` para criar novos processos. A implementação demonstra:
+- Criação de processos filhos
+- Execução concorrente entre processos pai e filho
+- Uso de `wait()` para sincronização
+
+Ao compilar e executar o programa, obtemos o seguinte output:
 <p>&nbsp;</p>
 
 
