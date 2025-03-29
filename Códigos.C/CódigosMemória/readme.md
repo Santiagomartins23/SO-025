@@ -39,7 +39,7 @@
 
  ### Arquivo mprotect.c
  
-  Neste arquivo, foi utilizada a função mprotect() para controlar as permissões de acesso a uma área de memória já alocada. A memória é alocada com mmap() e, em seguida, as permissões de acesso são modificadas para tornar a memória somente para leitura, impedindo a escrita nela. Quando a memória é acessada para algo que não seja leitura, como escrita, ocorre um "segmentation fault".
+  Neste arquivo, foi utilizada a função mprotect() para controlar as permissões de acesso a uma área de memória já alocada. A memória é alocada com mmap() e, em seguida, as permissões de acesso são modificadas para tornar a memória somente para leitura, impedindo a escrita nela. Quando a memória é acessada para algo que não seja leitura, como escrita, ocorre um "segmentation fault". Ao compilarmos e rodarmos o programa é nos dado o seguinte output:
 
  ![image](https://github.com/user-attachments/assets/e9dad229-843f-43d5-aeee-cc0d276f310e)
 
