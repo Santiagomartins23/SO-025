@@ -20,15 +20,53 @@ Ao compilar e executar o programa, obtemos o seguinte output:
 
 
 ![capturaFork](https://github.com/user-attachments/assets/c20a6304-d2ed-4070-bd30-1ea86e795d57)
+<p>&nbsp;</p>
 
 
---Escalonamento de Processos
+
+
+### Arquivo scheduling.c
+Neste arquivo, foram implementados algoritmos de escalonamento utilizando chamadas de sistema para controle de processos. O programa demonstra:
+- **FIFO**: Execução sequencial de processos
+- **Round-Robin**: Alternância entre processos com quantum fixo
+- **Prioridades**: Ordenação por níveis de prioridade
+
+**Técnicas utilizadas:**
+- `fork()` para criar múltiplos processos
+- `waitpid()` para controle preciso de espera
+- `sleep()` para simular tempo de execução
 
 
 ![capturaEscalonamento](https://github.com/user-attachments/assets/942cd56d-e4e2-401a-9aee-53e48e7ae87b)
+<p>&nbsp;</p>
 
 
---Tratamento de Sinais
+### Arquivo treatsignal.c
+
+Neste arquivo, foi implementado o tratamento de sinais entre processos utilizando primitivas do sistema Linux. O programa demonstra:
+
+**Funcionalidades principais:**
+- Registro de handlers personalizados com `signal()`
+- Envio de sinais entre processos usando `kill()`
+- Espera assíncrona por sinais com `pause()`
+
+**Casos de uso implementados:**
+1. `SIGUSR1` para comunicação customizada
+2. `SIGTERM` para finalização graciosa
+3. `SIGINT` para tratamento de interrupções (Ctrl+C)
+
+**Técnicas utilizadas:**
+```c
+// Exemplo do código
+void handler(int signum) {
+    printf("Processo %d recebeu sinal %d\n", getpid(), signum);
+}
+
+int main() {
+    signal(SIGUSR1, handler);  // Registra handler
+    kill(child_pid, SIGUSR1);  // Envia sinal
+    pause();                   // Espera sinal
+}
 
 
 ![capturaTratamentoDeSinal](https://github.com/user-attachments/assets/5c50d952-e9d0-419f-b5ec-763d7892233c)
