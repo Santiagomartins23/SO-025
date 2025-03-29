@@ -64,11 +64,17 @@ Quase todo o tempo foi gasto em espera (provavelmente por I/O, como escrita em d
  ![time write2](https://github.com/user-attachments/assets/d8aeeec9-13fd-4134-944a-8a2ade3811f5)
 
    User time (seconds): 0.01       → Tempo em modo usuário
+   
    System time (seconds): 0.02     → Tempo em modo kernel
+   
    Percent of CPU this job got: 5% → Percentual de uso da CPU
+   
    Elapsed (wall clock) time (h:mm:ss or m:ss): 0:05.03 → Tempo total (real)
+   
    Voluntary context switches: 1    → Trocas de contexto voluntárias
+   
    Involuntary context switches: 2  → Trocas de contexto involuntárias
+   
 
  
 
