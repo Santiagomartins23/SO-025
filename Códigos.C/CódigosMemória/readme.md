@@ -15,6 +15,10 @@ Gerenciamento de Memória
 
 
 
+
+
+
+
 Arquivo mmap.c - A função mmap() em C é utilizada para mapear arquivos ou alocar memória diretamente, sem depender da heap tradicional ou do sistema de gerenciamento de memória padrão. Neste arquivo, a memória é alocada com mmap() usando a flag MAP_ANONYMOUS, o que significa que a memória não está associada a nenhum arquivo, e a flag MAP_PRIVATE, que cria um mapeamento privado da memória. Após a alocação, a memória é preenchida com valores inteiros, e os primeiros 10 valores são exibidos na tela. Ao compilarmos e rodarmos o programa é nos dado o seguinte output:
 
 ![image](https://github.com/user-attachments/assets/1155a2bc-c22f-48c9-bccb-6d285224a294)
