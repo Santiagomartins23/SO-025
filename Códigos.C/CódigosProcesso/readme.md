@@ -1,6 +1,6 @@
 ## Gerenciamento de Processos
 
-Foram desenvolvidos 3 programas em C que utilizam primitivas de chamadas de sistema do Linux para gerenciamento de processos. As primitivas escolhidas para esta categoria foram FORK, SCHEDULING e SIGNAL HANDLING. Todos os códigos referentes a esta seção estão disponíveis nesta pasta.
+Foram desenvolvidos 3 programas em C que utilizam primitivas de chamadas de sistema do Linux para gerenciamento de processos. As primitivas escolhidas para esta categoria foram FORK, ESCALONADOR DE PROCESSOS E TRATAMENTO DE SINAIS. Todos os códigos referentes a esta seção estão disponíveis nesta pasta.
 
 ---
 
