@@ -1,4 +1,13 @@
-PROCESSOS
+## Processos
+
+### O que são Processos?
+Processos são instâncias independentes de programas em execução, gerenciados pelo sistema operacional. Cada processo possui:
+- **Isolamento de memória** (espaço de endereçamento próprio)
+- **Metadados** (PID, prioridade, estado)
+- **Recursos alocados** (arquivos abertos, conexões de rede)
+
+<p>&nbsp;</p>
+
 
 
 
