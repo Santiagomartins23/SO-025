@@ -12,6 +12,7 @@ liberando os recursos associados ao arquivo aberto.
 
 ![read](https://github.com/user-attachments/assets/732edeac-cf66-443d-9775-a7f31a9c83ee)
 
+
  
 
 -Usando o comando -strace -c ./read, vamos conseguir estatísticas relacionadas ao uso das chamadas ao sistema e o tempo gasto por elas:
@@ -38,6 +39,8 @@ liberando os recursos associados ao arquivo aberto.
 
  ![strace write](https://github.com/user-attachments/assets/0a5016e9-124e-422f-9424-ef26580b64e4)
 
+ 
+
 
 
 -I/O Bound
@@ -45,12 +48,14 @@ liberando os recursos associados ao arquivo aberto.
  Analisando alguns resultados como tempo total, percentual de uso da CPU, tempo em modo kernel, tempo em modo usuário, trocas de contexto voluntárias e trocas de contexto involuntárias notamos que o arquivo/programa Write
 é um processo I/O Bound.
 
+
 -Time:
 
  ![time write](https://github.com/user-attachments/assets/eece7677-5b17-44aa-961c-0a03fe76a655)
  
 Tempo real (6.92s) >> Tempo de CPU (user + sys = 0.004s)
 Quase todo o tempo foi gasto em espera (provavelmente por I/O, como escrita em disco ou entrada do usuário).
+
 
 
 
