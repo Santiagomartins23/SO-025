@@ -61,19 +61,20 @@ Quase todo o tempo foi gasto em espera (provavelmente por I/O, como escrita em d
 
 -Usando esse comando: /usr/bin/time -v ./write, obtemos informações sobre tempo total, percentual de uso da CPU, tempo em modo kernel, tempo em modo usuário, trocas de contexto voluntárias e trocas de contexto involuntárias. 
 
- ![time write2](https://github.com/user-attachments/assets/d8aeeec9-13fd-4134-944a-8a2ade3811f5)
+ ![time write2](https://github.com/user-attachments/assets/410ca477-fe84-4518-9641-c5398b47b222)
 
-   User time (seconds): 0.01       → Tempo em modo usuário
+
+   User time (seconds): 0.000       → Tempo em modo usuário
    
-   System time (seconds): 0.02     → Tempo em modo kernel
+   System time (seconds): 0.005     → Tempo em modo kernel
    
-   Percent of CPU this job got: 5% → Percentual de uso da CPU
+   Percent of CPU this job got: 0% → Percentual de uso da CPU
    
-   Elapsed (wall clock) time (h:mm:ss or m:ss): 0:05.03 → Tempo total (real)
+   Elapsed (wall clock) time (h:mm:ss or m:ss): 0:11.17 → Tempo total (real)
    
-   Voluntary context switches: 1    → Trocas de contexto voluntárias
+   Voluntary context switches: 8    → Trocas de contexto voluntárias
    
-   Involuntary context switches: 2  → Trocas de contexto involuntárias
+   Involuntary context switches: 3  → Trocas de contexto involuntárias
    
 
  
