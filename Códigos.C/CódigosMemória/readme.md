@@ -13,7 +13,7 @@
  
  <p>&nbsp;</p>
  
- #####Usando o comando " strace -c ./BRK ", vamos conseguir estatísticas relacionadas ao uso das chamadas ao sistema e o tempo gasto por elas: 
+ ##### Usando o comando " strace -c ./BRK ", vamos conseguir estatísticas relacionadas ao uso das chamadas ao sistema e o tempo gasto por elas: 
 
 
 ![image](https://github.com/user-attachments/assets/949c795b-79ee-4c3d-99c0-47bdb62f6828)
@@ -30,7 +30,7 @@
 
 <p>&nbsp;</p>
 
- #####Usando o comando " strace -c ./mmap ", vamos conseguir estatísticas relacionadas ao uso das chamadas ao sistema e o tempo gasto por elas: 
+ ##### Usando o comando " strace -c ./mmap ", vamos conseguir estatísticas relacionadas ao uso das chamadas ao sistema e o tempo gasto por elas: 
  
 ![image](https://github.com/user-attachments/assets/f277f17f-2bcb-4fdf-b88e-988d31a96262)
 
