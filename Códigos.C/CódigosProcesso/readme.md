@@ -16,7 +16,7 @@ Ao compilar e executar o programa, obtemos o seguinte output:
 
 
 
---Fork
+
 
 
 ![capturaFork](https://github.com/user-attachments/assets/c20a6304-d2ed-4070-bd30-1ea86e795d57)
