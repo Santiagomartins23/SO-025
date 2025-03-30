@@ -57,6 +57,18 @@ write (5.99%): Embora o programa tenha o foco principal na leitura do arquivo de
 
 ### Observações:
 
+openat (23.98%): A chamada openat representa uma parte significativa do tempo de execução, indicando que o programa passou uma quantidade considerável de tempo abrindo o arquivo arq.txt para leitura e escrita.
+
+mmap (15.72%): A chamada mmap mapeia o arquivo ou parte dele diretamente para a memória.
+
+write (10.30%): A chamada write é responsável por gravar os dados no arquivo ou dispositivo. No contexto do programa, isso está relacionado ao momento em que o texto digitado pelo usuário é gravado dentro do arquivo arq.txt.
+
+close (8.26%): Embora o tempo dedicado ao close seja menor, ele ainda é uma etapa crucial para liberar os recursos do sistema e garantir que o arquivo seja fechado corretamente após a operação.
+
+
+
+
+
 
    
     
