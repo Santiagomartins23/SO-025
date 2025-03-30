@@ -84,8 +84,41 @@ void schedule_rr(Process processes[], int n, int quantum) {
     }
 }
 ```  
-- **Prioridades**: Ordenação por níveis de prioridade. Em c: 
+- **Prioridades**: Ordenação por níveis de prioridade. Em c:
 
+```
+
+void schedule_priority(Process processes[], int n) {
+    printf("\nEscalonamento por Prioridades:\n");
+    //sorts processes by priority (lower value = higher priority)
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (processes[i].priority > processes[j].priority) {
+                Process temp = processes[i];
+                processes[i] = processes[j];
+                processes[j] = temp;
+            }
+        }
+    }
+
+    //executes processes in priority order
+    for (int i = 0; i < n; i++) {
+        pid_t pid = fork();
+        if (pid == 0) {
+
+            run_process(processes[i]);
+            exit(0); //terminates the child process
+        } else if (pid > 0) {
+
+            wait(NULL); //waits for the child process to finish
+        } else {
+            perror("Erro ao criar processo");
+            exit(1);
+        }
+    }
+}
+
+```
 **Técnicas utilizadas:**
 - `fork()` para criar múltiplos processos
 - `waitpid()` para controle preciso de espera
