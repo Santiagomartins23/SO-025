@@ -5,7 +5,9 @@
 
 #### Time:
 
- ![time write](https://github.com/user-attachments/assets/eece7677-5b17-44aa-961c-0a03fe76a655)
+ ![Captura de tela 2025-03-30 160223](https://github.com/user-attachments/assets/1cbf1b5a-e589-482a-a09c-ece5dd2f2983)
+
+
  
 Tempo real (6.92s) >> Tempo de CPU (user + sys = 0.004s), ou seja, quase todo o tempo foi gasto em espera (provavelmente por I/O, como escrita em disco ou entrada do usuário).
 
@@ -13,7 +15,8 @@ Tempo real (6.92s) >> Tempo de CPU (user + sys = 0.004s), ou seja, quase todo o 
 
 #### Usando: /usr/bin/time -v ./write, obtemos informações sobre tempo total, percentual de uso da CPU, tempo em modo kernel, tempo em modo usuário, trocas de contexto voluntárias e trocas de contexto involuntárias. 
 
- ![time write2](https://github.com/user-attachments/assets/410ca477-fe84-4518-9641-c5398b47b222)
+ ![Captura de tela 2025-03-30 160415](https://github.com/user-attachments/assets/265ff0de-566f-4bfb-bd88-42fd7ee2b284)
+
 
 
    User time (seconds): 0.000       → Tempo em modo usuário
