@@ -56,7 +56,34 @@ void schedule_fifo(Process processes[], int n) {
 ```
 
 - **Round-Robin**: Alternância entre processos com quantum fixo. Em c:
-  
+
+```
+void schedule_rr(Process processes[], int n, int quantum) {
+    printf("\nEscalonamento Round-Robin (Quantum: %d segundos):\n", quantum);
+    for (int i = 0; i < n; i++) {
+        pid_t pid = fork();
+        if (pid == 0) {
+
+            int remaining_time = processes[i].burst_time;
+            while (remaining_time > 0) {
+                int execution_time = (remaining_time > quantum) ? quantum : remaining_time;
+                printf("Processo %d (Prioridade: %d) executando por %d segundos. Tempo restante: %d segundos.\n",
+                       processes[i].id, processes[i].priority, execution_time, remaining_time - execution_time);
+                sleep(execution_time); //simulates execution time
+                remaining_time -= execution_time;
+            }
+            printf("Processo %d finalizado.\n", processes[i].id);
+            exit(0); //terminates the child process
+        } else if (pid > 0) {
+
+            wait(NULL); //waits for the child process to finish
+        } else {
+            perror("Erro ao criar processo");
+            exit(1);
+        }
+    }
+}
+```  
 - **Prioridades**: Ordenação por níveis de prioridade. Em c: 
 
 **Técnicas utilizadas:**
