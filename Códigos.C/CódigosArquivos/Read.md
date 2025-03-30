@@ -19,14 +19,15 @@ Nesse programa, o arquivo arqr.txt é aberto pela função open() e é chamada a
 #### Usando o comando -strace -c ./read, vamos conseguir estatísticas relacionadas ao uso das chamadas ao sistema e o tempo gasto por elas:
 
  ![strace read](https://github.com/user-attachments/assets/8c07de01-0c0f-4882-939a-6cd1aa8a9552)
+ 
 <p>&nbsp;</p>
 
 ### Arquivo Write.c: 
  Inicialmente o arquivo chamado arqw.txt é aberto pela função open() e em seguida o programa pede para o usuário escrever o que deseja imprimir nesse arquivo.
  
  ![write1](https://github.com/user-attachments/assets/b12ed9d1-8cd5-47f0-adbf-555f0f6b16ec)
-
-
+ 
+ <p>&nbsp;</p>
 
 #### Usando um texto de exemplo:
 
