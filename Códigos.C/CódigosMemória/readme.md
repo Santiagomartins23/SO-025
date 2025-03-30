@@ -55,6 +55,13 @@ mprotect (5.50%): Refere-se à proteção de regiões da memória, uma operaçã
  
 ![image](https://github.com/user-attachments/assets/f277f17f-2bcb-4fdf-b88e-988d31a96262)
 
+
+## Observações
+
+Principais chamadas de sistema:
+
+
+
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 
