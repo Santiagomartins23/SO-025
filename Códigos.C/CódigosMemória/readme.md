@@ -30,9 +30,9 @@ Principais chamadas de sistema:
 
 execve (48.47%): Indica que quase metade do tempo de execução foi dedicado à chamada de sistema execve, responsável por carregar e executar programas.
 
-mmap (16.10%): Representa o segundo maior consumo de tempo, referente à função que mapeia arquivos ou dispositivos na memória, essencial para a alocação eficiente de recursos.
+mmap (16.10%): Representa o segundo maior consumo de tempo, referente à chamada que mapeia arquivos ou dispositivos na memória, essencial para a alocação eficiente de recursos.
 
-write (7.12%): Relaciona-se ao custo de escrever dados em arquivos ou dispositivos, impactando o desempenho em operações de entrada e saída.
+write (7.12%): É a chamada que escreve dados em arquivos ou dispositivos, impactando o desempenho em operações de entrada e saída.
 
 mprotect (5.50%): Refere-se à proteção de regiões da memória, uma operação necessária para garantir segurança e controle de acesso.
 
@@ -90,5 +90,12 @@ brk (4.52%): Envolve a manipulação do segmento de dados de um programa, ajusta
 
 Principais chamadas de sistema:
 
+execve (39.34%): Responsável por carregar e executar programas.
 
+mmap (16.41%): É usada para mapear arquivos ou dispositivos diretamente na memória virtual de um processo. Esse mapeamento cria uma correspondência entre o espaço de endereços do processo e o conteúdo do arquivo ou dispositivo.
 
+write (9.46%): É a chamada que escreve dados em arquivos ou dispositivos, impactando o desempenho em operações de entrada e saída.
+
+##### mprotect (7.28%): A chamada mprotect é usada para alterar as permissões de acesso de uma região de memória já alocada em um processo. Com ela, é possível definir se uma área específica da memória será apenas legível, gravável, executável, ou ainda combinar essas permissões.
+
+munmap (4.59%): É responsável por liberar regiões de memória previamente mapeadas, removendo a associação entre o espaço de endereçamento virtual do processo e os recursos alocados.
