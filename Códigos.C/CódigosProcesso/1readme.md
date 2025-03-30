@@ -34,9 +34,30 @@ clone (25.34%): Esse tempo reflete o custo de criação de processos com `fork()
 
 ### Arquivo scheduling.c
 Neste arquivo, foram implementados algoritmos de escalonamento utilizando chamadas de sistema para controle de processos. O programa demonstra:
-- **FIFO**: Execução sequencial de processos
-- **Round-Robin**: Alternância entre processos com quantum fixo
-- **Prioridades**: Ordenação por níveis de prioridade
+- **FIFO**: Execução sequencial de processos. Em c:
+```
+void schedule_fifo(Process processes[], int n) {
+    printf("\nEscalonamento FIFO:\n");
+    for (int i = 0; i < n; i++) {
+        pid_t pid = fork();
+        if (pid == 0) {
+
+            run_process(processes[i]);
+            exit(0); //terminates the child process
+        } else if (pid > 0) {
+
+            wait(NULL); //waits for the child process to finish
+        } else {
+            perror("Erro ao criar processo");
+            exit(1);
+        }
+    }
+}
+```
+
+- **Round-Robin**: Alternância entre processos com quantum fixo. Em c:
+  
+- **Prioridades**: Ordenação por níveis de prioridade. Em c: 
 
 **Técnicas utilizadas:**
 - `fork()` para criar múltiplos processos
