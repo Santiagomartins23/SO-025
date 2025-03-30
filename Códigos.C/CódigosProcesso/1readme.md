@@ -25,7 +25,7 @@ Neste arquivo, foi utilizada a função `fork()` para criar novos processos. Ess
 
 ## Observações:
 
-wait4 (73.14%): O alto percentual de tempo gasto em wait4 indica que o processo pai está aguardando a finalização dos processos filhos, o que é esperado, pois o código utiliza `wait()` para evitar processos zumbis.
+- *wait4* (73.14%): O alto percentual de tempo gasto em wait4 indica que o processo pai está aguardando a finalização dos processos filhos, o que é esperado, pois o código utiliza `wait()` para auxiliar na sincronizaçâo.
 
 clone (25.34%): Esse tempo reflete o custo de criação de processos com `fork()`. Como fork é uma operação relativamente cara, esse número reforça a importância de um bom gerenciamento de processos para evitar consumo excessivo de recursos.
 
