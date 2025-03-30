@@ -21,6 +21,18 @@
 
 ![image](https://github.com/user-attachments/assets/949c795b-79ee-4c3d-99c0-47bdb62f6828)
 
+
+
+<p>&nbsp;</p>
+
+## Observações
+
+Principais chamadas de sistema:
+
+
+
+
+
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 
