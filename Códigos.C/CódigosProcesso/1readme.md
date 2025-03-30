@@ -174,7 +174,7 @@ void handle_signal(int signal) {
 
 - *wait4* (37.69%): A sincronização pós-tratamento de sinais pode estar causando bloqueios no programa.
 
-- *execve* (34.73%): Esse valor anormalmente alto pode indicar que o programa está executando novos processos com `exec()`, o que pode ser ineficiente caso esteja sendo chamado repetidamente.
+- *execve* (19.87%): Esse valor anormalmente alto pode indicar que o programa está executando novos processos com `exec()`, o que pode ser ineficiente caso esteja sendo chamado repetidamente.
 
 - *kill* (5.33%): O tempo gasto no envio de sinais entre processos mostra que o programa está utilizando kill() para comunicação entre processos. Esse tempo pode variar dependendo da frequência dos sinais enviados. (Eficiência na entrega dos sinais, baixo tempo de `kill()`)
 
