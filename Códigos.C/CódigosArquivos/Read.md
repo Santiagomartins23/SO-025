@@ -22,6 +22,7 @@ Nesse programa, o arquivo arqr.txt é aberto pela função open() e é chamada a
  
 <p>&nbsp;</p>
 
+
 ### Arquivo Write.c: 
  Inicialmente o arquivo chamado arqw.txt é aberto pela função open() e em seguida o programa pede para o usuário escrever o que deseja imprimir nesse arquivo.
  
@@ -35,9 +36,7 @@ Nesse programa, o arquivo arqr.txt é aberto pela função open() e é chamada a
 
   O texto que o usuário escreveu é lido e escrito no arquivo de texto pela função write() e o arquivo é fechado.
 
-
-  
-
+ <p>&nbsp;</p>
 
 #### Usando o comando -strace -c ./write:
 
