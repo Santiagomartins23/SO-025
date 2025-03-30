@@ -2,6 +2,9 @@
 ## Gerenciamento de Memória
 
  #### Foram criados 3 programas na linguagem de programação C, cada um desses programas utiliza uma primitiva de chamada de sistema disponível no Linux, as escolhidas para a categoria gerenciamento de memória foram BRK, MMAP e MPROTECT. Nessa mesma pasta, estão todos os códigos descritos ao longo deste documento.
+
+---
+
 <p>&nbsp;</p>
 
  ### Arquivo brk.c 
