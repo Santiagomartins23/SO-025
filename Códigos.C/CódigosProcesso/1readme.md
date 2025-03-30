@@ -172,11 +172,13 @@ void handle_signal(int signal) {
 
 ## Observações:
 
-kill (5.33%): O tempo gasto no envio de sinais entre processos mostra que o programa está utilizando kill() para comunicação entre processos. Esse tempo pode variar dependendo da frequência dos sinais enviados. (Eficiência na entrega dos sinais, baixo tempo de `kill()`)
+- *wait4* (37.69%): A sincronização pós-tratamento de sinais pode estar causando bloqueios no programa.
 
-clock_nanosleep (5.31%): Esse tempo está associado ao uso de `pause()` para esperar sinais. 
+- *execve* (34.73%): Esse valor anormalmente alto pode indicar que o programa está executando novos processos com `exec()`, o que pode ser ineficiente caso esteja sendo chamado repetidamente.
 
-execve (34.73%): Esse valor anormalmente alto pode indicar que o programa está executando novos processos com `exec()`, o que pode ser ineficiente caso esteja sendo chamado repetidamente.
+- *kill* (5.33%): O tempo gasto no envio de sinais entre processos mostra que o programa está utilizando kill() para comunicação entre processos. Esse tempo pode variar dependendo da frequência dos sinais enviados. (Eficiência na entrega dos sinais, baixo tempo de `kill()`)
 
-wait4 (37.69%): A sincronização pós-tratamento de sinais pode estar causando bloqueios no programa. 
+- *clock_nanosleep* (5.31%): Esse tempo está associado ao uso de `sleep()` para esperar sinais. 
+
+
 
