@@ -31,7 +31,9 @@ Neste arquivo, foi utilizada a função `fork()` para criar novos processos. Ess
 
 
 ### Arquivo scheduling.c
-Neste arquivo, foram implementados algoritmos de escalonamento utilizando chamadas de sistema para controle de processos. O programa demonstra:
+
+Neste arquivo, foram implementados algoritmos de escalonamento utilizando chamadas de sistema para controle de processos. O programa demonstra diferentes técnicas de escalonamento, permitindo a gestão de múltiplos processos em um sistema operacional. O escalonamento de processos é um conceito fundamental em sistemas operacionais, pois define a ordem em que os processos são executados pela CPU, buscando otimizar o uso de recursos e melhorar o desempenho geral do sistema. O programa utiliza a implementação dos seguintes algoritimos :
+
 - **FIFO**: Execução sequencial de processos. Em c :
 ```
 void schedule_fifo(Process processes[], int n) {
