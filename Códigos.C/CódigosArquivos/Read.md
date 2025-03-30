@@ -35,6 +35,7 @@ write (5.99%): Embora o programa tenha o foco principal na leitura do arquivo de
 <p>&nbsp;</p>
 
 ### Arquivo Write.c: 
+
  Inicialmente o arquivo chamado arqw.txt é aberto pela função open() e em seguida o programa pede para o usuário escrever o que deseja imprimir nesse arquivo.
  
  ![write1](https://github.com/user-attachments/assets/b12ed9d1-8cd5-47f0-adbf-555f0f6b16ec)
@@ -46,7 +47,7 @@ write (5.99%): Embora o programa tenha o foco principal na leitura do arquivo de
   ![Captura de tela 2025-03-30 160131](https://github.com/user-attachments/assets/5e95092b-8e29-4438-ba62-d7bb49eab5e2)
 
 
-  O texto que o usuário escreveu é lido e escrito no arquivo de texto pela função write() e após isso o arquivo é fechado.
+  O texto que o usuário escreveu é lido, por meio da função fgets(), e escrito no arquivo de texto pela função write() e após isso o arquivo é fechado.
 
  <p>&nbsp;</p>
 
