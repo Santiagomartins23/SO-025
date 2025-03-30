@@ -27,8 +27,7 @@ execve (48.47%): Quase metade do tempo de execução foi dedicada à chamada de 
 
 mmap (16.10%): O mmap representa o segundo maior consumo de tempo, mapeando arquivos ou dispositivos diretamente na memória.
 
-read (8.52%):  A chamada read é responsável pela leitura de dados de arquivos ou dispositivos, e está consumindo uma parte considerável do tempo de execução. Isso 
-indica que o programa está, de fato, realizando a leitura do arquivo de texto.
+read (8.52%):  A chamada read está consumindo uma parte considerável do tempo de execução. Isso indica que o programa está, de fato, realizando a leitura do arquivo de texto.
 
 write (5.99%): Embora o programa tenha o foco principal na leitura do arquivo de texto, o fato de gastar tempo com write sugere que também há uma etapa de processamento que gera dados a serem gravados.
 
@@ -61,7 +60,7 @@ openat (23.98%): A chamada openat representa uma parte significativa do tempo de
 
 mmap (15.72%): A chamada mmap mapeia o arquivo ou parte dele diretamente para a memória.
 
-write (10.30%): A chamada write é responsável por gravar os dados no arquivo ou dispositivo. No contexto do programa, isso está relacionado ao momento em que o texto digitado pelo usuário é gravado dentro do arquivo arq.txt.
+write (10.30%): A chamada write representa uma boa parte do tempo de execução, já que o programa tem foco na gravação dos dados no arquivo. No contexto do programa, isso está relacionado ao momento em que o texto digitado pelo usuário é efetivamente gravado dentro do arquivo de texto.
 
 close (8.26%): Embora o tempo dedicado ao close seja menor, ele ainda é uma etapa crucial para liberar os recursos do sistema e garantir que o arquivo seja fechado corretamente após a operação.
 
