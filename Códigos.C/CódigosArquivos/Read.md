@@ -24,8 +24,12 @@ Nesse programa, o arquivo arqr.txt é aberto pela função open() e é chamada a
 ### Observações:
 
 execve (48.47%): Quase metade do tempo de execução foi dedicada à chamada de sistema execve, que é responsável por carregar e executar programas.
+
 mmap (16.10%): O mmap representa o segundo maior consumo de tempo, mapeando arquivos ou dispositivos diretamente na memória.
-read (8.52%):  A chamada read é responsável pela leitura de dados de arquivos ou dispositivos, e está consumindo uma parte considerável do tempo de execução. Isso indica que o programa está, de fato, realizando a leitura do arquivo de texto.
+
+read (8.52%):  A chamada read é responsável pela leitura de dados de arquivos ou dispositivos, e está consumindo uma parte considerável do tempo de execução. Isso 
+indica que o programa está, de fato, realizando a leitura do arquivo de texto.
+
 write (5.99%): Embora o programa tenha o foco principal na leitura do arquivo de texto, o fato de gastar tempo com write sugere que também há uma etapa de processamento que gera dados a serem gravados.
 
 ---
