@@ -13,7 +13,7 @@ liberando os recursos associados ao arquivo aberto.
 
 ![read](https://github.com/user-attachments/assets/732edeac-cf66-443d-9775-a7f31a9c83ee)
 
-Nesse programa, o arquivo arqr.txt é aberto pela função open() e em seguida é chamada a função read() para ler o texto escrito dentro desse arquivo, no qual é imprimido na tela, no final, o arquivo de texto é fechado pelo close().
+Nesse programa, o arquivo arqr.txt é aberto pela função open() e em seguida é chamada a função read() para ler o texto escrito dentro desse arquivo, no qual é imprimido na tela, no final, o arquivo de texto é fechado pelo close(). Por se tratar de um programa focalizado na função read(), é utilizado o printf para imprimir o texto na tela, assim priorizando a chamada primitiva read().
 <p>&nbsp;</p>
 
 #### Usando o comando -strace -c ./read, vamos conseguir estatísticas relacionadas ao uso das chamadas ao sistema e o tempo gasto por elas:
@@ -63,83 +63,3 @@ mmap (15.72%): A chamada mmap mapeia o arquivo ou parte dele diretamente para a 
 write (10.30%): A chamada write representa uma boa parte do tempo de execução, já que o programa tem foco na gravação dos dados no arquivo. No contexto do programa, isso está relacionado ao momento em que o texto digitado pelo usuário é efetivamente gravado dentro do arquivo de texto.
 
 close (8.26%): Embora o tempo dedicado ao close seja menor, ele ainda é uma etapa crucial para liberar os recursos do sistema e garantir que o arquivo seja fechado corretamente após a operação.
-
-read.c
-
-```
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <locale.h>
-
-int main() {
-    char buffer[100];
-
-    printf("Arquivo de texto aberto.\n\n");
-
-
-    int fd = open("arqr.txt", O_RDONLY);
-    if (fd == -1) {
-        printf("Erro ao abrir o arquivo txt\n");
-        exit(1);
-    }
-
-    printf("Texto lido:\n");
-
-
-    ssize_t bytes_lidos;
-    while ((bytes_lidos = read(fd, buffer, sizeof(buffer) - 1)) > 0) {
-        buffer[bytes_lidos] = '\0';
-        printf("%s", buffer);
-    }
-
-    printf("\nFechando arquivo...\n");
-    close(fd);
-
-    return 0;
-}
-```
-
-<p>&nbsp;</p>
-
-write.c
-
-
-```
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <errno.h>
-
-int main() {
-    char ler[1000];
-    write(1, "Digite o que deseja escrever no arquivo:\n", strlen("Digite o que deseja escrever no arquivo:\n"));
-
-    if (fgets(ler, sizeof(ler), stdin) == NULL) {
-        write(1, "Erro na leitura do input\n", strlen("Erro na leitura do input\n"));
-        exit(1);
-    }
-
-    FILE *file = fopen("arqw.txt", "w");
-    if (file == NULL) {
-        write(1, "Erro ao abrir o arquivo txt\n", strlen("Erro ao abrir o arquivo txt\n"));
-        exit(1);
-    }
-
-    fwrite(ler, 1, strlen(ler), file);
-
-
-    write(1, "\nProcesso executado e fechando arquivo...\n\n", strlen("\nProcesso executado e fechando arquivo...\n\n"));
-    fclose(file);
-    return 0;
-}
-
-
-
-
-   
-    
-
-
