@@ -28,6 +28,8 @@ liberando os recursos associados ao arquivo aberto.
 
   ![write2](https://github.com/user-attachments/assets/dd8979bc-31cd-4559-b1be-617804612df3)
 
+  O texto que o usuário escreveu foi escrito no arquivo de texto.
+
 
   
 
