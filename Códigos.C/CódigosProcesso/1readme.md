@@ -129,11 +129,11 @@ void schedule_priority(Process processes[], int n) {
 
 ## Observações:
 
-wait4 (67.25%): O escalonador está gastando um tempo significativo aguardando processos terminarem, o que pode indicar que os processos criados possuem diferentes tempos de execução e precisam de sincronização.
+- *wait4* (67.25%): O escalonador está gastando um tempo significativo aguardando processos terminarem, o que pode indicar que os processos criados possuem diferentes tempos de execução e precisam de sincronização. No código, a chamada `wait()` aparece após cada `fork()`, garantindo que o processo pai aguarde a conclusão do filho antes de continuar. Isso é especialmente perceptível no FIFO, onde cada processo é iniciado e concluído sequencialmente.
 
-clone (20.63%): O uso do `fork()` para criação de múltiplos processos tem um custo proporcional ao número de processos gerados. Isso reforça a necessidade de um escalonador eficiente.
+- *clone* (20.63%): O uso do `fork()` para criação de múltiplos processos tem um custo proporcional ao número de processos gerados. No código, cada algoritmo cria um novo processo para cada tarefa, aumentando o número de chamadas `clone()`. E por fim, no Round-Robin, cada processo pode executar por um tempo menor (definido pelo quantum), o que pode levar à criação de múltiplos processos para simular revezamento, tornando "clone" mais frequente.
 
-execve (5.11%): A presença de execve indica que alguns processos estão substituindo sua imagem de execução, o que pode ser útil para rodar diferentes tarefas dentro do mesmo programa.
+- *execve* (5.11%): A presença de execve indica que alguns processos estão substituindo sua imagem de execução, o que pode ser útil para rodar diferentes tarefas dentro do mesmo programa.
 
 
 
