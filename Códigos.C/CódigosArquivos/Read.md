@@ -8,12 +8,12 @@ utiliza open(), close() e write(), no qual o usuário consegue escrever um texto
 liberando os recursos associados ao arquivo aberto.
 
         
-## Arquivo Read.c:
+### Arquivo Read.c:
 
 ![read](https://github.com/user-attachments/assets/732edeac-cf66-443d-9775-a7f31a9c83ee)
 <p>&nbsp;</p>
 
-# Usando o comando -strace -c ./read, vamos conseguir estatísticas relacionadas ao uso das chamadas ao sistema e o tempo gasto por elas:
+### Usando o comando -strace -c ./read, vamos conseguir estatísticas relacionadas ao uso das chamadas ao sistema e o tempo gasto por elas:
 
  ![strace read](https://github.com/user-attachments/assets/8c07de01-0c0f-4882-939a-6cd1aa8a9552)
 <p>&nbsp;</p>
