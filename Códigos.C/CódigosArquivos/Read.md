@@ -64,7 +64,77 @@ write (10.30%): A chamada write representa uma boa parte do tempo de execução,
 
 close (8.26%): Embora o tempo dedicado ao close seja menor, ele ainda é uma etapa crucial para liberar os recursos do sistema e garantir que o arquivo seja fechado corretamente após a operação.
 
+read.c
 
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <locale.h>
+
+int main() {
+    char buffer[100];
+
+    printf("Arquivo de texto aberto.\n\n");
+
+
+    int fd = open("arqr.txt", O_RDONLY);
+    if (fd == -1) {
+        printf("Erro ao abrir o arquivo txt\n");
+        exit(1);
+    }
+
+    printf("Texto lido:\n");
+
+
+    ssize_t bytes_lidos;
+    while ((bytes_lidos = read(fd, buffer, sizeof(buffer) - 1)) > 0) {
+        buffer[bytes_lidos] = '\0';
+        printf("%s", buffer);
+    }
+
+    printf("\nFechando arquivo...\n");
+    close(fd);
+
+    return 0;
+}
+```
+
+<p>&nbsp;</p>
+
+write.c
+
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <errno.h>
+
+int main() {
+    char ler[1000];
+    write(1, "Digite o que deseja escrever no arquivo:\n", strlen("Digite o que deseja escrever no arquivo:\n"));
+
+    if (fgets(ler, sizeof(ler), stdin) == NULL) {
+        write(1, "Erro na leitura do input\n", strlen("Erro na leitura do input\n"));
+        exit(1);
+    }
+
+    FILE *file = fopen("arqw.txt", "w");
+    if (file == NULL) {
+        write(1, "Erro ao abrir o arquivo txt\n", strlen("Erro ao abrir o arquivo txt\n"));
+        exit(1);
+    }
+
+    fwrite(ler, 1, strlen(ler), file);
+
+
+    write(1, "\nProcesso executado e fechando arquivo...\n\n", strlen("\nProcesso executado e fechando arquivo...\n\n"));
+    fclose(file);
+    return 0;
+}
 
 
 
