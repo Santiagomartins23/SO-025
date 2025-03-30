@@ -36,7 +36,7 @@ write (7.12%): É a chamada que escreve dados em arquivos ou dispositivos, impac
 
 mprotect (5.50%): Refere-se à proteção de regiões da memória, uma operação necessária para garantir segurança e controle de acesso.
 
-##### brk (5.50%): Envolve a manipulação do segmento de dados de um programa, ajustando seus limites na memória.
+#### brk (5.50%): Envolve a manipulação do segmento de dados de um programa, ajustando seus limites na memória.
 
 ---
 <p>&nbsp;</p>
