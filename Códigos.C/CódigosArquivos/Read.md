@@ -33,7 +33,7 @@ indica que o programa está, de fato, realizando a leitura do arquivo de texto.
 write (5.99%): Embora o programa tenha o foco principal na leitura do arquivo de texto, o fato de gastar tempo com write sugere que também há uma etapa de processamento que gera dados a serem gravados.
 
 ---
-
+<p>&nbsp;</p>
 
 ### Arquivo Write.c: 
  Inicialmente o arquivo chamado arqw.txt é aberto pela função open() e em seguida o programa pede para o usuário escrever o que deseja imprimir nesse arquivo.
@@ -53,6 +53,10 @@ write (5.99%): Embora o programa tenha o foco principal na leitura do arquivo de
 #### Usando o comando -strace -c ./write:
 
  ![strace write](https://github.com/user-attachments/assets/0a5016e9-124e-422f-9424-ef26580b64e4)
+ <p>&nbsp;</p>
+
+### Observações:
+
 
    
     
