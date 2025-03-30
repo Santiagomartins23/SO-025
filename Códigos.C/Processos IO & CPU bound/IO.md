@@ -7,8 +7,7 @@
 
  ![time write](https://github.com/user-attachments/assets/eece7677-5b17-44aa-961c-0a03fe76a655)
  
-Tempo real (6.92s) >> Tempo de CPU (user + sys = 0.004s)
-Quase todo o tempo foi gasto em espera (provavelmente por I/O, como escrita em disco ou entrada do usuário).
+Tempo real (6.92s) >> Tempo de CPU (user + sys = 0.004s), ou seja, quase todo o tempo foi gasto em espera (provavelmente por I/O, como escrita em disco ou entrada do usuário).
 
 <p>&nbsp;</p>
 
