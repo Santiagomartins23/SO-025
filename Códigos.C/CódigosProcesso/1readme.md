@@ -27,11 +27,9 @@ Neste arquivo, foi utilizada a função `fork()` para criar novos processos.
 
 ## Observações:
 
-Principais chamadas de sistema:
+wait4 (73.14%): O alto percentual de tempo gasto em wait4 indica que o processo pai está aguardando a finalização dos processos filhos, o que é esperado, pois o código utiliza `wait()` para evitar processos zumbis.
 
-wait4 (73.14% do tempo): Indica que o processo pai passa a maior parte do tempo aguardando a finalização dos filhos, caracterizando espera bloqueante.
-
-clone (25.34%): Reflete o custo da criação de processos com fork().
+clone (25.34%): Esse tempo reflete o custo de criação de processos com `fork()`. Como fork é uma operação relativamente cara, esse número reforça a importância de um bom gerenciamento de processos para evitar consumo excessivo de recursos.
 
 
 ### Arquivo scheduling.c
@@ -52,11 +50,13 @@ Neste arquivo, foram implementados algoritmos de escalonamento utilizando chamad
 
 ## Observações:
 
-wait4 (67.25%): Confirma que o escalonador gasta mais tempo gerenciando processos do que executando tarefas.
+wait4 (67.25%): O escalonador está gastando um tempo significativo aguardando processos terminarem, o que pode indicar que os processos criados possuem diferentes tempos de execução e precisam de sincronização.
 
-clone (20.63%): Custo proporcional ao número de processos criados.
+clone (20.63%): O uso do `fork()` para criação de múltiplos processos tem um custo proporcional ao número de processos gerados. Isso reforça a necessidade de um escalonador eficiente.
 
-execve (5.11%): Presente se houver substituição de imagem (ex: uso de exec()).
+execve (5.11%): A presença de execve indica que alguns processos estão substituindo sua imagem de execução, o que pode ser útil para rodar diferentes tarefas dentro do mesmo programa.
+
+
 
 ### Arquivo treatsignal.c
 
@@ -75,15 +75,11 @@ Neste arquivo, foi implementado o tratamento de sinais entre processos utilizand
 
 ## Observações:
 
-kill (5.33%): Tempo gasto no envio de sinais entre processos.
+kill (5.33%): O tempo gasto no envio de sinais entre processos mostra que o programa está utilizando kill() para comunicação entre processos. Esse tempo pode variar dependendo da frequência dos sinais enviados. (Eficiência na entrega dos sinais, baixo tempo de `kill()`)
 
-clock_nanosleep (5.31%): Corresponde ao pause() para espera por sinais.
+clock_nanosleep (5.31%): Esse tempo está associado ao uso de `pause()` para esperar sinais. 
 
-execve (34.73%): Valor anormalmente alto - verificar se há chamadas não intencionais de exec.
+execve (34.73%): Esse valor anormalmente alto pode indicar que o programa está executando novos processos com `exec()`, o que pode ser ineficiente caso esteja sendo chamado repetidamente.
 
-Padrão de comunicação:
-
-Eficiência na entrega de sinais (baixo tempo em kill).
-
-wait4 (37.69%) indica sincronização após tratamento de sinais.
+wait4 (37.69%): A sincronização pós-tratamento de sinais pode estar causando bloqueios no programa. 
 
