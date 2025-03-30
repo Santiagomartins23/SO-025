@@ -162,7 +162,7 @@ void handle_signal(int signal) {
 }
 ```
 - Envio de sinais entre processos usando `kill()`
-- Espera assíncrona por sinais com `pause()`
+- Espera síncrona por sinais com `sleep()`
 
 
 
