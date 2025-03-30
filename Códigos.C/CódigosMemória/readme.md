@@ -23,14 +23,20 @@
 
 
 
-<p>&nbsp;</p>
 
 ## Observações
 
 Principais chamadas de sistema:
 
+execve (48.47%): Indica que quase metade do tempo de execução foi dedicado à chamada de sistema execve, responsável por carregar e executar programas.
 
+mmap (16.10%): Representa o segundo maior consumo de tempo, referente à função que mapeia arquivos ou dispositivos na memória, essencial para a alocação eficiente de recursos.
 
+write (7.12%): Relaciona-se ao custo de escrever dados em arquivos ou dispositivos, impactando o desempenho em operações de entrada e saída.
+
+mprotect (5.50%): Refere-se à proteção de regiões da memória, uma operação necessária para garantir segurança e controle de acesso.
+
+##### brk (5.50%): Envolve a manipulação do segmento de dados de um programa, ajustando seus limites na memória.
 
 
 <p>&nbsp;</p>
