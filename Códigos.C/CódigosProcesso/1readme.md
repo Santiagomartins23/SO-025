@@ -32,7 +32,7 @@ Neste arquivo, foi utilizada a função `fork()` para criar novos processos. Ess
 
 ### Arquivo scheduling.c
 Neste arquivo, foram implementados algoritmos de escalonamento utilizando chamadas de sistema para controle de processos. O programa demonstra:
-- **FIFO**: Execução sequencial de processos. Em c:
+- **FIFO**: Execução sequencial de processos. Em c :
 ```
 void schedule_fifo(Process processes[], int n) {
     printf("\nEscalonamento FIFO:\n");
@@ -53,7 +53,7 @@ void schedule_fifo(Process processes[], int n) {
 }
 ```
 
-- **Round-Robin**: Alternância entre processos com quantum fixo. Em c:
+- **Round-Robin**: Alternância entre processos com quantum fixo. Em c :
 
 ```
 void schedule_rr(Process processes[], int n, int quantum) {
@@ -82,7 +82,7 @@ void schedule_rr(Process processes[], int n, int quantum) {
     }
 }
 ```  
-- **Prioridades**: Ordenação por níveis de prioridade. Em c:
+- **Prioridades**: Ordenação por níveis de prioridade. Em c :
 
 ```
 
