@@ -43,7 +43,8 @@ write (5.99%): Embora o programa tenha o foco principal na leitura do arquivo de
 
 #### Usando um texto de exemplo:
 
-  ![write2](https://github.com/user-attachments/assets/dd8979bc-31cd-4559-b1be-617804612df3)
+  ![Captura de tela 2025-03-30 160131](https://github.com/user-attachments/assets/5e95092b-8e29-4438-ba62-d7bb49eab5e2)
+
 
   O texto que o usuário escreveu é lido e escrito no arquivo de texto pela função write() e após isso o arquivo é fechado.
 
@@ -51,7 +52,8 @@ write (5.99%): Embora o programa tenha o foco principal na leitura do arquivo de
 
 #### Usando o comando -strace -c ./write:
 
- ![strace write](https://github.com/user-attachments/assets/0a5016e9-124e-422f-9424-ef26580b64e4)
+ ![Captura de tela 2025-03-30 160124](https://github.com/user-attachments/assets/ab46a789-9c42-459c-89c0-21c1944305b9)
+
  <p>&nbsp;</p>
 
 ### Observações:
