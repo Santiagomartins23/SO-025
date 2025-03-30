@@ -1,7 +1,6 @@
  ## I/O Bound
 
- Analisando alguns resultados como tempo total, percentual de uso da CPU, tempo em modo kernel, tempo em modo usuário, trocas de contexto voluntárias e trocas de contexto involuntárias notamos que o arquivo/programa Write
-é um processo I/O Bound.
+ Analisando alguns resultados como tempo total, percentual de uso da CPU, tempo em modo kernel, tempo em modo usuário, trocas de contexto voluntárias e trocas de contexto involuntárias notamos que o arquivo/programa Write é um processo I/O Bound.
 <p>&nbsp;</p>
 
 ## Time:
@@ -13,7 +12,7 @@ Quase todo o tempo foi gasto em espera (provavelmente por I/O, como escrita em d
 
 <p>&nbsp;</p>
 
--Usando esse comando: /usr/bin/time -v ./write, obtemos informações sobre tempo total, percentual de uso da CPU, tempo em modo kernel, tempo em modo usuário, trocas de contexto voluntárias e trocas de contexto involuntárias. 
+-Usando: /usr/bin/time -v ./write, obtemos informações sobre tempo total, percentual de uso da CPU, tempo em modo kernel, tempo em modo usuário, trocas de contexto voluntárias e trocas de contexto involuntárias. 
 
  ![time write2](https://github.com/user-attachments/assets/410ca477-fe84-4518-9641-c5398b47b222)
 
