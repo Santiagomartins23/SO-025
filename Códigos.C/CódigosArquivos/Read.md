@@ -58,10 +58,10 @@ write (5.99%): Embora o programa tenha o foco principal na leitura do arquivo de
 
 ### Observações:
 
-openat (23.98%): A chamada openat representa uma parte significativa do tempo de execução, indicando que o programa passou uma quantidade considerável de tempo abrindo o arquivo arq.txt para leitura e escrita.
+openat (31.97%): A chamada openat representa uma parte significativa do tempo de execução, indicando que o programa passou uma quantidade considerável de tempo abrindo o arquivo arq.txt para leitura e escrita.
 
-mmap (15.72%): A chamada mmap mapeia o arquivo ou parte dele diretamente para a memória.
+write (11.60%): A chamada write representa uma boa parte do tempo de execução, já que o programa tem foco na gravação dos dados no arquivo. No contexto do programa, isso está relacionado ao momento em que o texto digitado pelo usuário é efetivamente gravado dentro do arquivo de texto.
 
-write (10.30%): A chamada write representa uma boa parte do tempo de execução, já que o programa tem foco na gravação dos dados no arquivo. No contexto do programa, isso está relacionado ao momento em que o texto digitado pelo usuário é efetivamente gravado dentro do arquivo de texto.
+mprotect (11.00%): A chamada mprotect representa uma parte significativa do tempo de execução, essa função é usada para definir as permissões de leitura, escrita e execução de uma região específica da memória.
 
-close (8.26%): Embora o tempo dedicado ao close seja menor, ele ainda é uma etapa crucial para liberar os recursos do sistema e garantir que o arquivo seja fechado corretamente após a operação.
+
