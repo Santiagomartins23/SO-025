@@ -140,7 +140,7 @@ void schedule_priority(Process processes[], int n) {
 
 ### Arquivo treatsignal.c
 
-Neste arquivo, foi implementado o tratamento de sinais entre processos utilizando primitivas do sistema Linux. O programa demonstra:
+Neste arquivo, foi implementado o tratamento de sinais entre processos utilizando systems calls primitivas do sistema Linux. O tratamento de sinais é um aspecto crucial na programação de sistemas, pois permite que processos possam comunicar-se entre si, controlar sua execução e responder a eventos específicos durante o tempo de execução. O programa demonstra como capturar e manipular sinais usando as funções `signal(), kill() e pause()`, além de fornecer uma abordagem simples de comunicação interprocessos através de sinais.
 
 **Funcionalidades principais:**
 - Registro de handlers personalizados com `signal()` :
