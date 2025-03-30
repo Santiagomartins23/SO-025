@@ -19,14 +19,14 @@ Tempo real (6.92s) >> Tempo de CPU (user + sys = 0.004s), ou seja, quase todo o 
 
 
 
-   User time (seconds): 0.000       → Tempo em modo usuário
+   User time (seconds): 0.001       → Tempo em modo usuário
    
-   System time (seconds): 0.005     → Tempo em modo kernel
+   System time (seconds): 0.004     → Tempo em modo kernel
    
    Percent of CPU this job got: 0% → Percentual de uso da CPU
    
-   Elapsed (wall clock) time (h:mm:ss or m:ss): 0:11.17 → Tempo total (real)
+   Elapsed (wall clock) time (h:mm:ss or m:ss): 0:34.90 → Tempo total (real)
    
    Voluntary context switches: 8    → Trocas de contexto voluntárias
    
-   Involuntary context switches: 3  → Trocas de contexto involuntárias
+   Involuntary context switches: 1  → Trocas de contexto involuntárias
