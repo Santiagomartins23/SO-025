@@ -3,6 +3,9 @@
 #include <unistd.h>
 #include <string.h>
 #include <errno.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 int main() {
     char ler[1000];
@@ -13,16 +16,23 @@ int main() {
         exit(1);
     }
 
-    FILE *file = fopen("arqw.txt", "w");
-    if (file == NULL) {
+
+    int file = open("arqw.txt", O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+    if (file == -1) {
         write(1, "Erro ao abrir o arquivo txt\n", strlen("Erro ao abrir o arquivo txt\n"));
         exit(1);
     }
 
-    fwrite(ler, 1, strlen(ler), file);
 
+    if (write(file, ler, strlen(ler)) == -1) {
+        write(1, "Erro ao escrever no arquivo\n", strlen("Erro ao escrever no arquivo\n"));
+        close(file);
+        exit(1);
+    }
 
     write(1, "\nProcesso executado e fechando arquivo...\n\n", strlen("\nProcesso executado e fechando arquivo...\n\n"));
-    fclose(file);
+
+
+    close(file);
     return 0;
 }
