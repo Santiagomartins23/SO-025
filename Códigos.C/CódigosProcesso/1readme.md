@@ -136,7 +136,6 @@ void schedule_priority(Process processes[], int n) {
 - *execve* (5.11%): A presença de execve indica que alguns processos estão substituindo sua imagem de execução, o que pode ser útil para rodar diferentes tarefas dentro do mesmo programa.
 
 
-
 ### Arquivo treatsignal.c
 
 Neste arquivo, foi implementado o tratamento de sinais entre processos utilizando primitivas do sistema Linux. O programa demonstra:
