@@ -60,6 +60,15 @@ mprotect (5.50%): Refere-se à proteção de regiões da memória, uma operaçã
 
 Principais chamadas de sistema:
 
+write (38.65%): É a chamada que consumiu a maior parte do tempo, dedicando-se à escrita de dados em arquivos ou dispositivos.
+
+##### mmap (23.54%): É usada para mapear arquivos ou dispositivos diretamente na memória virtual de um processo. Esse mapeamento cria uma correspondência entre o espaço de endereços do processo e o conteúdo do arquivo ou dispositivo.
+
+munmap (9.89%): É responsável por liberar regiões de memória previamente mapeadas, removendo a associação entre o espaço de endereçamento virtual do processo e os recursos alocados.
+
+mprotect (8.90%): Envolve a modificação de permissões em regiões da memória, essencial para segurança.
+
+brk (4.52%): Envolve a manipulação do segmento de dados de um programa, ajustando seus limites na memória.
 
 
 <p>&nbsp;</p>
@@ -77,5 +86,7 @@ Principais chamadas de sistema:
 
 ![image](https://github.com/user-attachments/assets/6f771361-f1da-4065-a55a-eb5b60e285fb)
 
+## Observações
 
+Principais chamadas de sistema:
 
