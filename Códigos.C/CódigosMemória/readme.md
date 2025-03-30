@@ -62,7 +62,7 @@ Principais chamadas de sistema:
 
 write (38.65%): É a chamada que consumiu a maior parte do tempo, dedicando-se à escrita de dados em arquivos ou dispositivos.
 
-##### mmap (23.54%): É usada para mapear arquivos ou dispositivos diretamente na memória virtual de um processo. Esse mapeamento cria uma correspondência entre o espaço de endereços do processo e o conteúdo do arquivo ou dispositivo.
+#### mmap (23.54%): É usada para mapear arquivos ou dispositivos diretamente na memória virtual de um processo. Esse mapeamento cria uma correspondência entre o espaço de endereços do processo e o conteúdo do arquivo ou dispositivo.
 
 munmap (9.89%): É responsável por liberar regiões de memória previamente mapeadas, removendo a associação entre o espaço de endereçamento virtual do processo e os recursos alocados.
 
@@ -96,6 +96,6 @@ mmap (16.41%): É usada para mapear arquivos ou dispositivos diretamente na mem�
 
 write (9.46%): É a chamada que escreve dados em arquivos ou dispositivos, impactando o desempenho em operações de entrada e saída.
 
-##### mprotect (7.28%): A chamada mprotect é usada para alterar as permissões de acesso de uma região de memória já alocada em um processo. Com ela, é possível definir se uma área específica da memória será apenas legível, gravável, executável, ou ainda combinar essas permissões.
+#### mprotect (7.28%): A chamada mprotect é usada para alterar as permissões de acesso de uma região de memória já alocada em um processo. Com ela, é possível definir se uma área específica da memória será apenas legível, gravável, executável, ou ainda combinar essas permissões.
 
 munmap (4.59%): É responsável por liberar regiões de memória previamente mapeadas, removendo a associação entre o espaço de endereçamento virtual do processo e os recursos alocados.
