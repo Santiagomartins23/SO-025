@@ -5,7 +5,7 @@ Foram desenvolvidos 3 programas em C que utilizam primitivas de chamadas de sist
 ---
 
 ### Arquivo fork.c
-Neste arquivo, foi utilizada a função `fork()` para criar novos processos. Essa função é fundamental para multitarefa, pois permite que um processo gere um processo filho idêntico ao pai. Essa técnica é amplamente utilizada em sistemas operacionais para criar processos concorrentes, tornando possível a execução paralela de diferentes tarefas. O uso de wait() assegura que os processos filhos sejam finalizados corretamente, evitando a criação de processos zumbis.
+    Neste arquivo, foi utilizada a função `fork()` para criar novos processos. Essa função é fundamental para multitarefa, pois permite que um processo gere um processo filho idêntico ao pai. Essa técnica é amplamente utilizada em sistemas operacionais para criar processos concorrentes, tornando possível a execução paralela de diferentes tarefas. O uso de wait() assegura que os processos filhos sejam finalizados corretamente, evitando a criação de processos zumbis.
 
 
 
