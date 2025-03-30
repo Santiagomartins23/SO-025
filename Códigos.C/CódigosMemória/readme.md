@@ -3,7 +3,7 @@
 
  #### Foram criados 3 programas na linguagem de programação C, cada um desses programas utiliza uma primitiva de chamada de sistema disponível no Linux, as escolhidas para a categoria gerenciamento de memória foram BRK, MMAP e MPROTECT. Nessa mesma pasta, estão todos os códigos descritos ao longo deste documento.
 
------------------------------------
+---
 
 <p>&nbsp;</p>
 
@@ -38,7 +38,7 @@ mprotect (5.50%): Refere-se à proteção de regiões da memória, uma operaçã
 
 ##### brk (5.50%): Envolve a manipulação do segmento de dados de um programa, ajustando seus limites na memória.
 
-
+---
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 
@@ -70,7 +70,7 @@ mprotect (8.90%): Envolve a modificação de permissões em regiões da memória
 
 brk (4.52%): Envolve a manipulação do segmento de dados de um programa, ajustando seus limites na memória.
 
-
+---
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 
@@ -89,4 +89,6 @@ brk (4.52%): Envolve a manipulação do segmento de dados de um programa, ajusta
 ## Observações
 
 Principais chamadas de sistema:
+
+
 
