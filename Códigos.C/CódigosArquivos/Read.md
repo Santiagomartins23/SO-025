@@ -13,7 +13,7 @@ liberando os recursos associados ao arquivo aberto.
 
 ![read](https://github.com/user-attachments/assets/732edeac-cf66-443d-9775-a7f31a9c83ee)
 
-Nesse programa, o arquivo arqr.txt é aberto e é chamada uma função para ler o texto escrito dentro desse arquivo e é imprimido na tela, no final o arquivo de texto é fechado pelo fclose().
+Nesse programa, o arquivo arqr.txt é aberto pela função open() e é chamada a função read() para ler o texto escrito dentro desse arquivo e imprimido na tela, no final, o arquivo de texto é fechado pelo close().
 <p>&nbsp;</p>
 
 #### Usando o comando -strace -c ./read, vamos conseguir estatísticas relacionadas ao uso das chamadas ao sistema e o tempo gasto por elas:
@@ -32,7 +32,7 @@ Nesse programa, o arquivo arqr.txt é aberto e é chamada uma função para ler 
 
   ![write2](https://github.com/user-attachments/assets/dd8979bc-31cd-4559-b1be-617804612df3)
 
-  O texto que o usuário escreveu foi escrito no arquivo de texto e o arquivo foi fechado.
+  O texto que o usuário escreveu é lido e escrito no arquivo de texto pela função write() e o arquivo é fechado.
 
 
   
