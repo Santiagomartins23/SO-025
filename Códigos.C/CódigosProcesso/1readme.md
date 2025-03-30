@@ -141,7 +141,26 @@ void schedule_priority(Process processes[], int n) {
 Neste arquivo, foi implementado o tratamento de sinais entre processos utilizando primitivas do sistema Linux. O programa demonstra:
 
 **Funcionalidades principais:**
-- Registro de handlers personalizados com `signal()`
+- Registro de handlers personalizados com `signal()` :
+```
+void handle_signal(int signal) {
+    switch (signal) {
+        case SIGUSR1:
+            printf("Filho recebeu SIGUSR1!\n");
+            break;
+        case SIGUSR2:
+            printf("Filho recebeu SIGUSR2!\n");
+            break;
+        case SIGTERM:
+            printf("Filho recebeu SIGTERM. Saindo...\n");
+            exit(0); //terminate the child process
+            break;
+        default:
+            printf("Filho recebeu um sinal desconhecido: %d\n", signal);
+            break;
+    }
+}
+```
 - Envio de sinais entre processos usando `kill()`
 - Espera assíncrona por sinais com `pause()`
 
