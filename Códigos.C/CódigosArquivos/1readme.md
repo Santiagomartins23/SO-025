@@ -12,6 +12,8 @@ liberando os recursos associados ao arquivo aberto.
 ### Arquivo Read.c:
 
  Nessa parte do código, é utilizado a função open() no qual tenta abrir um arquivo (arqw.txt) no modo leitura, caso não de nenhum erro, o arquivo de texto é aberto.
+
+#### Open().
  
 ```
     char buffer[100]; / / Declara um buffer (armazenamento temporário) de 100 caracteres
