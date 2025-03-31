@@ -11,7 +11,7 @@ liberando os recursos associados ao arquivo aberto.
         
 ### Arquivo Read.c:
 
- Nessa parte do código, é utilizado a função open() no qual tenta abrir um arquivo (arqw.txt) no modo leitura, caso não de nenhum erro, o arquivo de texto é aberto.
+ Na primeira parte do código, é utilizado a função open() no qual tenta abrir um arquivo (arqw.txt) no modo leitura, caso não de nenhum erro, o arquivo de texto é aberto. Após isso, é utilizado a função read() dentro da estrutura de repetição While, assim o programa irá ler pedaços de 99 bytes (buffer - 1) e imprimir na tela até que chegar ao fim do texto/arquivo. Assim, o programa é finalizado e a função close() é usada para fechar o arquivo de texto.
 
   - **Open()**:
  
@@ -29,6 +29,28 @@ liberando os recursos associados ao arquivo aberto.
     // Se chegou aqui, o arquivo foi aberto com sucesso
     printf("Arquivo de texto aberto.\n\n");
 ```
+
+- **Read() e Close()**:
+  
+```
+    ssize_t bytes_lidos; // Variável para armazenar quantos bytes foram lidos em cada operação
+    
+    // Lê pedaços de até 99 bytes (sizeof(buffer)-1) de cada vez
+    // read() retorna o número de bytes lidos, ou 0 se chegar ao fim
+    while ((bytes_lidos = read(fd, buffer, sizeof(buffer) - 1)) > 0) {
+        
+        buffer[bytes_lidos] = '\0';
+        
+        // Imprime o conteúdo lido
+        printf("%s", buffer);
+    }
+
+    printf("\nFechando arquivo...\n");
+    
+    // Fecha o arquivo (liberando os recursos do sistema)
+    close(fd);
+```
+
 
 ![read](https://github.com/user-attachments/assets/732edeac-cf66-443d-9775-a7f31a9c83ee)
 
