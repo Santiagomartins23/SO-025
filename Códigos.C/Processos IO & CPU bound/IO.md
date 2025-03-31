@@ -2,6 +2,7 @@
 
  Analisando alguns resultados como tempo total, percentual de uso da CPU, tempo em modo kernel, tempo em modo usuário, trocas de contexto voluntárias e trocas de contexto involuntárias notamos que o arquivo/programa write.c (programa criado para processos de E/S) é um processo I/O Bound.
 <p>&nbsp;</p>
+
  #### Texto utilizado:
 
  ![texto](https://github.com/user-attachments/assets/a1d80702-1ec9-4200-b815-56c7618e25aa)
