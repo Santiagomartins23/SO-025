@@ -50,8 +50,10 @@ liberando os recursos associados ao arquivo aberto.
 <p>&nbsp;</p>
 
 #### Arquivo compilado:
-<p>&nbsp;</p>
-Utilizando um texto de exemplo
+
+
+Utilizando um texto de exemplo:
+
 
 ![read](https://github.com/user-attachments/assets/732edeac-cf66-443d-9775-a7f31a9c83ee)
 
