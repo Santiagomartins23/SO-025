@@ -75,6 +75,8 @@ read (8.52%):  A chamada read está consumindo uma parte considerável do tempo 
 
 write (5.99%): Embora o programa tenha o foco principal na leitura do arquivo de texto, o fato de gastar tempo com write sugere que também há uma etapa de processamento que gera dados a serem gravados.
 
+openat (5.99%): A chamada openat indica que o programa passou um tempo abrindo o arquivo de texto, sugerindo um custo de I/O ao acessar o sistema de arquivos.
+
 ---
 <p>&nbsp;</p>
 
@@ -157,10 +159,10 @@ close(file);
 
 ### Observações:
 
-openat (31.97%): A chamada openat representa uma parte significativa do tempo de execução, indicando que o programa passou uma quantidade considerável de tempo abrindo o arquivo arq.txt para leitura e escrita.
+openat (10.00%): Outra ocorrência de openat, mostrando que o programa realiza múltiplas operações de abertura de arquivos durante a execução, também ligadas a I/O.
 
-write (11.60%): A chamada write representa uma boa parte do tempo de execução, já que o programa tem foco na gravação dos dados no arquivo. No contexto do programa, isso está relacionado ao momento em que o texto digitado pelo usuário é efetivamente gravado dentro do arquivo de texto.
+write (9.12%): A chamada write reflete o tempo gasto gravando dados no arquivo de texto, indicando que o programa está realizando muitas operações de escrita.
 
-mprotect (11.00%): A chamada mprotect representa uma parte significativa do tempo de execução, essa função é usada para definir as permissões de leitura, escrita e execução de uma região específica da memória.
+close (6.11%): A chamada close indica o tempo dedicado a fechar o arquivo após as operações de leitura/gravação, liberando recursos do sistema.
 
 
