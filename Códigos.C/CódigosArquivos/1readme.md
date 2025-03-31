@@ -101,9 +101,11 @@ write(1, "Digite o que deseja escrever no arquivo:\n", strlen("Digite o que dese
 
 ```
  <p>&nbsp;</p>
+ 
  ![write1](https://github.com/user-attachments/assets/b12ed9d1-8cd5-47f0-adbf-555f0f6b16ec)
  
  <p>&nbsp;</p>
+ 
 - **Read() e Close()**:
 
 O texto que o usuário escreveu é lido, por meio da função fgets(), e escrito no arquivo de texto pela função write() e após isso o arquivo é fechado.
