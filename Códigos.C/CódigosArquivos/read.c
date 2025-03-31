@@ -7,7 +7,6 @@
 int main() {
     char buffer[100];
 
-    printf("Arquivo de texto aberto.\n\n");
 
 
     int fd = open("arqr.txt", O_RDONLY);
@@ -15,6 +14,7 @@ int main() {
         printf("Erro ao abrir o arquivo txt\n");
         exit(1);
     }
+ printf("Arquivo de texto aberto.\n\n");
 
     printf("Texto lido:\n");
 
