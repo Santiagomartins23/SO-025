@@ -82,6 +82,37 @@ mprotect (5.50%): Refere-se à proteção de regiões da memória, uma operaçã
  
   A função mmap() em C é utilizada para mapear arquivos ou alocar memória diretamente, sem depender da heap tradicional ou do sistema de gerenciamento de memória padrão. Neste arquivo, a memória é alocada com mmap() usando a flag MAP_ANONYMOUS, o que significa que a memória não está associada a nenhum arquivo, e a flag MAP_PRIVATE, que cria um mapeamento privado da memória. Após a alocação, a memória é preenchida com valores inteiros, e os primeiros 10 valores são exibidos na tela. Ao compilarmos e rodarmos o programa é nos dado o seguinte output:
 
+  - **Utilização da função mmap para alocação de memória**
+```
+  size_t size = 4096;
+
+    int *mem = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0); //Aloca memória com mmap
+
+    if (mem == MAP_FAILED) {
+        perror("\nmmap falhou");
+        return 1;
+    }
+
+    printf("\nMemoria alocada em: %p\n\n", mem);
+```
+ - **Interação dinâmica com a memória.**
+```
+   for (int i = 0; i < size / sizeof(int); i++) { //Preenche a memória com valores
+        mem[i] = i * 10;
+    }
+    =
+    printf("\nValores armazenados:\n");
+    for (int i = 0; i < 10; i++) {
+        printf("\nmem[%d] = %d\n", i, mem[i]);
+    }
+
+    =
+    if (munmap(mem, size) == -1) {
+        perror("munmap falhou");
+        return 1;
+    }
+```
+
 
 ![image](https://github.com/user-attachments/assets/1155a2bc-c22f-48c9-bccb-6d285224a294)
 
