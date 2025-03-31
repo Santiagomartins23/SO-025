@@ -51,10 +51,11 @@ liberando os recursos associados ao arquivo aberto.
 
 #### Arquivo compilado:
 <p>&nbsp;</p>
+Utilizando um texto de exemplo
 
 ![read](https://github.com/user-attachments/assets/732edeac-cf66-443d-9775-a7f31a9c83ee)
 
-Nesse programa, o arquivo arqr.txt é aberto pela função open() e em seguida é chamada a função read() para ler o texto escrito dentro desse arquivo, no qual é imprimido na tela, no final, o arquivo de texto é fechado pelo close(). Por se tratar de um programa focalizado na função read(), é utilizado o printf para imprimir o texto na tela, assim priorizando a chamada primitiva read().
+ 
 <p>&nbsp;</p>
 
 #### Usando o comando -strace -c ./read, vamos conseguir estatísticas relacionadas ao uso das chamadas ao sistema e o tempo gasto por elas:
