@@ -150,7 +150,8 @@ close(file);
 
 #### Usando o comando -strace -c ./write:
 
- ![Captura de tela 2025-03-30 160124](https://github.com/user-attachments/assets/ab46a789-9c42-459c-89c0-21c1944305b9)
+ ![write strace](https://github.com/user-attachments/assets/702cf390-745a-4780-adf8-f00874ecb3c2)
+
 
  <p>&nbsp;</p>
 
