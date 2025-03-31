@@ -100,9 +100,6 @@ if (file == -1) {
 write(1, "Digite o que deseja escrever no arquivo:\n", strlen("Digite o que deseja escrever no arquivo:\n"));
 
 ```
- <p>&nbsp;</p>
- 
- ![write1](https://github.com/user-attachments/assets/b12ed9d1-8cd5-47f0-adbf-555f0f6b16ec)
  
  <p>&nbsp;</p>
  
@@ -135,6 +132,9 @@ write(1, "\nProcesso executado e fechando arquivo...\n\n",
 
 close(file);
 ```
+ #### Arquivo compilado:
+
+![write1](https://github.com/user-attachments/assets/b12ed9d1-8cd5-47f0-adbf-555f0f6b16ec)
 
 #### Usando um texto de exemplo:
 
