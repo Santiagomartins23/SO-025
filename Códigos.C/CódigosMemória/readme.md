@@ -11,6 +11,42 @@
 
    Nesse arquivo, foi utilizada a função sbrk() para manipular diretamente a memória heap de um programa. Nele, é alocada memória para a heap, expandida e por fim reduzida. A função sbrk() utilizada no arquivo é uma forma de interação com a primitiva de chamada de sistema brk(). Ao compilarmos e rodarmos o programa é nos dado o seguinte output:
 
+   - **Heap**: O programa utiliza a função sbrk para gerenciar a memória do heap. Primeiro, ele obtém e exibe o endereço inicial do heap. Em seguida, tenta expandir o heap alocando 4 KB de espaço adicional. Se a operação for bem-sucedida, o novo limite do heap é exibido; caso contrário, uma mensagem de erro é apresentada para informar que a expansão falhou.
+
+```
+void *heap_inicio = sbrk(0); 
+    printf("\nEndereco inicial da heap: %p\n", heap_inicio);
+
+    size_t tamanho = 4096;
+
+    void *novo_limite = sbrk(tamanho); 
+
+    if (novo_limite == (void *)-1) {
+        perror("\nFalha ao expandir heap com sbrk");
+        return 1;
+    }
+
+    printf("\nHeap expandida. Novo limite: %p\n", novo_limite);
+
+    memset(novo_limite, 0, tamanho);  
+
+```
+
+   - **Gerenciamento de Heap** :
+
+```
+char *mensagem = (char *)novo_limite;
+    strcpy(mensagem, "Ola, esta string foi armazenada na heap!");  //Armazena string na heap
+
+    printf("String armazenada na heap: %s\n", mensagem);
+
+    if (sbrk(-tamanho) == (void *)-1) {  //Reduz a heap ao tamanho original
+        perror("Falha ao liberar heap com sbrk");
+        return 1;
+    }
+
+```
+
 
  ![image](https://github.com/user-attachments/assets/be68c1bd-0565-4d21-9c69-ef12cd472deb)
  
