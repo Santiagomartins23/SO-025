@@ -82,7 +82,7 @@ mprotect (5.50%): Refere-se à proteção de regiões da memória, uma operaçã
  
   A função mmap() em C é utilizada para mapear arquivos ou alocar memória diretamente, sem depender da heap tradicional ou do sistema de gerenciamento de memória padrão. Neste arquivo, a memória é alocada com mmap() usando a flag MAP_ANONYMOUS, o que significa que a memória não está associada a nenhum arquivo, e a flag MAP_PRIVATE, que cria um mapeamento privado da memória. Após a alocação, a memória é preenchida com valores inteiros, e os primeiros 10 valores são exibidos na tela. Ao compilarmos e rodarmos o programa é nos dado o seguinte output:
 
-  - **Utilização da função mmap para alocação de memória**
+  - **Utilização da função mmap para alocação de memória.**
 ```
   size_t size = 4096;
 
@@ -144,6 +144,30 @@ brk (4.52%): Envolve a manipulação do segmento de dados de um programa, ajusta
  ### Arquivo mprotect.c
  
   Neste arquivo, foi utilizada a função mprotect() para controlar as permissões de acesso a uma área de memória já alocada. A memória é alocada com mmap() e, em seguida, as permissões de acesso são modificadas para tornar a memória somente para leitura, impedindo a escrita nela. Quando a memória é acessada para algo que não seja leitura, como escrita, ocorre um "segmentation fault". Ao compilarmos e rodarmos o programa é nos dado o seguinte output:
+
+   - **Alternância de permissões de regiões da memória**
+
+```
+ if (mprotect(mem, size, PROT_READ) == -1) { //Atualiza memória para somente leitura usando PROT_READ
+        perror("\nmprotect falhou ao tornar a memoria somente leitura");
+        return 1;
+    }
+    printf("\nMemoria agora e somente leitura.\n");
+
+    if (mprotect(mem, size, PROT_READ) != -1) {
+        printf("\n\nTentando escrever na memoria protegida...\n");
+        strcpy(mem, "Tentativa de escrita em memoria somente leitura."); //Ao tentar escrever na memória somente com a permissão para leitura, é retornado um segmentation fold
+    } else {
+        printf("\nA escrita na memoria esta proibida por conta da protecao.\n");
+    }
+
+    printf("Leitura apos protecao: %s\n", (char *)mem);
+
+    if (mprotect(mem, size, PROT_READ | PROT_WRITE) == -1) { //Atualiza memória novamente mas dessa vez para leitura e escrita com PROT_READ e PROT_WRHITE
+        perror("\nmprotect falhou ao tornar a memoria gravavel novamente");
+        return 1;
+    }
+```
 
  ![image](https://github.com/user-attachments/assets/e9dad229-843f-43d5-aeee-cc0d276f310e)
 
