@@ -11,6 +11,23 @@ liberando os recursos associados ao arquivo aberto.
         
 ### Arquivo Read.c:
 
+ Nessa parte do código, é utilizado a função open() no qual tenta abrir um arquivo (arqw.txt) no modo leitura, caso não de nenhum erro, o arquivo de texto é aberto.
+ 
+```
+    char buffer[100]; / / Declara um buffer (armazenamento temporário) de 100 caracteres
+    
+    int fd = open("arqr.txt", O_RDONLY);  // Tenta abrir o arquivo "arqr.txt" em modo somente leitura
+    
+    // Verifica se houve erro na abertura do arquivo (fd == -1 indica erro)
+    if (fd == -1) {
+        printf("Erro ao abrir o arquivo txt\n");
+        exit(1);
+    }
+
+    // Se chegou aqui, o arquivo foi aberto com sucesso
+    printf("Arquivo de texto aberto.\n\n");
+```
+
 ![read](https://github.com/user-attachments/assets/732edeac-cf66-443d-9775-a7f31a9c83ee)
 
 Nesse programa, o arquivo arqr.txt é aberto pela função open() e em seguida é chamada a função read() para ler o texto escrito dentro desse arquivo, no qual é imprimido na tela, no final, o arquivo de texto é fechado pelo close(). Por se tratar de um programa focalizado na função read(), é utilizado o printf para imprimir o texto na tela, assim priorizando a chamada primitiva read().
