@@ -132,9 +132,13 @@ write(1, "\nProcesso executado e fechando arquivo...\n\n",
 
 close(file);
 ```
+<p>&nbsp;</p>
+
  #### Arquivo compilado:
 
+
 ![write1](https://github.com/user-attachments/assets/b12ed9d1-8cd5-47f0-adbf-555f0f6b16ec)
+
 
 #### Usando um texto de exemplo:
 
@@ -142,7 +146,6 @@ close(file);
 
 
   
-
  <p>&nbsp;</p>
 
 #### Usando o comando -strace -c ./write:
