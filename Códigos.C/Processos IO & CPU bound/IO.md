@@ -27,7 +27,7 @@ Tempo real (34.29s) >> Tempo de CPU (user + sys = 0.005s), ou seja, quase todo o
    
    Percent of CPU this job got: 0% → Percentual de uso da CPU
    
-   Elapsed (wall clock) time (h:mm:ss or m:ss): 0:53.00 → Tempo total (real)
+   Elapsed (wall clock) time (h:mm:ss or m:ss): 0:53.58 → Tempo total (real)
    
    Voluntary context switches: 9    → Trocas de contexto voluntárias
    
