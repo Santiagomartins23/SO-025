@@ -16,7 +16,7 @@
 
 
  
-Tempo real (34.29s) >> Tempo de CPU (user + sys = 0.005s), ou seja, quase todo o tempo foi gasto em espera (provavelmente por I/O, como escrita em disco ou entrada do usuário).
+Tempo real (52.00s) >> Tempo de CPU (user + sys = 0.005s), ou seja, quase todo o tempo foi gasto em espera (provavelmente por I/O, como escrita em disco ou entrada do usuário).
 
 <p>&nbsp;</p>
 
