@@ -9,8 +9,7 @@
 
  ### Arquivo brk.c 
 
-   Nesse arquivo, foi utilizada a função sbrk() para manipular diretamente a memória heap de um programa. Nele, é alocada memória para a heap, expandida e por fim reduzida. A função sbrk() utilizada no arquivo é uma forma de interação com a primitiva de chamada de sistema brk(). Ao compilarmos e rodarmos o programa é nos dado o seguinte output:
-
+   Nesse arquivo, foi utilizada a função sbrk() para manipular diretamente a memória heap de um programa. Nele, é alocada memória para a heap, expandida e por fim reduzida. A função sbrk() utilizada no arquivo é uma forma de interação com a primitiva de chamada de sistema brk().
    - **Heap**: O programa utiliza a função sbrk para gerenciar a memória do heap.
 
 ```
@@ -82,7 +81,7 @@ mprotect (5.50%): Refere-se à proteção de regiões da memória, uma operaçã
 
  ### Arquivo mmap.c 
  
-  A função mmap() em C é utilizada para mapear arquivos ou alocar memória diretamente, sem depender da heap tradicional ou do sistema de gerenciamento de memória padrão. Neste arquivo, a memória é alocada com mmap() usando a flag MAP_ANONYMOUS, o que significa que a memória não está associada a nenhum arquivo, e a flag MAP_PRIVATE, que cria um mapeamento privado da memória. Após a alocação, a memória é preenchida com valores inteiros, e os primeiros 10 valores são exibidos na tela. Ao compilarmos e rodarmos o programa é nos dado o seguinte output:
+  A função mmap() em C é utilizada para mapear arquivos ou alocar memória diretamente, sem depender da heap tradicional ou do sistema de gerenciamento de memória padrão. Neste arquivo, a memória é alocada com mmap() usando a flag MAP_ANONYMOUS, o que significa que a memória não está associada a nenhum arquivo, e a flag MAP_PRIVATE, que cria um mapeamento privado da memória. Após a alocação, a memória é preenchida com valores inteiros, e os primeiros 10 valores são exibidos na tela.
 
   - **Utilização da função mmap para alocação de memória.**
 ```
@@ -147,7 +146,7 @@ brk (4.52%): Envolve a manipulação do segmento de dados de um programa, ajusta
 
  ### Arquivo mprotect.c
  
-  Neste arquivo, foi utilizada a função mprotect() para controlar as permissões de acesso a uma área de memória já alocada. A memória é alocada com mmap() e, em seguida, as permissões de acesso são modificadas para tornar a memória somente para leitura, impedindo a escrita nela. Quando a memória é acessada para algo que não seja leitura, como escrita, ocorre um "segmentation fault". Ao compilarmos e rodarmos o programa é nos dado o seguinte output:
+  Neste arquivo, foi utilizada a função mprotect() para controlar as permissões de acesso a uma área de memória já alocada. A memória é alocada com mmap() e, em seguida, as permissões de acesso são modificadas para tornar a memória somente para leitura, impedindo a escrita nela. Quando a memória é acessada para algo que não seja leitura, como escrita, ocorre um "segmentation fault".
 
    - **Alternância de permissões de regiões da memória**
 
