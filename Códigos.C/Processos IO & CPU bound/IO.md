@@ -5,7 +5,8 @@
 
 #### Time:
 
- ![Captura de tela 2025-03-30 160223](https://github.com/user-attachments/assets/1cbf1b5a-e589-482a-a09c-ece5dd2f2983)
+ ![real time](https://github.com/user-attachments/assets/4a6b4a1c-3eef-4d2a-be6c-78d7f9a5dc77)
+
 
 
  
