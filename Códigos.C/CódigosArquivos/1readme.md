@@ -79,17 +79,65 @@ write (5.99%): Embora o programa tenha o foco principal na leitura do arquivo de
 ### Arquivo Write.c: 
 
  Inicialmente o arquivo chamado arqw.txt é aberto pela função open() e em seguida o programa pede para o usuário escrever o que deseja imprimir nesse arquivo.
- 
+
+ - **Open()**:
+
+ ```
+// Abre o arquivo "arqw.txt" com as seguintes flags:
+// O_WRONLY - Aberto apenas para escrita
+// O_CREAT - Cria o arquivo se não existir
+// O_TRUNC - Apaga o conteúdo existente se o arquivo já existir
+// As permissões são definidas como S_IRUSR | S_IWUSR (leitura e escrita para o dono)
+int file = open("arqw.txt", O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+
+if (file == -1) {
+    write(1, "Erro ao abrir o arquivo txt\n", strlen("Erro ao abrir o arquivo txt\n"));
+    exit(1);
+}
+
+write(1, "Digite o que deseja escrever no arquivo:\n", strlen("Digite o que deseja escrever no arquivo:\n"));
+
+```
+ <p>&nbsp;</p>
  ![write1](https://github.com/user-attachments/assets/b12ed9d1-8cd5-47f0-adbf-555f0f6b16ec)
  
  <p>&nbsp;</p>
+- **Read() e Close()**:
+
+O texto que o usuário escreveu é lido, por meio da função fgets(), e escrito no arquivo de texto pela função write() e após isso o arquivo é fechado.
+<p>&nbsp;</p>
+
+```
+
+if (fgets(ler, sizeof(ler), stdin) == NULL) {   // Lê a entrada do usuário usando fgets
+    
+    write(1, "Erro na leitura do input\n", strlen("Erro na leitura do input\n"));
+    
+    exit(1);
+}
+
+
+if (write(file, ler, strlen(ler)) == -1) {  // Escreve o conteúdo lido (ler) no arquivo aberto
+   
+    write(1, "Erro ao escrever no arquivo\n", strlen("Erro ao escrever no arquivo\n"));
+    
+    close(file);
+    
+    exit(1);
+}
+
+write(1, "\nProcesso executado e fechando arquivo...\n\n", 
+     strlen("\nProcesso executado e fechando arquivo...\n\n"));
+
+close(file);
+```
 
 #### Usando um texto de exemplo:
 
   ![Captura de tela 2025-03-30 160131](https://github.com/user-attachments/assets/5e95092b-8e29-4438-ba62-d7bb49eab5e2)
 
 
-  O texto que o usuário escreveu é lido, por meio da função fgets(), e escrito no arquivo de texto pela função write() e após isso o arquivo é fechado.
+  
 
  <p>&nbsp;</p>
 
