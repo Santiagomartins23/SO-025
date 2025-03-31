@@ -14,7 +14,7 @@ O tempo real (0.005) é próximo do tempo de CPU (user + sys = 0.005), indicando
 <p>&nbsp;</p>
 
 
-# Usando: `/usr/bin/time -v ./cpubound 10000` , obtemos informações sobre tempo total, percentual de uso da CPU, tempo em modo kernel, tempo em modo usuário, trocas de contexto voluntárias e trocas de contexto involuntárias.
+#### Usando: `/usr/bin/time -v ./cpubound 10000` , obtemos informações sobre tempo total, percentual de uso da CPU, tempo em modo kernel, tempo em modo usuário, trocas de contexto voluntárias e trocas de contexto involuntárias.
 
 
 
