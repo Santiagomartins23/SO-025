@@ -33,22 +33,19 @@ liberando os recursos associados ao arquivo aberto.
 - **Read() e Close()**:
   
 ```
-    ssize_t bytes_lidos; // Variável para armazenar quantos bytes foram lidos em cada operação
+    ssize_t bytes_lidos;  // Variável para armazenar quantos bytes foram lidos em cada operação
     
-    // Lê pedaços de até 99 bytes (sizeof(buffer)-1) de cada vez
-    // read() retorna o número de bytes lidos, ou 0 se chegar ao fim
-    while ((bytes_lidos = read(fd, buffer, sizeof(buffer) - 1)) > 0) {
-        
+    
+    while ((bytes_lidos = read(fd, buffer, sizeof(buffer) - 1)) > 0) {   // Lê pedaços de até 99 bytes (sizeof(buffer)-1) de cada vez
         buffer[bytes_lidos] = '\0';
         
-        // Imprime o conteúdo lido
-        printf("%s", buffer);
+         
+        printf("%s", buffer);   // Imprime o conteúdo lido
     }
 
     printf("\nFechando arquivo...\n");
     
-    // Fecha o arquivo (liberando os recursos do sistema)
-    close(fd);
+    close(fd); // Fecha o arquivo (liberando os recursos do sistema)
 ```
 
 
