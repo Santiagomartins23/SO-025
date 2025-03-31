@@ -16,7 +16,8 @@ Tempo real (34.29s) >> Tempo de CPU (user + sys = 0.005s), ou seja, quase todo o
 
 #### Usando: /usr/bin/time -v ./write, obtemos informações sobre tempo total, percentual de uso da CPU, tempo em modo kernel, tempo em modo usuário, trocas de contexto voluntárias e trocas de contexto involuntárias. 
 
- ![Captura de tela 2025-03-30 160415](https://github.com/user-attachments/assets/265ff0de-566f-4bfb-bd88-42fd7ee2b284)
+ ![write final](https://github.com/user-attachments/assets/a504c660-f710-410d-9b3b-fdd92330e8e2)
+
 
 
 
