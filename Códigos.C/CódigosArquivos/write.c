@@ -9,6 +9,13 @@
 
 int main() {
     char ler[1000];
+
+    int file = open("arqw.txt", O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+    if (file == -1) {
+        write(1, "Erro ao abrir o arquivo txt\n", strlen("Erro ao abrir o arquivo txt\n"));
+        exit(1);
+    }
+
     write(1, "Digite o que deseja escrever no arquivo:\n", strlen("Digite o que deseja escrever no arquivo:\n"));
 
     if (fgets(ler, sizeof(ler), stdin) == NULL) {
@@ -17,11 +24,7 @@ int main() {
     }
 
 
-    int file = open("arqw.txt", O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
-    if (file == -1) {
-        write(1, "Erro ao abrir o arquivo txt\n", strlen("Erro ao abrir o arquivo txt\n"));
-        exit(1);
-    }
+
 
 
     if (write(file, ler, strlen(ler)) == -1) {
