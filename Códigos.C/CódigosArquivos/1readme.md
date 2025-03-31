@@ -159,7 +159,7 @@ close(file);
 
 ### Observações:
 
-openat (10.00%): Outra ocorrência de openat, mostrando que o programa realiza múltiplas operações de abertura de arquivos durante a execução, também ligadas a I/O.
+openat (10.63%): Outra ocorrência de openat, mostrando que o programa realiza múltiplas operações de abertura de arquivos durante a execução, também ligadas a I/O.
 
 write (9.12%): A chamada write reflete o tempo gasto gravando dados no arquivo de texto, indicando que o programa está realizando muitas operações de escrita.
 
