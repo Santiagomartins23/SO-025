@@ -47,7 +47,10 @@ liberando os recursos associados ao arquivo aberto.
     
     close(fd); // Fecha o arquivo (liberando os recursos do sistema)
 ```
+<p>&nbsp;</p>
 
+### Arquivo compilado:
+<p>&nbsp;</p>
 
 ![read](https://github.com/user-attachments/assets/732edeac-cf66-443d-9775-a7f31a9c83ee)
 
