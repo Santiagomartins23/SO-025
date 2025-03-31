@@ -102,11 +102,11 @@ write(1, "Digite o que deseja escrever no arquivo:\n", strlen("Digite o que dese
 ```
  
  <p>&nbsp;</p>
+
+ O texto que o usuário escreveu é lido, por meio da função fgets(), e escrito no arquivo de texto pela função write() e após isso o arquivo é fechado.
  
 - **Read() e Close()**:
 
-O texto que o usuário escreveu é lido, por meio da função fgets(), e escrito no arquivo de texto pela função write() e após isso o arquivo é fechado.
-<p>&nbsp;</p>
 
 ```
 
