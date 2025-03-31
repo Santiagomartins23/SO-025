@@ -47,6 +47,7 @@ char *mensagem = (char *)novo_limite;
 
 ```
 <p>&nbsp;</p>
+
 ##### Ao compilarmos e rodarmos o programa é nos dado o seguinte output:
 
  ![image](https://github.com/user-attachments/assets/be68c1bd-0565-4d21-9c69-ef12cd472deb)
@@ -114,6 +115,7 @@ mprotect (5.50%): Refere-se à proteção de regiões da memória, uma operaçã
     }
 ```
 <p>&nbsp;</p>
+
 ##### Ao compilarmos e rodarmos o programa é nos dado o seguinte output:
 
 ![image](https://github.com/user-attachments/assets/1155a2bc-c22f-48c9-bccb-6d285224a294)
@@ -171,6 +173,7 @@ brk (4.52%): Envolve a manipulação do segmento de dados de um programa, ajusta
     }
 ```
 <p>&nbsp;</p>
+
 ##### Ao compilarmos e rodarmos o programa é nos dado o seguinte output:
 
  ![image](https://github.com/user-attachments/assets/e9dad229-843f-43d5-aeee-cc0d276f310e)
