@@ -3,6 +3,8 @@
 ## Módulos de entrega da disciplina de Sistemas Operacionais do curso de Bacharelado em Sistemas de Informação
 ---
 
-Bem-vindo ao repositório do projeto que explora e demonstra o uso de chamadas primitivas do sistema operacional Linux. Este projeto foi desenvolvido com o objetivo de aprofundar o entendimento sobre o funcionamento interno do sistema, categorizando e implementando chamadas relacionadas a processos, arquivos e memória.
+Bem-vindo ao repositório do projeto da disciplina de Sistemas Operacionais.
+
+Este projeto tem como objetivo explorar, de forma prática e modular, os principais conceitos abordados ao longo da matéria. Entre os temas contemplados estão chamadas de sistema (primitivas), gerenciamento de memória, comunicação entre processos (IPC), escalonamento e problemas clássicos como o Produtor-Consumidor.
 
 
