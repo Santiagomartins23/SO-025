@@ -18,9 +18,11 @@ ao buffer compartilhado. A implementação garante sincronização correta entre
 
 ## 🧠 Funcionamento
 
-- O **produtor** insere itens no buffer, esperando espaço livre (`empty`) e travando o mutex para exclusividade.
-- O **consumidor** retira itens do buffer, esperando por itens disponíveis (`full`) e também usando mutex para exclusão mútua.
-- Ambos usam um buffer circular com índices `in` (escrita) e `out` (leitura), que se reiniciam com `% BUFFER_SIZE`.
+-Buffer
+´´´
+slçdposdf
+
+´´´
 
 ---
 
