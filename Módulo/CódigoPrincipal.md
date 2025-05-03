@@ -26,12 +26,24 @@ ao buffer compartilhado. A implementação garante sincronização correta entre
 
 ### Buffer
 
-<pre> ```c
-#include <stdio.h> int main() { printf("Olá, mundo!\n"); return 0; }
-``` 
+<pre>
+#define BUFFER_SIZE 5
+
+
+int buffer[BUFFER_SIZE];
+int in = 0;
+int out = 0;
 </pre>
 
-
+### Controle de exclusão mútua
+<pre>
+</pre>  
+### Controle de posições
+<pre>
+</pre>  
+### Manuseio das Threads
+<pre>
+</pre>  
 ---
 
 ## 🔐 Controle de Concorrência
