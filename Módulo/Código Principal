@@ -7,12 +7,12 @@ ao buffer compartilhado. A implementação garante sincronização correta entre
 
 ## ✅ Requisitos Atendidos
 
-| Buffer limitado compartilhado | ✅ |
-| Controle de exclusão mútua | ✅ `pthread_mutex_t` |
-| Controle de posições livres/ocupadas | ✅ `sem_t empty/full` |
-| Capacidade de colocar thread em espera | ✅ `sem_wait()` |
-| Capacidade de "acordar" threads | ✅ `sem_post()` |
-| Controle de leitura/escrita com ponteiros | ✅ `in` e `out` |
+| Buffer limitado compartilhado  ✅ |
+| Controle de exclusão mútua  ✅ (`pthread_mutex_t`) |
+| Controle de posições livres/ocupadas ✅ (`sem_t empty/full`) |
+| Capacidade de colocar thread em espera  ✅ (`sem_wait()`) |
+| Capacidade de "acordar" threads  ✅ (`sem_post()`) |
+| Controle de leitura/escrita com ponteiros  ✅ (`in` e `out`) |
 
 ---
 
