@@ -19,11 +19,11 @@ ao buffer compartilhado. A implementação garante sincronização correta entre
 ## 🧠 Funcionamento
 
 -Buffer
-```
-slçdposdf
 
+```c
 
-´´´
+codigo em cc
+´´´ 
 
 ---
 
