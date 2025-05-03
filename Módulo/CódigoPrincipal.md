@@ -24,14 +24,19 @@ ao buffer compartilhado. A implementação garante sincronização correta entre
 
 ## 🧠 Funcionamento
 
+### Nesta seção, destacamos o funcionamento do código e como foram aplicadas as tecnlogias para garantir a exclusão mútua, evitar a ociosidade da CPU, e aproveitar ao máximo sua capacidade, para que, na seção de exemplos práticos fique mais claro a importância destas práticas quando são bem aplicadas
+
 ### Buffer
 
 <pre>
-#define BUFFER_SIZE 5 //tamanho do buffer
-int buffer[BUFFER_SIZE]; //declara o buffer
+#define BUFFER_SIZE 5 // tamanho do buffer
+int buffer[BUFFER_SIZE]; // declara o buffer
   
 int in = 0; // posição onde o produtor insere o próximo item.
 int out = 0; // posição de onde o consumidor retira o item.
+
+ buffer[in] = item; // para produzir
+ int item = buffer[out]; // para consumir  
 </pre>
 
 ### Controle de exclusão mútua
@@ -49,8 +54,10 @@ sem_init(&full, 0, 0);
 <pre>
 pthread_t produtores[NUM_PRODUTORES]; 
 pthread_t consumidores[NUM_CONSUMIDORES];
+  
 pthread_create(&produtores[i], NULL, produtor, NULL); 
 pthread_create(&consumidores[i], NULL, consumidor, NULL); 
+  
 pthread_join(produtores[i], NULL);
 pthread_join(consumidores[i], NULL)
 </pre>  
@@ -91,7 +98,8 @@ void* consumidor(void* arg) {
     while (b >= 0) {
          sem_wait(&full);
         pthread_mutex_lock(&mutex);
-int item = buffer[out];
+  
+        int item = buffer[out];
         printf("[Consumidor] Consumiu %d da posicao %d\n", item, out);
         out = (out + 1) % BUFFER_SIZE;
         b--;
