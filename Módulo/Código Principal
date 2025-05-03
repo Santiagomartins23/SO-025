@@ -6,8 +6,6 @@
 
 ## ✅ Requisitos Atendidos
 
-| Requisito | Status |
-|-----------|--------|
 | Buffer limitado compartilhado | ✅ |
 | Controle de exclusão mútua | ✅ `pthread_mutex_t` |
 | Controle de posições livres/ocupadas | ✅ `sem_t empty/full` |
