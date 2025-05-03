@@ -1,1 +1,31 @@
+# 🧵💡 Problema do Produtor e Consumidor com Pthreads e Semáforos (POSIX)
+
+### Nesta seção, solucionamos o problema proposto na entrega da atividade, utilizando semáforos POSIX e exclusão mútua com mutexes, controlando o acesso concorrente ao buffer compartilhado. A implementação garante sincronização correta entre produtor e consumidor, evita espera ociosa, e simula comportamento real de multitarefa.
+
+---
+
+## ✅ Requisitos Atendidos
+
+| Requisito | Status |
+|-----------|--------|
+| Buffer limitado compartilhado | ✅ |
+| Controle de exclusão mútua | ✅ `pthread_mutex_t` |
+| Controle de posições livres/ocupadas | ✅ `sem_t empty/full` |
+| Capacidade de colocar thread em espera | ✅ `sem_wait()` |
+| Capacidade de "acordar" threads | ✅ `sem_post()` |
+| Controle de leitura/escrita com ponteiros | ✅ `in` e `out` |
+
+---
+
+## ⚙️ Tecnologias Utilizadas
+
+- Linguagem C
+- POSIX Threads (`pthread`)
+- Semáforos POSIX (`semaphore.h`)
+- Exclusão mútua com `pthread_mutex_t`
+- Execução concorrente com `pthread_create`
+
+---
+
+## 🧠 Explicação Técnica do Código
 
