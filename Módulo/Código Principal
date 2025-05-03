@@ -20,10 +20,11 @@ ao buffer compartilhado. A implementação garante sincronização correta entre
 
 -Buffer
 
-```c
+<pre> ```c
+#include <stdio.h> int main() { printf("Olá, mundo!\n"); return 0; }
+``` 
+</pre>
 
-codigo em cc
-´´´ 
 
 ---
 
