@@ -16,15 +16,23 @@ ao buffer compartilhado. A implementação garante sincronização correta entre
 
 ---
 
-## ⚙️ Tecnologias Utilizadas
+## 🧠 Funcionamento
 
-- Linguagem C
-- POSIX Threads (`pthread`)
-- Semáforos POSIX (`semaphore.h`)
-- Exclusão mútua com `pthread_mutex_t`
-- Execução concorrente com `pthread_create`
+- O **produtor** insere itens no buffer, esperando espaço livre (`empty`) e travando o mutex para exclusividade.
+- O **consumidor** retira itens do buffer, esperando por itens disponíveis (`full`) e também usando mutex para exclusão mútua.
+- Ambos usam um buffer circular com índices `in` (escrita) e `out` (leitura), que se reiniciam com `% BUFFER_SIZE`.
 
 ---
 
-## 🧠 Explicação Técnica do Código
+## 🔐 Controle de Concorrência
+
+### Semáforos
+- `sem_t empty`: Conta quantas posições estão **vazias** no buffer. Inicia com `BUFFER_SIZE`.
+- `sem_t full`: Conta quantas posições estão **ocupadas**. Inicia com `0`.
+
+### Exclusão Mútua
+- `pthread_mutex_t mutex`: Impede que duas threads modifiquem simultaneamente o buffer.
+
+---
+
 
