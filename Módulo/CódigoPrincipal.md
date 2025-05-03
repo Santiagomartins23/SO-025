@@ -27,12 +27,11 @@ ao buffer compartilhado. A implementação garante sincronização correta entre
 ### Buffer
 
 <pre>
-#define BUFFER_SIZE 5
-
-
-int buffer[BUFFER_SIZE];
-int in = 0;
-int out = 0;
+#define BUFFER_SIZE 5 //tamanho do buffer
+int buffer[BUFFER_SIZE]; //declara o buffer
+  
+int in = 0; // posição onde o produtor insere o próximo item.
+int out = 0; // posição de onde o consumidor retira o item.
 </pre>
 
 ### Controle de exclusão mútua
