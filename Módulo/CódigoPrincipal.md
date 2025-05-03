@@ -36,13 +36,74 @@ int out = 0; // posição de onde o consumidor retira o item.
 
 ### Controle de exclusão mútua
 <pre>
+pthread_mutex_t mutex; // impede com que duas threads (produtoras ou consumidoras) modifiquem o buffer ao mesmo tempo, protegendo as variávies.
 </pre>  
 ### Controle de posições
 <pre>
+sem_t empty; // conta quantas posições vazias há no buffer.
+sem_t full; // conta quantas posições cheias há no buffer.
+sem_init(&empty, 0, BUFFER_SIZE); 
+sem_init(&full, 0, 0); 
 </pre>  
 ### Manuseio das Threads
 <pre>
+pthread_t produtores[NUM_PRODUTORES]; 
+pthread_t consumidores[NUM_CONSUMIDORES];
+pthread_create(&produtores[i], NULL, produtor, NULL); 
+pthread_create(&consumidores[i], NULL, consumidor, NULL); 
+pthread_join(produtores[i], NULL);
+pthread_join(consumidores[i], NULL)
 </pre>  
+
+### Produtor
+<pre>
+void* produtor(void* arg) {
+
+    int a= 0;
+    while (a <= 9){
+        int item = rand() % 100;
+
+          sem_wait(&empty);
+        pthread_mutex_lock(&mutex);
+
+        buffer[in] = item;
+        printf("[Produtor] Produziu %d na posicao %d\n",item, in);
+        in = (in + 1) % BUFFER_SIZE;
+        a++;
+
+        pthread_mutex_unlock(&mutex);
+
+        sem_post(&full);
+
+
+
+    }
+
+
+    return NULL;
+}
+</pre>
+### Consumidor 
+<pre>
+void* consumidor(void* arg) {
+
+    int b= 9;
+    while (b >= 0) {
+         sem_wait(&full);
+        pthread_mutex_lock(&mutex);
+int item = buffer[out];
+        printf("[Consumidor] Consumiu %d da posicao %d\n", item, out);
+        out = (out + 1) % BUFFER_SIZE;
+        b--;
+
+        pthread_mutex_unlock(&mutex);
+
+     sem_post(&empty);
+
+    }
+    return NULL;
+}
+</pre>
 ---
 
 ## 🔐 Controle de Concorrência
