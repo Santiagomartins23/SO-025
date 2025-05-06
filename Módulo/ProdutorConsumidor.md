@@ -112,6 +112,11 @@ void* consumidor(void* arg) {
 }
 </pre>
 ---
+## Saída
+Saída do código acima executado:
+
+![saidacertaa](https://github.com/user-attachments/assets/b9b44b5a-b385-48fb-b55e-f63e0e156e0d)
+
 
 ## 🔐 Controle de Concorrência
 
