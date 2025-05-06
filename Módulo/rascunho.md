@@ -198,3 +198,33 @@ MiB Swap:   3923.0 total,   3923.0 free,      0.0 used.   3391.4 avail Mem
    3896 gsograd+  20   0  101004   1408   1408 S   9.1   0.0   0:18.50 starvation
    3895 gsograd+  20   0  101004   1408   1408 S   0.0   0.0   0:00.00 starvation
 </pre>
+🧠 Interpretação
+✅ Código com semáforo (pc):
+As threads estão trabalhando ativamente com controle explícito.
+
+O uso da CPU é elevado no kernel (72.7%), o que indica intensa sincronização via semáforos, mas isso é esperado e desejável, pois evita condições de corrida.
+
+A menor ociosidade (9%) mostra que o processador está trabalhando mais diretamente no gerenciamento seguro do buffer.
+
+As threads estão balanceadas: sem ocupação excessiva, mas sem desperdiçar ciclos.
+
+⚠️ Código sem semáforo:
+A CPU parece menos ocupada, mas isso é ilusório: o sistema está mais ocioso (50.4%), e o tempo de CPU em kernel ainda é alto (40.8%) sem garantir segurança de dados.
+
+O uso de CPU por thread é mais baixo, o que pode parecer bom, mas significa que as threads não estão tão eficazes: gastam tempo em conflitos ou esperando por acesso inválido ao buffer.
+
+A ausência de sincronização provavelmente gera condições de corrida, perda de dados, ou comportamentos erráticos.
+
+✅ Conclusão
+O "código perfeito" com semáforos é o comportamento desejado:
+
+Ele mostra que o sistema está usando os recursos de forma intensa e segura.
+
+Mesmo com maior uso de CPU em modo kernel, esse custo compensa pela corretude e segurança na concorrência.
+
+O código sem semáforo:
+
+Gasta CPU à toa no kernel tentando coordenar sem sucesso.
+
+Pode parecer "mais leve", mas é ineficiente e inseguro para aplicações reais.
+
