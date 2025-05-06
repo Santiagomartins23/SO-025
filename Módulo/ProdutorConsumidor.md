@@ -173,7 +173,7 @@ Executam operações inválidas ou rápidas demais, como tentativas de acesso si
 
 Muitas vezes, apenas imprimem mensagens ou giram em loops rápidos, sem fazer computação real.
 
-### Conclusão
+### 🎯Conclusão
 Código sem semáforo:
 
 A CPU pode parecer ociosa porque as threads ficam imprimindo mensagens rapidamente ou acessando o buffer de forma inválida, sem realizar trabalho útil real.
