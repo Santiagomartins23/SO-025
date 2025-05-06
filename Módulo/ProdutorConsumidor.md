@@ -164,7 +164,14 @@ Utilizamos o comando top -H -p para para obter estátisticas sobre a CPU e as th
 
 ![topsemwait](https://github.com/user-attachments/assets/02291c06-61b8-40dc-a161-2a7fe7b32000)
 
-As threads ficam ativamente verificando se podem produzir ou consumir. Isso gera um loop constante: elas não dormem, não bloqueiam, ficam tentando sem parar.
+#### Alta ociosidade da CPU (75% id)
+Esse comportamento ocorre porque, sem os semáforos controlando corretamente o acesso ao buffer, as threads produtoras e consumidoras:
+
+Não esperam de forma eficiente por recursos (como espaço no buffer ou itens para consumir);
+
+Executam operações inválidas ou rápidas demais, como tentativas de acesso simultâneo ao buffer;
+
+Muitas vezes, apenas imprimem mensagens ou giram em loops rápidos, sem fazer computação real.
 
 ### Conclusão
 Código sem semáforo: A CPU parece menos ocupada, mas isso é ilusório: o sistema está mais ocioso (50.4%), e o tempo de CPU em kernel ainda é alto (40.8%) sem garantir segurança de dados.
