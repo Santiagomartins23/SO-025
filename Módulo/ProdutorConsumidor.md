@@ -124,4 +124,29 @@ void* consumidor(void* arg) {
 
 ---
 
+## Seção De Exemplos Práticos
+
+### Nesta seção, explicaremos a importância das funcionalidades que implementamos, e como eles impactam no resultados das operações.
+
+## Caso Prático de Starvation
+Configuração Problemática:
+
+<pre>
+#define NUM_PRODUTORES 3
+#define NUM_CONSUMIDORES 1  // Gargalo intencional
+#define BUFFER_SIZE 10
+</pre>
+
+### 🐌 Cenário de Starvation
+Comportamento Observado:
+
+-Os 3 produtores enchem o buffer rapidamente
+
+-O único consumidor não consegue esvaziar o buffer na mesma velocidade
+
+### Quando o buffer está cheio:
+
+-Produtores tentam produzir e ficam bloqueados em sem_wait(&empty)
+
+-O consumidor libera espaços, mas sempre acorda outro produtor em vez de dar chance para outros consumidores
 
