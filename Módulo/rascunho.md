@@ -114,7 +114,7 @@ void* consumidor(void* arg) {
 ---
 
 ## Saída
-- Saída do código acima executado.
+Saída do código acima executado:
 
 ![saidacerta](https://github.com/user-attachments/assets/91277bea-855a-41e1-8ed0-1c110b7e79f3)
 
