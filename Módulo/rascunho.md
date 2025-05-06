@@ -135,7 +135,10 @@ Sem os semáforos, o produtor pode escrever em posições inválidas quando o bu
 
 #### Exemplo de saída sem semáforos:
 
-![semwaitcerto](https://github.com/user-attachments/assets/7680de70-4a04-4f56-a950-67d3ade616f7)
+![semwait9](https://github.com/user-attachments/assets/5415dd3c-11aa-4037-b65d-4a0e5dc8d7c0)
+
+
+
 
 
 ### Exclusão Mútua
