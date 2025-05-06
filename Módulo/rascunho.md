@@ -137,7 +137,10 @@ Sem os semáforos, o produtor pode escrever em posições inválidas quando o bu
 
 ![semwait9](https://github.com/user-attachments/assets/5415dd3c-11aa-4037-b65d-4a0e5dc8d7c0)
 
-Utilizamos o comando top -H -p para 
+Utilizamos o comando top -H -p para para obter estátisticas sobre a CPU e as threads.
+
+ ![topsemwait](https://github.com/user-attachments/assets/02291c06-61b8-40dc-a161-2a7fe7b32000)
+
 
 ### Exclusão Mútua
 
