@@ -133,6 +133,23 @@ um item, ele incrementa empty (`sem_post(&empty)`).
 
 Sem os semáforos, o produtor escreve em posições inválidas quando o buffer estiver cheio, e o consumidor consome do buffer mesmo estando vazio. Isso pode gerar comportamento incorreto ou falhas.
 
+
+### Exclusão Mútua
+
+#### O mutex controla o acesso exclusivo à região crítica.
+
+- `pthread_mutex_t mutex`: Esse mutex garante que apenas uma thread por vez possa acessar e modificar a estrutura do buffer. Quando uma thread quer inserir ou remover um item, ela deve trancar (lock) o mutex, fazer sua operação com segurança e então liberar (unlock) o mutex. Isso impede acessos simultâneos, evitando corrupção de dados ou inconsistências.
+
+---
+
+## Seção De Exemplos Práticos
+
+### Nesta seção, explicaremos a importância das funcionalidades que implementamos, e como eles impactam no resultados das operações, alterando nosso código solução.
+
+## Caso Prático de Semáforos
+## Configuração Problemática:
+Vamos retirar os semáforos a fim de demonstrar a importância dos semáforos na execução e resultado do programa.
+
 #### Exemplo de saída sem semáforos:
 
 ![semwait9](https://github.com/user-attachments/assets/5415dd3c-11aa-4037-b65d-4a0e5dc8d7c0)
@@ -146,18 +163,6 @@ Utilizamos o comando top -H -p para para obter estátisticas sobre a CPU e as th
 
 As threads ficam ativamente verificando se podem produzir ou consumir. Isso gera um loop constante: elas não dormem, não bloqueiam, ficam tentando sem parar.
 
-
-### Exclusão Mútua
-
-#### O mutex controla o acesso exclusivo à região crítica.
-
-- `pthread_mutex_t mutex`: Esse mutex garante que apenas uma thread por vez possa acessar e modificar a estrutura do buffer. Quando uma thread quer inserir ou remover um item, ela deve trancar (lock) o mutex, fazer sua operação com segurança e então liberar (unlock) o mutex. Isso impede acessos simultâneos, evitando corrupção de dados ou inconsistências.
-
----
-
-## Seção De Exemplos Práticos
-
-### Nesta seção, explicaremos a importância das funcionalidades que implementamos, e como eles impactam no resultados das operações, alterando nosso código solução.
 
 ## Caso Prático de Starvation
 
