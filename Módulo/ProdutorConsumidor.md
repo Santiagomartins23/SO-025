@@ -126,7 +126,7 @@ void* consumidor(void* arg) {
 
 ## Seção De Exemplos Práticos
 
-### Nesta seção, explicaremos a importância das funcionalidades que implementamos, e como eles impactam no resultados das operações.
+### Nesta seção, explicaremos a importância das funcionalidades que implementamos, e como eles impactam no resultados das operações, alterando nosso código solução.
 
 ## Caso Prático de Starvation
 Configuração Problemática:
@@ -138,7 +138,7 @@ Configuração Problemática:
 </pre>
 
 ### 🐌 Cenário de Starvation
-Comportamento Observado:
+#### Comportamento Observado:
 
 -Os 3 produtores enchem o buffer rapidamente
 
