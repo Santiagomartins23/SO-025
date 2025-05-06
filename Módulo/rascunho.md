@@ -113,6 +113,11 @@ void* consumidor(void* arg) {
 </pre>
 ---
 
+## Saída
+
+![saidacerta](https://github.com/user-attachments/assets/91277bea-855a-41e1-8ed0-1c110b7e79f3)
+
+
 ## 🔐 Controle de Concorrência
 
 ### Semáforos
