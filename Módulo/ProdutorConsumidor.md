@@ -117,7 +117,7 @@ void* consumidor(void* arg) {
 
 ### Semáforos
 
-##### Os semáforos controlam a quantidade de acesso permitido (quando produzir ou consumir).
+#### Os semáforos controlam a quantidade de acesso permitido (quando produzir ou consumir).
 
 - `sem_t empty`: Esse semáforo representa quantas posições vazias há no buffer. Ele é inicializado com o tamanho total do buffer (por exemplo, BUFFER_SIZE). Cada vez que um produtor insere um item no buffer, ele decrementa empty, indicando que há uma posição a menos disponível. Se empty chegar a zero, o produtor precisa esperar até que o consumidor libere uma posição.
 
@@ -125,7 +125,7 @@ void* consumidor(void* arg) {
 
 ### Exclusão Mútua
 
-##### O mutex controla o acesso exclusivo à região crítica.
+#### O mutex controla o acesso exclusivo à região crítica.
 
 - `pthread_mutex_t mutex`: Esse mutex garante que apenas uma thread por vez possa acessar e modificar a estrutura do buffer. Quando uma thread quer inserir ou remover um item, ela deve trancar (lock) o mutex, fazer sua operação com segurança e então liberar (unlock) o mutex. Isso impede acessos simultâneos, evitando corrupção de dados ou inconsistências.
 
