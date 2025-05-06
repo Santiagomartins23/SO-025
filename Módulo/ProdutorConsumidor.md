@@ -234,9 +234,11 @@ O buffer enche rápido e força os produtores a competir mais por espaço, agrav
 ### 3. Sintomas Visíveis de Starvation
 Thread consumidora com baixa atividade em 9,1% de uso de CPU, enquanto threads produtoras resultam em 54,6%, 18,2% cada.
 
-Buffer sempre cheio, o que bloqueia produtores com sem_wait(&empty), gerando muitas syscalls.
+Buffer quase sempre cheio, o que bloqueia produtores com sem_wait(&empty), gerando muitas syscalls.
 
 Consumidor acordado com menos frequência, pois sem_post(&empty) é chamado por ele sozinho, enquanto sem_post(&full) acorda múltiplos produtores.
+
+A thread consumidora não sofre starvation absoluto, mas sim starvation relativo — recebe menos tempo de CPU do que o necessário para equilibrar o sistema, o que é suficiente para criar congestionamento e ineficiência.
 
 ### 4. Falta de Fairness
 O escalonador não consegue distribuir bem o tempo de CPU entre as threads.
