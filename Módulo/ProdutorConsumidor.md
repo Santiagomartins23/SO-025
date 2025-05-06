@@ -129,7 +129,11 @@ void* consumidor(void* arg) {
 ### Nesta seção, explicaremos a importância das funcionalidades que implementamos, e como eles impactam no resultados das operações, alterando nosso código solução.
 
 ## Caso Prático de Starvation
-Configuração Problemática:
+
+### 📌 O que é Starvation?
+Starvation (inanição) ocorre quando uma thread não consegue acessar recursos compartilhados por um período prolongado, ficando permanentemente bloqueada enquanto outras threads continuam a ser servidas.
+
+## Configuração Problemática:
 
 <pre>
 #define NUM_PRODUTORES 3
