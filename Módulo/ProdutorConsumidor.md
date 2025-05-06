@@ -147,7 +147,7 @@ Sem os semáforos, o produtor tenta escrever em posições inválidas quando o b
 ### Nesta seção, explicaremos a importância das funcionalidades que implementamos, e como eles impactam no resultados das operações, alterando nosso código solução.
 
 
-## Caso Prático de Semáforos
+## 1.Caso Prático de Semáforos
 
 ### Configuração Problemática:
 Vamos retirar os semáforos a fim de demonstrar a importância dos semáforos na execução e resultado do programa.
@@ -183,7 +183,7 @@ O uso de CPU por thread é mais baixo, mas isso não significa eficiência. Pelo
 A ausência de sincronização provavelmente gera condições de corrida, perda de dados, ou comportamentos erráticos.
 
 
-## Caso Prático de Starvation
+## 2.Caso Prático de Starvation
 
 ### 📌 O que é Starvation?
 Starvation (inanição) ocorre quando uma thread não consegue acessar recursos compartilhados por um período prolongado, ficando permanentemente ou temporariamente bloqueada enquanto outras threads continuam a ser servidas.
