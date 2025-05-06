@@ -165,6 +165,13 @@ Utilizamos o comando top -H -p para para obter estátisticas sobre a CPU e as th
 
 As threads ficam ativamente verificando se podem produzir ou consumir. Isso gera um loop constante: elas não dormem, não bloqueiam, ficam tentando sem parar.
 
+### Conclusão
+Código sem semáforo: A CPU parece menos ocupada, mas isso é ilusório: o sistema está mais ocioso (50.4%), e o tempo de CPU em kernel ainda é alto (40.8%) sem garantir segurança de dados.
+
+O uso de CPU por thread é mais baixo, o que pode parecer bom, mas significa que as threads não estão tão eficazes: gastam tempo em conflitos ou esperando por acesso inválido ao buffer.
+
+A ausência de sincronização provavelmente gera condições de corrida, perda de dados, ou comportamentos erráticos.
+
 
 ## Caso Prático de Starvation
 
