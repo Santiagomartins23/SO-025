@@ -174,7 +174,7 @@ Executam operações inválidas ou rápidas demais, como tentativas de acesso si
 Muitas vezes, apenas imprimem mensagens ou giram em loops rápidos, sem fazer computação real.
 
 ### Conclusão
-Código sem semáforo: A CPU parece menos ocupada, mas isso é ilusório: o sistema está mais ocioso (50.4%), e o tempo de CPU em kernel ainda é alto (40.8%) sem garantir segurança de dados.
+Código sem semáforo:
 
 A CPU pode parecer ociosa porque as threads ficam imprimindo mensagens rapidamente ou acessando o buffer de forma inválida, sem realizar trabalho útil real.
 
