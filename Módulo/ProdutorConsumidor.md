@@ -146,8 +146,10 @@ Sem os semáforos, o produtor tenta escrever em posições inválidas quando o b
 
 ### Nesta seção, explicaremos a importância das funcionalidades que implementamos, e como eles impactam no resultados das operações, alterando nosso código solução.
 
+
 ## Caso Prático de Semáforos
-## Configuração Problemática:
+
+### Configuração Problemática:
 Vamos retirar os semáforos a fim de demonstrar a importância dos semáforos na execução e resultado do programa.
 
 #### Exemplo de saída sem semáforos:
@@ -169,7 +171,7 @@ As threads ficam ativamente verificando se podem produzir ou consumir. Isso gera
 ### 📌 O que é Starvation?
 Starvation (inanição) ocorre quando uma thread não consegue acessar recursos compartilhados por um período prolongado, ficando permanentemente ou temporariamente bloqueada enquanto outras threads continuam a ser servidas.
 
-## Configuração Problemática:
+### Configuração Problemática:
 
 <pre>
 #define NUM_PRODUTORES 3
