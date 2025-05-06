@@ -156,7 +156,8 @@ Vamos retirar os semáforos a fim de demonstrar a importância dos semáforos na
 
 ![semwait9](https://github.com/user-attachments/assets/5415dd3c-11aa-4037-b65d-4a0e5dc8d7c0)
 
-O produtor acaba produzindo em posições que já estão ocupadas e não foram consumidas ainda e o consumidor acaba consumindo de posições que ja foram consumidas e que estão vazias.
+O produtor acaba produzindo em posições que já estão ocupadas e não foram consumidas ainda e o consumidor acaba consumindo de posições que ja foram consumidas e que estão vazias. isso gera dados inválidos, 
+condições de corrida, e impressões aleatórias/lixo.
 
 
 Utilizamos o comando top -H -p para para obter estátisticas sobre a CPU e as threads.
@@ -167,6 +168,10 @@ As threads ficam ativamente verificando se podem produzir ou consumir. Isso gera
 
 ### Conclusão
 Código sem semáforo: A CPU parece menos ocupada, mas isso é ilusório: o sistema está mais ocioso (50.4%), e o tempo de CPU em kernel ainda é alto (40.8%) sem garantir segurança de dados.
+
+Não há espera real por recursos compartilhados.
+
+A CPU fica ociosa ou pouco usada porque a thread não realiza computação intensa, apenas imprime coisas inúteis rapidamente.
 
 O uso de CPU por thread é mais baixo, o que pode parecer bom, mas significa que as threads não estão tão eficazes: gastam tempo em conflitos ou esperando por acesso inválido ao buffer.
 
