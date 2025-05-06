@@ -169,11 +169,9 @@ As threads ficam ativamente verificando se podem produzir ou consumir. Isso gera
 ### Conclusão
 Código sem semáforo: A CPU parece menos ocupada, mas isso é ilusório: o sistema está mais ocioso (50.4%), e o tempo de CPU em kernel ainda é alto (40.8%) sem garantir segurança de dados.
 
-Não há espera real por recursos compartilhados.
+A CPU pode parecer ociosa porque as threads ficam imprimindo mensagens rapidamente ou acessando o buffer de forma inválida, sem realizar trabalho útil real.
 
-A CPU fica ociosa ou pouco usada porque a thread não realiza computação intensa, apenas imprime coisas inúteis rapidamente.
-
-O uso de CPU por thread é mais baixo, o que pode parecer bom, mas significa que as threads não estão tão eficazes: gastam tempo em conflitos ou esperando por acesso inválido ao buffer.
+O uso de CPU por thread é mais baixo, mas isso não significa eficiência. Pelo contrário: pode significar que há condições de corrida, sobrescrita de dados, perda de itens produzidos, ou leitura de posições vazias.
 
 A ausência de sincronização provavelmente gera condições de corrida, perda de dados, ou comportamentos erráticos.
 
