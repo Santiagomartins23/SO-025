@@ -164,7 +164,7 @@ Utilizamos o comando top -H -p para para obter estátisticas sobre a CPU e as th
 
 ![topsemwait](https://github.com/user-attachments/assets/02291c06-61b8-40dc-a161-2a7fe7b32000)
 
-#### Alta ociosidade da CPU (75% id)
+### Alta ociosidade da CPU (75% id)
 Esse comportamento ocorre porque, sem os semáforos controlando corretamente o acesso ao buffer, as threads produtoras e consumidoras:
 
 Não esperam de forma eficiente por recursos (como espaço no buffer ou itens para consumir);
