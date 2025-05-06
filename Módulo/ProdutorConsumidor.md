@@ -131,7 +131,7 @@ um item, ele incrementa empty (`sem_post(&empty)`).
 
 #### ❌ O que acontece se removermos os semáforos?
 
-Sem os semáforos, o produtor escreve em posições inválidas quando o buffer estiver cheio, e o consumidor consome do buffer mesmo estando vazio. Isso pode gerar comportamento incorreto ou falhas.
+Sem os semáforos, o produtor tenta escrever em posições inválidas quando o buffer estiver cheio, e o consumidor tenta consumir do buffer mesmo estando vazio. Isso pode gerar comportamento incorreto ou falhas.
 
 
 ### Exclusão Mútua
