@@ -145,6 +145,7 @@ Utilizamos o comando top -H -p para para obter estátisticas sobre a CPU e as th
 
 As threads ficam ativamente verificando se podem produzir ou consumir. Isso gera um loop constante: elas não dormem, não bloqueiam, ficam tentando sem parar.
 
+
 ### Exclusão Mútua
 
 #### O mutex controla o acesso exclusivo à região crítica.
