@@ -130,11 +130,13 @@ Saída do código acima executado:
 
 #### ❌ O que acontece se removermos os semáforos?
 
-Sem os semáforos, o produtor escreve em posições inválidas quando o buffer estiver cheio, e o consumidor lê do buffer mesmo estando vazio. Isso pode gerar comportamento incorreto ou falhas.
+Sem os semáforos, o produtor escreve em posições inválidas quando o buffer estiver cheio, e o consumidor consome do buffer mesmo estando vazio. Isso pode gerar comportamento incorreto ou falhas.
 
 #### Exemplo de saída sem semáforos:
 
 ![semwait9](https://github.com/user-attachments/assets/5415dd3c-11aa-4037-b65d-4a0e5dc8d7c0)
+
+O produtor acaba produzindo em posições que já estão ocupadas e não foram consumidas ainda e o consumidor acaba consumindo de posições que ja foram consumidas e que estão vazias.
 
 
 Utilizamos o comando top -H -p para para obter estátisticas sobre a CPU e as threads.
