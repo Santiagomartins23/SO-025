@@ -128,6 +128,15 @@ Saída do código acima executado:
 - `sem_t empty`: Esse semáforo representa quantas posições vazias há no buffer. Ele é inicializado com o tamanho total do buffer (por exemplo, BUFFER_SIZE). Cada vez que um produtor insere um item no buffer, ele decrementa empty, indicando que há uma posição a menos disponível. Se empty chegar a zero, o produtor precisa esperar até que o consumidor libere uma posição.
 
 - `sem_t full`: Esse semáforo representa quantas posições ocupadas há no buffer, é iniciado com `0`.. Ele é inicializado com 0, pois o buffer começa vazio. Quando o produtor insere um item, ele incrementa full. O consumidor só pode retirar um item se full for maior que zero — caso contrário, ele espera até que haja algo para consumir.
+  
+#### ❌ O que acontece se removermos os semáforos?
+
+Sem os semáforos, o produtor pode escrever em posições inválidas quando o buffer estiver cheio, e o consumidor pode tentar ler do buffer mesmo estando vazio. Isso pode gerar comportamento incorreto ou falhas.
+
+#### Exemplo de saída sem semáforos:
+
+![semwaitcerto](https://github.com/user-attachments/assets/7680de70-4a04-4f56-a950-67d3ade616f7)
+
 
 ### Exclusão Mútua
 
