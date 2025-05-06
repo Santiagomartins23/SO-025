@@ -194,6 +194,36 @@ MiB Swap:   3923.0 total,   3923.0 free,      0.0 used.   3391.4 avail Mem
    3895 gsograd+  20   0  101004   1408   1408 S   0.0   0.0   0:00.00 starvation
 </pre>
 
+## 🎯 Diagnóstico de Starvation – Pontos Críticos
+### 1. Alto Tempo em Syscall (70%)
+Tempo no kernel > user-space → Indica que o sistema está mais ocupado gerenciando concorrência (semáforos, mutexes) do que processando dados.
+
+Isso gera overhead de sincronização, reduzindo o tempo útil da CPU.
+
+### 2. Assimetria Produtor–Consumidor (3:1)
+Produção = 3x maior que consumo, criando um gargalo.
+
+O buffer enche rápido e força os produtores a competir mais por espaço, agravando o uso do kernel.
+
+### 3. Sintomas Visíveis de Starvation
+Thread consumidora com baixa atividade em 9,1% de uso de CPU, enquanto threads produtoras resultam em 54,6%, 18,2% cada.
+
+Buffer sempre cheio, o que bloqueia produtores com sem_wait(&empty), gerando muitas syscalls.
+
+Consumidor acordado com menos frequência, pois sem_post(&empty) é chamado por ele sozinho, enquanto sem_post(&full) acorda múltiplos produtores.
+
+### 4. Falta de Fairness
+O escalonador não consegue distribuir bem o tempo de CPU entre as threads.
+
+O mutex e os semáforos com acordes não justos (quem acorda pode não ser quem esperava há mais tempo) contribuem para o starvation da thread consumidora.
+
+## Conclusão
+
+O sistema sofre de um thrashing de concorrência, onde o custo para gerenciar threads (70% em syscall) supera o trabalho útil realizado. A assimetria entre produtores e consumidores (3:1) causa um gargalo crônico, levando à starvation temporária da thread consumidora, que permanece inativa por longos períodos enquanto o buffer fica constantemente cheio.
+
+Além disso, a falta de fairness no acordar de threads agrava o problema — o consumidor não recebe tempo de CPU suficiente, e produtores monopolizam os recursos. Isso demonstra que fairness em sistemas é essencial para evitar inanição de threads ou processos, e garantir uma execução equilibrada. Um controle adequado da proporção entre produtores e consumidores é fundamental para evitar sobrecarga, reduzir overhead e permitir que o sistema processe dados de forma eficiente.
+
+
 gabriel
 gabrielhuemer
 Invisível
