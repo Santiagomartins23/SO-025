@@ -143,7 +143,7 @@ Saída do código acima executado:
 ## Caso Prático de Starvation
 
 ### 📌 O que é Starvation?
-Starvation (inanição) ocorre quando uma thread não consegue acessar recursos compartilhados por um período prolongado, ficando permanentemente bloqueada enquanto outras threads continuam a ser servidas.
+Starvation (inanição) ocorre quando uma thread não consegue acessar recursos compartilhados por um período prolongado, ficando permanentemente ou temporariamente bloqueada enquanto outras threads continuam a ser servidas.
 
 ## Configuração Problemática:
 
