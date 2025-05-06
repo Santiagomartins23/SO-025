@@ -136,11 +136,12 @@ Sem os semáforos, o produtor escreve em posições inválidas quando o buffer e
 
 ![semwait9](https://github.com/user-attachments/assets/5415dd3c-11aa-4037-b65d-4a0e5dc8d7c0)
 
-As threads ficam ativamente verificando se podem produzir ou consumir. Isso gera um loop constante: elas não dormem, não bloqueiam, ficam tentando sem parar.
 
 Utilizamos o comando top -H -p para para obter estátisticas sobre a CPU e as threads.
 
 ![topsemwait](https://github.com/user-attachments/assets/02291c06-61b8-40dc-a161-2a7fe7b32000)
+
+As threads ficam ativamente verificando se podem produzir ou consumir. Isso gera um loop constante: elas não dormem, não bloqueiam, ficam tentando sem parar.
 
 ### Exclusão Mútua
 
