@@ -150,7 +150,7 @@ Starvation (inanição) ocorre quando uma thread não consegue acessar recursos 
 
 ### Quando o buffer está cheio:
 
--Produtores tentam produzir e ficam bloqueados em sem_wait(&empty)
+-Produtores tentam produzir e ficam bloqueados em ´sem_wait(&empty)´
 
 -O consumidor libera espaços, mas sempre acorda outro produtor em vez de dar chance para outros consumidores
 
