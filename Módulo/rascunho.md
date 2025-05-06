@@ -137,9 +137,7 @@ Sem os semáforos, o produtor pode escrever em posições inválidas quando o bu
 
 ![semwait9](https://github.com/user-attachments/assets/5415dd3c-11aa-4037-b65d-4a0e5dc8d7c0)
 
-
-
-
+Utilizamos o comando top -H -p para 
 
 ### Exclusão Mútua
 
