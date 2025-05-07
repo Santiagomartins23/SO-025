@@ -331,6 +331,8 @@ Como várias threads acessam e modificam in, out e o buffer ao mesmo tempo, ocor
 
 Exemplo: 
 ![imagem56](https://github.com/user-attachments/assets/15e47ad0-aee3-430e-a735-f26b222b12e7)
+
+
 O mesmo valor aparece consumido duas vezes, ou consumido mesmo após ter sido sobrescrito.
 
 - 3. ##### Perda de dados:
