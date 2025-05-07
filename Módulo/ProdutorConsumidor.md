@@ -354,7 +354,7 @@ Exemplo:
 → O consumidor pegou algo da posição 0 antes de o produtor produzir qualquer coisa ali, violando a lógica correta.
 
 
-- 2. ### Perda de dados:
+- ### 2.  Perda de dados:
 
 Um item pode ser sobrescrito antes de ser consumido. Isso acontece porque as operações deixam de ser atômicas.
 
