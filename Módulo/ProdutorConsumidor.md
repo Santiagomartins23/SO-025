@@ -143,7 +143,7 @@ Usando o comando `./pc`, a saída do código acima:
 
 Agora, usando o comando para encontrar o id do processo `pid pc` e em seguida `top -H -p <pid>` :
 
-print
+![Captura de tela 2025-05-07 175815](https://github.com/user-attachments/assets/b919d02f-07d9-445b-ada3-a03855bc6c8b)
 
 ## Conclusão 
 A análise dos resultados apresentam claramente o funcionamento do programa produtor-consumidor em execução, demonstrando vários aspectos importantes da solução implementada:
