@@ -257,7 +257,7 @@ Utilizamos o comando `top -H -p $(pgrep starvation) -n 1 -b` para obter estátis
 ![Captura de tela 2025-05-07 181617](https://github.com/user-attachments/assets/f2d4ff32-1104-464b-ad89-f74adafc9262)
 
 ## 🎯 Diagnóstico de Starvation – Pontos Críticos
-### 1. Alto Tempo em Syscall (70%)
+### 1. Alto Tempo em Syscall (71.8%)
 Tempo no kernel > user-space → Indica que o sistema está mais ocupado gerenciando concorrência (semáforos, mutexes) do que processando dados.
 
 Isso gera overhead de sincronização, reduzindo o tempo útil da CPU.
@@ -266,9 +266,9 @@ Isso gera overhead de sincronização, reduzindo o tempo útil da CPU.
 Produção = 3x maior que consumo, criando um gargalo.
 
 O buffer enche rápido e força os produtores a competir mais por espaço, agravando o uso do kernel.
-
+ 
 ### 3. Sintomas Visíveis de Starvation
-Thread consumidora com baixa atividade em 9,1% de uso de CPU, enquanto threads produtoras resultam em 54,6%, 18,2% cada.
+Thread consumidora com baixa atividade em 26.9% de uso de CPU, enquanto threads produtoras resultam em 49.9%.
 
 Buffer quase sempre cheio, o que bloqueia produtores com sem_wait(&empty), gerando muitas syscalls.
 
@@ -283,7 +283,7 @@ O mutex e os semáforos com acordes não justos (quem acorda pode não ser quem 
 
 ## Conclusão
 
-O sistema sofre de um thrashing de concorrência, onde o custo para gerenciar threads (70% em syscall) supera o trabalho útil realizado. A assimetria entre produtores e consumidores (3:1) causa um gargalo crônico, levando à starvation temporária da thread consumidora, que permanece inativa por longos períodos enquanto o buffer fica constantemente cheio.
+O sistema sofre de um thrashing de concorrência, onde o custo para gerenciar threads (71.8% em syscall) supera o trabalho útil realizado. A assimetria entre produtores e consumidores (3:1) causa um gargalo crônico, levando à starvation temporária da thread consumidora, que permanece inativa por longos períodos enquanto o buffer fica constantemente cheio.
 
 Além disso, a falta de fairness no acordar de threads agrava o problema — o consumidor não recebe tempo de CPU suficiente, e produtores monopolizam os recursos. Isso demonstra que fairness em sistemas é essencial para evitar inanição de threads ou processos, e garantir uma execução equilibrada. Um controle adequado da proporção entre produtores e consumidores é fundamental para evitar sobrecarga, reduzir overhead e permitir que o sistema processe dados de forma eficiente.
 
