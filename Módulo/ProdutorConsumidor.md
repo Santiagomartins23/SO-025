@@ -119,8 +119,6 @@ Usando o comando `./pc`, a saída do código acima:
 
 Agora, usando o comando para encontrar o id do processo `pid pc` e em seguida `top -H -p <pid>` :
 
-print do top
-
 ```
 top - 17:57:28 up 2 days, 11:57,  4 users,  load average: 4.71, 1.58, 0.57
 Threads:   5 total,   2 running,   3 sleeping,   0 stopped,   0 zombie
