@@ -356,7 +356,7 @@ Exemplo:
 
 - ### 2.  Perda de dados:
 
-Um item pode ser sobrescrito antes de ser consumido. Isso acontece porque as operações deixam de ser atômicas.
+Quando não utilizamos mutex, as operações de escrita no buffer por diferentes threads produtoras não são atômicas, ou seja, podem ser interrompidas durante a produção. Isso permite que duas threads acessem a mesma posição do buffer ao mesmo tempo, utilizando o mesmo valor da variável in. Como resultado, uma thread pode sobrescrever o valor produzido pela outra antes que ele seja consumido. Assim, o item original é perdido sem nunca ter sido lido.
 
 
 ### 📊 Por Que os Semáforos Sozinhos Não São Suficientes?
