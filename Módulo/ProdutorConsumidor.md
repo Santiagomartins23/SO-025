@@ -305,12 +305,12 @@ printf("[Consumidor] Consumiu %d da posicao %d\n", item, out);
 out = (out + 1) % BUFFER_SIZE;
 
 pthread_mutex_unlock(&mutex); // FIM DA REGIÃO CRÍTICA
-sem_post(&empty); 
+sem_post(&empty);
 ```
 
 Sem esse controle, é possível que duas threads acessem  `buffer[in]` ou `buffer[out]` ao mesmo tempo, causando condições de corrida.
 
-#### 🚫 O Que Acontece se o Mutex for Removido?
+### 🚫 O Que Acontece se o Mutex for Removido?
 Se você remover as linhas:
 
 `pthread_mutex_lock(&mutex);`
@@ -318,5 +318,44 @@ e
 `pthread_mutex_unlock(&mutex);`
 
 das `funções produtor()` e `consumidor()`, o programa ainda irá compilar e rodar, mas o comportamento se torna imprevisível.
+
+#### 💥 Problemas Observados ao Remover o Mutex
+
+- 1. ##### Condições de Corrida (Race Conditions):
+
+Como várias threads acessam e modificam in, out e o buffer ao mesmo tempo, ocorrem situações como:
+- Dois produtores escrevendo na mesma posição
+- Um consumidor lendo uma posição ainda não preenchida
+
+- 2. ##### Saídas incoerentes no terminal:
+
+Exemplo: 
+![imagem56](https://github.com/user-attachments/assets/15e47ad0-aee3-430e-a735-f26b222b12e7)
+O mesmo valor aparece consumido duas vezes, ou consumido mesmo após ter sido sobrescrito.
+
+- 3. ##### Perda de dados:
+
+Um item pode ser sobrescrito antes de ser consumido. Isso acontece porque as operações deixam de ser atômicas.
+
+- 4. ##### Comportamento não determinístico:
+
+Cada execução pode gerar um resultado diferente, mesmo sem mudar o código. Isso indica uma violação da lógica do algoritmo.
+
+### 📊 Por Que os Semáforos Sozinhos Não São Suficientes?
+
+Mesmo com o uso correto de:
+
+`sem_wait(&empty);`
+`sem_post(&full);`
+
+e vice-versa, o problema persiste, pois os semáforos apenas controlam a quantidade de elementos disponíveis para produzir ou consumir — eles não protegem o acesso simultâneo à memória compartilhada.
+
+### 🧵  Análise via top -H (comando para visualizar threads individualmente)
+![IMAGEMREADME](https://github.com/user-attachments/assets/cbf87f37-063d-40f8-82b4-0fa7df5b3273)
+
+No print acima, o comando top -H foi utilizado para monitorar as threads individualmente dentro de um processo. Cada linha representa uma thread criada pelo programa, com detalhes como PID, uso de CPU, uso de memória e tempo de execução.
+
+#### 🔍 Observação importante: %Cpu(s): 99.8 id
+No topo da saída, o valor %Cpu(s): 99.8 id indica que cerca de 99.8% do tempo o processador está ocioso, ou seja, as threads passam a maior parte do tempo aguardando recursos para continuar sua execução. Isso é esperado em aplicações com sincronização baseada em semáforos, onde as chamadas sem_wait() fazem com que as threads bloqueiem até que uma condição seja satisfeita.
 
 
