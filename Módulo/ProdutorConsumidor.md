@@ -137,9 +137,9 @@ MiB Swap:   3923.0 total,   3923.0 free,      0.0 used.   3326.5 avail Mem
 ```
 
 ## Conclusão 
-A análise do comando top mostra claramente o funcionamento do programa Produtor-Consumidor em execução, demonstrando vários aspectos importantes da solução implementada:
+A análise dos resultados apresentam claramente o funcionamento do programa produtor-consumidor em execução, demonstrando vários aspectos importantes da solução implementada:
 
-**Concorrência e Paralelismo:** O programa está executando com 5 threads no total (2 running e 3 sleeping, e alterna conforme a dominância do buffer, isto é em um instante produtores dominam, em outro consumidores dominam), o que indica que a solução está utilizando efetivamente a programação concorrente através da biblioteca pthreads.
+**Concorrência e Paralelismo:** O programa está executando com 5 threads no total (2 running e 3 sleeping, e alterna conforme a dominância do buffer, isto é em um instante produtores dominam, em outro consumidores dominam), o que indica que a solução está utilizando efetivamente a programação concorrente através da biblioteca pthreads. Também, é notável o isolamento do kernel conforme o saída do código, pois não existem duas threads ocupando a mesma posição no buffer simultaneamente (race condition). 
 
 **Controle de Processamento:** A distribuição de threads em estados running e sleeping mostra que o programa está gerenciando adequadamente a espera ociosa, colocando threads para dormir quando necessário (3 sleeping) e acordando-as quando há trabalho a ser feito (2 running).
 
