@@ -254,21 +254,7 @@ Resultado:
 
 Utilizamos o comando `top -H -p $(pgrep starvation) -n 1 -b` para obter estátisticas sobre a CPU e as threads.
 
-<pre>
-
-top - 22:42:44 up 16:42,  5 users,  load average: 3.57, 2.22, 1.27
-Threads:   5 total,   3 running,   2 sleeping,   0 stopped,   0 zombie
-%Cpu(s): 10.0 us, 70.0 sy,  0.0 ni, 15.0 id,  0.0 wa,  0.0 hi,  5.0 si,  0.0 st
-MiB Mem :   3916.0 total,   2742.1 free,    524.6 used,    889.5 buff/cache
-MiB Swap:   3923.0 total,   3923.0 free,      0.0 used.   3391.4 avail Mem
-
-    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
-   3897 gsograd+  20   0  101004   1408   1408 R  18.2   0.0   0:18.41 starvation
-   3898 gsograd+  20   0  101004   1408   1408 R  18.2   0.0   0:18.59 starvation
-   3899 gsograd+  20   0  101004   1408   1408 R  18.2   0.0   0:31.58 starvation
-   3896 gsograd+  20   0  101004   1408   1408 S   9.1   0.0   0:18.50 starvation
-   3895 gsograd+  20   0  101004   1408   1408 S   0.0   0.0   0:00.00 starvation
-</pre>
+![Captura de tela 2025-05-07 181617](https://github.com/user-attachments/assets/f2d4ff32-1104-464b-ad89-f74adafc9262)
 
 ## 🎯 Diagnóstico de Starvation – Pontos Críticos
 ### 1. Alto Tempo em Syscall (70%)
