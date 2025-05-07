@@ -333,9 +333,9 @@ Exemplo:
 
 ![imagem56](https://github.com/user-attachments/assets/15e47ad0-aee3-430e-a735-f26b222b12e7)
 
-#### 📌 Evidências de Condição de Corrida no Resultado
+### 📌 Evidências de Condição de Corrida no Resultado
 
-##### 🔁 Valores duplicados consumidos:
+#### 🔁 Valores duplicados consumidos:
 
  [Produtor] Produziu 71 na posicao 2 
 
@@ -345,7 +345,7 @@ Exemplo:
 
 → O item 36 foi consumido duas vezes, mesmo que o produtor já tivesse colocado 71 na posição 2.
 
-##### ❌ Item consumido antes de ser produzido:
+#### ❌ Item consumido antes de ser produzido:
 
 [Consumidor] Consumiu 24 da posicao 0
 
