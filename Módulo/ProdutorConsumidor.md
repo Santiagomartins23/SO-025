@@ -152,9 +152,9 @@ A análise dos resultados apresentam claramente o funcionamento do programa prod
 
 **Controle de Processamento:** A distribuição de threads em estados running e sleeping mostra que o programa está gerenciando adequadamente a espera ociosa, colocando threads para dormir quando necessário (3 sleeping) e acordando-as quando há trabalho a ser feito (2 running).
 
-**Uso de CPU:** O alto percentual de CPU no modo sistema (78.6% sy) sugere que há muita coordenação entre threads (operações de sincronização), enquanto o uso em modo usuário (12.2% us) indica o tempo gasto no processamento real das tarefas.
+**Uso de CPU:** O alto percentual de CPU no modo sistema (82.4 sy) sugere que há muita coordenação entre threads (operações de sincronização), enquanto o uso em modo usuário (11.0 us) indica o tempo gasto no processamento real das tarefas.
 
-**Balanceamento:** As threads do programa (pc) estão consumindo porcentagens similares de CPU (entre 10.0% e 11.6%), indicando um bom balanceamento entre produtores e consumidores.
+**Balanceamento:** As threads do programa (pc) estão consumindo porcentagens similares de CPU (entre 12.3% e 10.7%), indicando um bom balanceamento entre produtores e consumidores.
 
 **Eficiência:** A ausência de threads em estado zombie ou stopped mostra que o programa está gerenciando corretamente o ciclo de vida das threads.
 
