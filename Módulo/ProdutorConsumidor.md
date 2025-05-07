@@ -117,6 +117,12 @@ Usando o comando `./pc`, a saída do código acima:
 
 ![saidacertaa](https://github.com/user-attachments/assets/b9b44b5a-b385-48fb-b55e-f63e0e156e0d)
 
+Agora, usando o comando para encontrar o id do processo `pid pc` e em seguida `top -H -p <pid>` :
+
+print do top
+
+## Conclusão 
+
 ## 🔐 Controle de Concorrência
 
 ### Semáforos
