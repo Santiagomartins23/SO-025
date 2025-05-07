@@ -279,7 +279,7 @@ O mutex é usado para proteger a região crítica — o trecho de código onde b
 
 ##### Na função do produtor:
 
-- ``` sem_wait(&empty);
+- '''C sem_wait(&empty);
 pthread_mutex_lock(&mutex); // INÍCIO DA REGIÃO CRÍTICA
 
 buffer[in] = item;
@@ -287,7 +287,7 @@ printf("[Produtor] Produziu %d na posicao %d\n",item, in);
 in = (in + 1) % BUFFER_SIZE;
 
 pthread_mutex_unlock(&mutex); // FIM DA REGIÃO CRÍTICA
-sem_post(&full);' ```
+sem_post(&full);' '''
 
 ##### Na função do consumidor:
 
