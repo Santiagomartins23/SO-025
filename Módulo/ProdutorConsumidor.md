@@ -337,8 +337,10 @@ Exemplo:
 
 ##### 🔁 Valores duplicados consumidos:
 
-[Produtor] Produziu 71 na posicao 2
+ [Produtor] Produziu 71 na posicao 2 
+
 [Consumidor] Consumiu 36 da posicao 2
+
 [Consumidor] Consumiu 36 da posicao 2
 
 → O item 36 foi consumido duas vezes, mesmo que o produtor já tivesse colocado 71 na posição 2.
@@ -346,6 +348,7 @@ Exemplo:
 ##### ❌ Item consumido antes de ser produzido:
 
 [Consumidor] Consumiu 24 da posicao 0
+
 [Produtor] Produziu 50 na posicao 0
 
 → O consumidor pegou algo da posição 0 antes de o produtor produzir qualquer coisa ali, violando a lógica correta.
