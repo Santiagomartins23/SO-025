@@ -183,7 +183,7 @@ Código sem semáforo:
 
 A CPU pode parecer ociosa porque as threads ficam imprimindo mensagens rapidamente ou acessando o buffer de forma inválida, sem realizar trabalho útil real.
 
-O uso de CPU por thread é mais baixo, mas isso não significa eficiência. Pelo contrário: pode significar que há condições de corrida, sobrescrita de dados, perda de itens produzidos, ou leitura de posições vazias.
+O uso de CPU por thread é mais baixo, mas isso não significa eficiência. Pelo contrário: pode significar que há condições de corrida, sobrescrita de dados, perda de itens produzidos, ou leitura de posições vazias, forçando a CPU a realizar muitas operações I/O bound desnecessáriamente.
 
 A ausência de sincronização provavelmente gera condições de corrida, perda de dados, ou comportamentos erráticos.
 
