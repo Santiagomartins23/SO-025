@@ -268,7 +268,7 @@ O sistema sofre de um thrashing de concorrência, onde o custo para gerenciar th
 
 Além disso, a falta de fairness no acordar de threads agrava o problema — o consumidor não recebe tempo de CPU suficiente, e produtores monopolizam os recursos. Isso demonstra que fairness em sistemas é essencial para evitar inanição de threads ou processos, e garantir uma execução equilibrada. Um controle adequado da proporção entre produtores e consumidores é fundamental para evitar sobrecarga, reduzir overhead e permitir que o sistema processe dados de forma eficiente.
 
-## SEM MUTEX
+## 3. Sem Mutex
 
 #### O que é um mutex?
 
