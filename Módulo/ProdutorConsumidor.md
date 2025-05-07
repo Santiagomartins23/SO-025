@@ -193,6 +193,19 @@ Executam operações inválidas ou rápidas demais, como tentativas de acesso si
 
 Muitas vezes, apenas imprimem mensagens ou giram em loops rápidos, sem fazer computação real.
 
+### Threads em estado "sleeping" 
+A ausência dos semáforos de controle (full e empty) no programa resulta em falhas na sincronização entre produtores e consumidores. Isso ocorre porque:
+
+Consumidores podem tentar acessar o buffer mesmo quando ele está vazio.
+
+Ao não encontrarem itens para consumir, essas threads entram em espera indefinida, ficando no estado "sleeping", aguardando por uma condição que nunca será satisfeita.
+
+Como os semáforos que controlam a disponibilidade de itens (full) e de espaços livres (empty) não estão presentes, nenhuma outra thread é responsável por acordar os consumidores.
+
+O mutex, por si só, apenas garante exclusão mútua, mas não impede condições inválidas, como tentar consumir de um buffer vazio ou produzir em um cheio.
+
+Consequentemente, todas as threads acabam bloqueadas, causando deadlock ou paralisação da ação real do sistema.
+
 ### 🎯Conclusão
 Código sem semáforo:
 
