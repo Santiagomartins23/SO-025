@@ -327,7 +327,7 @@ Como várias threads acessam e modificam in, out e o buffer ao mesmo tempo, ocor
 - Dois produtores escrevendo na mesma posição
 - Um consumidor lendo uma posição ainda não preenchida
 
-- 2. ##### Saídas incoerentes no terminal:
+-  ##### Essas situações geram saídas incoerentes no terminal:
 
 Exemplo:
 
