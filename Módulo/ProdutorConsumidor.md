@@ -121,6 +121,23 @@ Agora, usando o comando para encontrar o id do processo `pid pc` e em seguida `t
 
 print do top
 
+```
+top - 17:57:28 up 2 days, 11:57,  4 users,  load average: 4.71, 1.58, 0.57
+Threads:   5 total,   2 running,   3 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 12.2 us, 78.6 sy,  0.0 ni,  2.0 id,  0.0 wa,  0.0 hi,  7.1 si,  0.0 st
+MiB Mem :   3916.0 total,    662.7 free,    589.4 used,   2966.6 buff/cache
+MiB Swap:   3923.0 total,   3923.0 free,      0.0 used.   3326.5 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+  46825 gsograd+  20   0  101004   1536   1408 S  11.6   0.0   0:18.99 pc
+  46827 gsograd+  20   0  101004   1536   1408 S  11.3   0.0   0:18.71 pc
+  46828 gsograd+  20   0  101004   1536   1408 R  10.3   0.0   0:18.84 pc
+  46826 gsograd+  20   0  101004   1536   1408 R  10.0   0.0   0:18.88 pc
+  46824 gsograd+  20   0  101004   1536   1408 S   0.0   0.0   0:00.00 pc
+
+
+```
+
 ## Conclusão 
 
 ## 🔐 Controle de Concorrência
