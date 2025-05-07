@@ -112,6 +112,30 @@ void* consumidor(void* arg) {
 }
 </pre>
 ---
+
+## 🔐 Controle de Concorrência
+
+### Importância dos Semáforos
+
+#### Os semáforos controlam a quantidade de acesso permitido (quando produzir ou consumir).
+
+- `sem_t empty`: Esse semáforo representa quantas posições vazias há no buffer. Ele é inicializado com o tamanho total do buffer (por exemplo, BUFFER_SIZE). Cada vez que um produtor insere um item no buffer, ele decrementa empty (`sem_wait(&empty)`), indicando que há uma posição a menos disponível. Se empty chegar a zero, o produtor precisa esperar até que o consumidor libere uma posição. Cada vez que o consumidor consome
+um item, ele incrementa empty (`sem_post(&empty)`).
+
+- `sem_t full`: Esse semáforo representa quantas posições ocupadas há no buffer, é iniciado com `0`.. Ele é inicializado com 0, pois o buffer começa vazio. Quando o produtor insere um item, ele incrementa full (`sem_post(&full)`). O consumidor só pode retirar um item se full for maior que zero — caso contrário, ele espera até que haja algo para consumir. Quando o consumidor consome um item, ele decrementa full (`sem_wait(&full)`).
+
+#### ❌ O que acontece se removermos os semáforos?
+
+Sem os semáforos, o produtor tenta escrever em posições inválidas quando o buffer estiver cheio, e o consumidor tenta consumir do buffer mesmo estando vazio. Isso pode gerar comportamento incorreto ou falhas.
+
+
+### Importância da Exclusão Mútua
+
+#### O mutex controla o acesso exclusivo à região crítica.
+
+- `pthread_mutex_t mutex`: Esse mutex garante que apenas uma thread por vez possa acessar e modificar a estrutura do buffer. Quando uma thread quer inserir ou remover um item, ela deve trancar (lock) o mutex, fazer sua operação com segurança e então liberar (unlock) o mutex. Isso impede acessos simultâneos, evitando corrupção de dados ou inconsistências.
+
+---
 ## Resultado
 Usando o comando `./pc`, a saída do código acima:
 
@@ -150,28 +174,6 @@ A análise dos resultados apresentam claramente o funcionamento do programa prod
 **Eficiência:** A ausência de threads em estado zombie ou stopped mostra que o programa está gerenciando corretamente o ciclo de vida das threads.
 
 **Controle de Recursos:** O baixo uso de memória (0% MEM) sugere que o buffer compartilhado está sendo dimensionado adequadamente e que não há vazamentos de memória.
-
-## 🔐 Controle de Concorrência
-
-### Semáforos
-
-#### Os semáforos controlam a quantidade de acesso permitido (quando produzir ou consumir).
-
-- `sem_t empty`: Esse semáforo representa quantas posições vazias há no buffer. Ele é inicializado com o tamanho total do buffer (por exemplo, BUFFER_SIZE). Cada vez que um produtor insere um item no buffer, ele decrementa empty (`sem_wait(&empty)`), indicando que há uma posição a menos disponível. Se empty chegar a zero, o produtor precisa esperar até que o consumidor libere uma posição. Cada vez que o consumidor consome
-um item, ele incrementa empty (`sem_post(&empty)`).
-
-- `sem_t full`: Esse semáforo representa quantas posições ocupadas há no buffer, é iniciado com `0`.. Ele é inicializado com 0, pois o buffer começa vazio. Quando o produtor insere um item, ele incrementa full (`sem_post(&full)`). O consumidor só pode retirar um item se full for maior que zero — caso contrário, ele espera até que haja algo para consumir. Quando o consumidor consome um item, ele decrementa full (`sem_wait(&full)`).
-
-#### ❌ O que acontece se removermos os semáforos?
-
-Sem os semáforos, o produtor tenta escrever em posições inválidas quando o buffer estiver cheio, e o consumidor tenta consumir do buffer mesmo estando vazio. Isso pode gerar comportamento incorreto ou falhas.
-
-
-### Exclusão Mútua
-
-#### O mutex controla o acesso exclusivo à região crítica.
-
-- `pthread_mutex_t mutex`: Esse mutex garante que apenas uma thread por vez possa acessar e modificar a estrutura do buffer. Quando uma thread quer inserir ou remover um item, ela deve trancar (lock) o mutex, fazer sua operação com segurança e então liberar (unlock) o mutex. Isso impede acessos simultâneos, evitando corrupção de dados ou inconsistências.
 
 ---
 
