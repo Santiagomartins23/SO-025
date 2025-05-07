@@ -139,6 +139,19 @@ MiB Swap:   3923.0 total,   3923.0 free,      0.0 used.   3326.5 avail Mem
 ```
 
 ## Conclusão 
+A análise do comando top mostra claramente o funcionamento do programa Produtor-Consumidor em execução, demonstrando vários aspectos importantes da solução implementada:
+
+**Concorrência e Paralelismo:** O programa está executando com 5 threads no total (2 running e 3 sleeping, e alterna conforme a dominância do buffer, isto é em um instante produtores dominam, em outro consumidores dominam), o que indica que a solução está utilizando efetivamente a programação concorrente através da biblioteca pthreads.
+
+**Controle de Processamento:** A distribuição de threads em estados running e sleeping mostra que o programa está gerenciando adequadamente a espera ociosa, colocando threads para dormir quando necessário (3 sleeping) e acordando-as quando há trabalho a ser feito (2 running).
+
+**Uso de CPU:** O alto percentual de CPU no modo sistema (78.6% sy) sugere que há muita coordenação entre threads (operações de sincronização), enquanto o uso em modo usuário (12.2% us) indica o tempo gasto no processamento real das tarefas.
+
+**Balanceamento:** As threads do programa (pc) estão consumindo porcentagens similares de CPU (entre 10.0% e 11.6%), indicando um bom balanceamento entre produtores e consumidores.
+
+**Eficiência:** A ausência de threads em estado zombie ou stopped mostra que o programa está gerenciando corretamente o ciclo de vida das threads.
+
+**Controle de Recursos:** O baixo uso de memória (0% MEM) sugere que o buffer compartilhado está sendo dimensionado adequadamente e que não há vazamentos de memória.
 
 ## 🔐 Controle de Concorrência
 
