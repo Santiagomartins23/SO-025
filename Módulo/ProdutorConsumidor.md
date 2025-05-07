@@ -307,3 +307,5 @@ out = (out + 1) % BUFFER_SIZE;
 pthread_mutex_unlock(&mutex); // FIM DA REGIÃO CRÍTICA
 sem_post(&empty); 
 ```
+
+Sem esse controle, é possível que duas threads acessem buffer[in] ou buffer[out] ao mesmo tempo, causando condições de corrida.
