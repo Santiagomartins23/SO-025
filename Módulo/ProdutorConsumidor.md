@@ -270,3 +270,34 @@ Além disso, a falta de fairness no acordar de threads agrava o problema — o c
 
 ## SEM MUTEX
 
+#### O que é um mutex?
+
+Um mutex é uma ferramenta de sincronização usada para garantir que somente um thread tenha acesso a uma parte crítica do código ou recurso compartilhado por vez. Sem ele, múltiplos threads poderiam acessar e modificar o mesmo recurso simultaneamente, o que causaria condições de corrida, resultando em dados corrompidos ou comportamento inesperado do programa.
+
+### 🧱 Onde o Mutex é Utilizado no Código
+O mutex é usado para proteger a região crítica — o trecho de código onde buffer, in e out são acessados e modificados.
+
+##### Na função do produtor:
+
+- 'sem_wait(&empty);
+pthread_mutex_lock(&mutex); // INÍCIO DA REGIÃO CRÍTICA
+
+buffer[in] = item;
+printf("[Produtor] Produziu %d na posicao %d\n",item, in);
+in = (in + 1) % BUFFER_SIZE;
+
+pthread_mutex_unlock(&mutex); // FIM DA REGIÃO CRÍTICA
+sem_post(&full);`
+
+##### Na função do consumidor:
+
+'sem_wait(&full);
+pthread_mutex_lock(&mutex); // INÍCIO DA REGIÃO CRÍTICA
+
+int item = buffer[out];
+printf("[Consumidor] Consumiu %d da posicao %d\n", item, out);
+out = (out + 1) % BUFFER_SIZE;
+
+pthread_mutex_unlock(&mutex); // FIM DA REGIÃO CRÍTICA
+sem_post(&empty);'
+
