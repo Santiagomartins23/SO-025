@@ -309,3 +309,14 @@ sem_post(&empty);
 ```
 
 Sem esse controle, é possível que duas threads acessem  `buffer[in]` ou `buffer[out]` ao mesmo tempo, causando condições de corrida.
+
+#### 🚫 O Que Acontece se o Mutex for Removido?
+Se você remover as linhas:
+
+`pthread_mutex_lock(&mutex);`
+e
+`pthread_mutex_unlock(&mutex);`
+
+das `funções produtor()` e `consumidor()`, o programa ainda irá compilar e rodar, mas o comportamento se torna imprevisível.
+
+
