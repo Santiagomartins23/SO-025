@@ -287,7 +287,7 @@ printf("[Produtor] Produziu %d na posicao %d\n",item, in);
 in = (in + 1) % BUFFER_SIZE;
 
 pthread_mutex_unlock(&mutex); // FIM DA REGIÃO CRÍTICA
-sem_post(&full);' '''
+sem_post(&full); '''
 
 ##### Na função do consumidor:
 
