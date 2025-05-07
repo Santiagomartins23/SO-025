@@ -329,7 +329,8 @@ Como várias threads acessam e modificam in, out e o buffer ao mesmo tempo, ocor
 
 - 2. ##### Saídas incoerentes no terminal:
 
-Exemplo: 
+Exemplo:
+
 ![imagem56](https://github.com/user-attachments/assets/15e47ad0-aee3-430e-a735-f26b222b12e7)
 
 
