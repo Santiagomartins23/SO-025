@@ -39,7 +39,7 @@ MemoryManager manager(
             32,       // Address bits (32-bit)
             65536,    // Physical memory (64KB)
             1048576,  // Secondary memory (1MB)
-            MemoryManager::CLOCK  // Replacement algorithm
+            MemoryManager::AlgoritimoSelecionado  // Replacement algorithm
         );
 ```
 # EXPLICAR A ESTRUTURA DA MAIN 
