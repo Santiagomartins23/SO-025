@@ -1,90 +1,136 @@
 # Simulador de Gerenciamento de Memória Virtual com Paginação
 
-Projeto desenvolvido para a disciplina de Sistemas Operacionais (Módulo 3 - ICMC/USP), com o objetivo de simular o funcionamento da memória virtual com paginação, incluindo leitura de arquivos de entrada, alocação de processos, substituição de páginas e gerenciamento de faltas de página.
+## 1. Introdução
+Este projeto implementa um simulador de gerenciamento de memória virtual usando paginação, o código deste simulador foi denseolvido com a linguagem C++. O simulador permite:
+- Submissão e execução simulada de processos
+- Gerenciamento de memória virtual com paginação
+- Implementação de algoritmos de substituição de páginas (LRU ou CLOCK)
+- Visualização do estado da memória e processos
 
-## 🧠 Funcionalidades
+O sistema simula referências à memória (leituras e gravações) conforme especificado em arquivo de entrada, aplicando os mecanismos de memória virtual configuráveis.
 
-- Criação de processos com imagem em bytes
-- Acesso à memória virtual com leitura (R) e escrita (W)
-- Execução de instruções de CPU (P) e I/O (I)
-- Substituição de páginas usando algoritmos **LRU** ou **Clock**
-- Suspensão automática de processos via **swapper** em caso de falta de memória
-- Registro de faltas de página, modificações e referências
-- Simulação de memória secundária
-- Saída detalhada com:
-  - Memória principal
-  - Tabelas de páginas
-  - Estados dos processos
-  - Resumo da simulação
-
-## 📂 Estrutura de Entrada
-
-Cada linha do arquivo de entrada representa uma instrução, nos seguintes formatos:
-
-
-> A notação `(x)2` indica valor binário. O simulador converte para decimal automaticamente.
-
-### 💡 Exemplo:
-```txt
+Arquivo de entrada em txt :
+```
+# entrada.txt
 P1 C 500
 P1 R (0)2
-P1 W (1024)2
-P2 C 1000
-P2 R (4095)2
-P2 I (2)2
-``` 
-# ⚙️ Configurações Internas
-Você pode ajustar os seguintes parâmetros no main.cpp:
-
-Tamanho da página (page_size)
-
-Número de bits do endereço lógico (address_bits)
-
-Tamanho da memória física
-
-Tamanho da memória secundária
-
-Algoritmo de substituição: LRU ou CLOCK
-
-# Exemplo:
-cpp : 
+P1 R (1024)2
+P1 P  (1)2
+P1 R (2)2
+P1 P (2)2
+P1 W  (1024)2
+P7 C 1000
+P7 R (4095)2
+P7 R  (800)2
+P7 I  (2)2
+P7 R (801)2
+P7 W  (4096)2
+P1 R (3)2
+P1 R  (4)2
+P1 W (1025)2
+P1 W  (1026)2
 ```
+# EXPLICAR OS PARAMETROS DE ENTRADA TXT
+
+Mecanismos configuráveis na main :
+```c++
 MemoryManager manager(
-    4096,               // Page size: 4KB
-    32,                 // Address bits
-    65536,              // Physical memory: 64KB
-    1048576,            // Secondary memory: 1MB
-    MemoryManager::CLOCK // Replacement algorithm
-);
+            4096,     // Page size (4KB)
+            32,       // Address bits (32-bit)
+            65536,    // Physical memory (64KB)
+            1048576,  // Secondary memory (1MB)
+            MemoryManager::CLOCK  // Replacement algorithm
+        );
 ```
-# 🧪 Execução
-## Compilação
+# EXPLICAR A ESTRUTURA DA MAIN 
 
-`g++ -std=c++17 -o simulador simulador.cpp`
+## 2. Estruturas de Dados Principais
+### Estruturas para Gerenciamento de Memória
+```c++
+struct Page {
+        int page_id;
+        int process_id;
+        bool referenced;
+        bool modified;
+        time_t last_used;
+        bool present;
+        int frame;
+    };
+```
+# EXPLICAR
 
-## Execução
+```c++
+struct Frame {
+        int frame_id;
+        bool allocated;
+        int page_id;
+        int process_id;
+    };
+```
 
-`./simulador entrada.txt`
+# EXPLICAR
 
+```c++
+struct Process {
+        int process_id;
+        int size;
+        std::string status;
+        std::unordered_map<int, Page> page_table;
+        int swap_file_id;
+    };
+```
 
-# 📊 Saída
-Exibição da memória principal (quadros)
+# EXPLICAR
 
-Tabela de páginas de cada processo
+```c++
+struct MemoryOperation {
+        int process_id;
+        char operation_type; // 'R', 'W', 'P', 'I', 'C'
+        unsigned long address;
+        int size;
+        std::string device;
+    };
+```
 
-Estado de cada processo (ready, waiting_io, suspended)
+# EXPLICAR
 
-Resumo final com estatísticas
+# Métodos Implementados
+## Principais Componentes
+### Gerenciador de Memória
 
-# 🏗️ Estruturas de Dados
-Process: status, tamanho da imagem e tabela de páginas
+-Alocação/desalocação de páginas
 
-Page: bits de referência, modificação e presença
+-Tratamento de page faults
 
-Frame: representa um quadro da memória física
+-Swapping entre memória principal e secundária
 
-MemoryManager: controla toda a simulação
+### Algoritmos de Substituição
 
-Algoritmos: LRU com lista de uso recente e Clock com ponteiro circular
+-LRU (Least Recently Used)
 
+-Relógio (implementação bônus)
 
+### Simulador
+
+-Leitura e interpretação do arquivo de entrada
+
+-Simulação da execução dos processos
+
+-Geração de saídas e estatísticas
+
+## Fluxo Principal
+-Configuração inicial dos parâmetros de memória
+
+-Leitura do arquivo de entrada com sequência de operações
+
+## Para cada operação:
+
+-Processa criação de processos (tag 'C')
+
+-Executa referências à memória (tags 'R'/'W')
+
+-Processa instruções de CPU/I/O (tags 'P'/'I')
+
+-Atualiza estruturas de dados e estatísticas
+
+-Exibe resultados finais
