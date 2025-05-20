@@ -66,7 +66,6 @@ MemoryManager manager(
 
 `./simulador entrada.txt`
 
-Exemplo com algoritmo via argumento (opcional)
 
 # 📊 Saída
 Exibição da memória principal (quadros)
