@@ -33,7 +33,7 @@ P2 C 1000
 P2 R (4095)2
 P2 I (2)2
 ``` 
-⚙️ Configurações Internas
+# ⚙️ Configurações Internas
 Você pode ajustar os seguintes parâmetros no main.cpp:
 
 Tamanho da página (page_size)
@@ -46,10 +46,9 @@ Tamanho da memória secundária
 
 Algoritmo de substituição: LRU ou CLOCK
 
-Exemplo:
-cpp
-Copiar
-Editar
+# Exemplo:
+cpp : 
+```
 MemoryManager manager(
     4096,               // Page size: 4KB
     32,                 // Address bits
@@ -57,7 +56,7 @@ MemoryManager manager(
     1048576,            // Secondary memory: 1MB
     MemoryManager::CLOCK // Replacement algorithm
 );
-
+```
 # 🧪 Execução
 #Compilação
 
