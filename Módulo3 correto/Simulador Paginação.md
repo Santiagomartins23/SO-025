@@ -58,7 +58,7 @@ MemoryManager manager(
     MemoryManager::CLOCK // Replacement algorithm
 );
 
-🧪 Execução
+# 🧪 Execução
 #Compilação
 
 `g++ -std=c++17 -o simulador simulador.cpp`
@@ -69,7 +69,7 @@ MemoryManager manager(
 
 Exemplo com algoritmo via argumento (opcional)
 
-#📊 Saída
+# 📊 Saída
 Exibição da memória principal (quadros)
 
 Tabela de páginas de cada processo
@@ -78,7 +78,7 @@ Estado de cada processo (ready, waiting_io, suspended)
 
 Resumo final com estatísticas
 
-#🏗️ Estruturas de Dados
+# 🏗️ Estruturas de Dados
 Process: status, tamanho da imagem e tabela de páginas
 
 Page: bits de referência, modificação e presença
