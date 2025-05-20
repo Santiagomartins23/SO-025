@@ -2,9 +2,6 @@
 
 Projeto desenvolvido para a disciplina de Sistemas Operacionais (Módulo 3 - ICMC/USP), com o objetivo de simular o funcionamento da memória virtual com paginação, incluindo leitura de arquivos de entrada, alocação de processos, substituição de páginas e gerenciamento de faltas de página.
 
-## 📅 Entrega
-**Data limite:** 28/05/2025 às 19h
-
 ## 🧠 Funcionalidades
 
 - Criação de processos com imagem em bytes
@@ -60,23 +57,19 @@ MemoryManager manager(
     1048576,            // Secondary memory: 1MB
     MemoryManager::CLOCK // Replacement algorithm
 );
+
 🧪 Execução
-Compilação
-bash
-Copiar
-Editar
-g++ -std=c++17 -o simulador simulador.cpp
-Execução
-bash
-Copiar
-Editar
-./simulador entrada.txt
+#Compilação
+
+`g++ -std=c++17 -o simulador simulador.cpp`
+
+#Execução
+
+`./simulador entrada.txt`
+
 Exemplo com algoritmo via argumento (opcional)
-bash
-Copiar
-Editar
-./simulador entrada.txt CLOCK
-📊 Saída
+
+#📊 Saída
 Exibição da memória principal (quadros)
 
 Tabela de páginas de cada processo
@@ -85,7 +78,7 @@ Estado de cada processo (ready, waiting_io, suspended)
 
 Resumo final com estatísticas
 
-🏗️ Estruturas de Dados
+#🏗️ Estruturas de Dados
 Process: status, tamanho da imagem e tabela de páginas
 
 Page: bits de referência, modificação e presença
