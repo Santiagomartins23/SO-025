@@ -35,6 +35,7 @@ P1 W (1024)2
 P2 C 1000
 P2 R (4095)2
 P2 I (2)2
+``` 
 ⚙️ Configurações Internas
 Você pode ajustar os seguintes parâmetros no main.cpp:
 
@@ -95,9 +96,4 @@ MemoryManager: controla toda a simulação
 
 Algoritmos: LRU com lista de uso recente e Clock com ponteiro circular
 
-🛠️ Desenvolvedor
-Gabriel Huemer
 
-Sistemas de Informação - ICMC/USP
-
-2025
