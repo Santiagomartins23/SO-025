@@ -58,11 +58,11 @@ MemoryManager manager(
 );
 ```
 # 🧪 Execução
-# Compilação
+## Compilação
 
 `g++ -std=c++17 -o simulador simulador.cpp`
 
-# Execução
+## Execução
 
 `./simulador entrada.txt`
 
