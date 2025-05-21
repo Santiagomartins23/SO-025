@@ -9,13 +9,15 @@ Este projeto implementa um simulador de gerenciamento de memória virtual usando
 
 O sistema simula referências à memória (leituras e gravações) conforme especificado em arquivo de entrada, aplicando os mecanismos de memória virtual configuráveis.
 
+---
+
 ### Arquivo de entrada em txt :
 
 O arquivo entrada.txt contém uma sequência de comandos que definem as operações a serem simuladas pelo sistema de gerenciamento de memória virtual. Cada linha representa uma ação específica de um processo, como criação, leitura, escrita ou uso de dispositivo de I/O.
 
 ##### Sintaxe Geral - PID AÇÃO (ENDEREÇO) DISPOSITIVO
 
----
+
 
 PID: identificador do processo (ex: P1, P7)
 
@@ -42,7 +44,7 @@ I: operação de I/O (Input/Output)
 DISPOSITIVO: número do dispositivo de I/O envolvido, quando 
 
 
----
+
 
 ```
 # entrada.txt
@@ -74,8 +76,11 @@ P1 R  (4)2
 P1 W (1025)2
 P1 W  (1026)2
 ```
+---
 
 A configuração do simulador é realizada na função main por meio da criação de um objeto da classe MemoryManager. Esse objeto define os principais parâmetros do sistema de memória virtual a ser simulado. A seguir, mostramos o trecho de código responsável por essa configuração e explicamos cada um dos seus argumentos:
+
+---
 
 ```c++
 MemoryManager manager(
