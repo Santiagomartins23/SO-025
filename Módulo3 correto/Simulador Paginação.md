@@ -91,24 +91,18 @@ MemoryManager manager(
             MemoryManager::AlgoritimoSelecionado  // Replacement algorithm
         );
 ```
+| Parâmetro               |         | Valor                              |         | Descrição                                                                                                                                      |
+|-------------------------|---------|------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| `pageSize`              |         | `4096`                             |         | Tamanho de cada página de memória virtual, em bytes. Neste caso, 4 KB por página.                                                              |
+| `addressBits`           |         | `32`                               |         | Número de bits utilizados nos endereços virtuais. Um endereço de 32 bits permite endereçar até 4 GB.                                          |
+| `physicalMemorySize`    |         | `65536`                            |         | Tamanho total da memória física (RAM simulada), em bytes. Neste exemplo, 64 KB.                                                               |
+| `secondaryMemorySize`   |         | `1048576`                          |         | Tamanho da memória secundária (por exemplo, swap em disco), em bytes. Aqui, 1 MB.                                                              |
+| `replacementAlgorithm`  |         | `MemoryManager::AlgoritimoSelecionado` |     | Algoritmo de substituição de páginas utilizado quando a memória física estiver cheia. Pode ser `LRU` (Least Recently Used) ou `CLOCK`. |
 
-#### Parâmetro                    Valor                    Descrição
-
-pageSize
-
-addressBits
-
-physicalMemorySize
-
-secondaryMemorySize
-
-replacementAlgorithm
 
 ---
 
-| Palavra 1 |         | Palavra 2 |
-|-----------|---------|-----------|
-| Exemplo   |         | Espaçado  |
+
 
 
 ## 2. Estruturas de Dados Principais
