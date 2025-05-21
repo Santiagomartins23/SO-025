@@ -75,7 +75,8 @@ P1 W (1025)2
 P1 W  (1026)2
 ```
 
-Mecanismos configuráveis na main :
+A configuração do simulador é realizada na função main por meio da criação de um objeto da classe MemoryManager. Esse objeto define os principais parâmetros do sistema de memória virtual a ser simulado. A seguir, mostramos o trecho de código responsável por essa configuração e explicamos cada um dos seus argumentos:
+
 ```c++
 MemoryManager manager(
             4096,     // Page size (4KB)
