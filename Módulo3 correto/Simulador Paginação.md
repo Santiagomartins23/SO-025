@@ -74,7 +74,6 @@ P1 R  (4)2
 P1 W (1025)2
 P1 W  (1026)2
 ```
-# EXPLICAR OS PARAMETROS DE ENTRADA TXT
 
 Mecanismos configuráveis na main :
 ```c++
