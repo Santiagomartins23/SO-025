@@ -45,16 +45,20 @@ DISPOSITIVO: número do dispositivo de I/O envolvido, quando aplicável
 ```
 # entrada.txt
 P1 C 500
+// Cria o processo 1 com 500 bytes de memória virtual (aproximadamente 1 página, se o tamanho da página for 1 KB).
 P1 R (0)2
+// O processo 1 realiza uma leitura de memória no endereço 0 (início da sua memória virtual). O número 2 indica um ID fictício de dispositivo usado para organização (não afeta leitura).
 P1 R (1024)2
 P1 P  (1)2
 P1 R (2)2
 P1 P (2)2
 P1 W  (1024)2
+// Escrita no endereço 1024. Isso ativa o bit de modificação da página.
 P7 C 1000
 P7 R (4095)2
 P7 R  (800)2
 P7 I  (2)2
+// Simulação de operação de I/O. O processo 7 entra em estado de espera (waiting_io), como se estivesse interagindo com um dispositivo (ID 2).
 P7 R (801)2
 P7 W  (4096)2
 P1 R (3)2
