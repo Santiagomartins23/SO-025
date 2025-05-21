@@ -66,6 +66,7 @@ P7 R (4095)2
 P7 R  (800)2
 P7 I  (2)2
 // Simulação de operação de I/O. O processo 7 entra em estado de espera (waiting_io), como se estivesse interagindo com um dispositivo (ID 2).
+
 P7 R (801)2
 P7 W  (4096)2
 P1 R (3)2
