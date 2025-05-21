@@ -18,6 +18,7 @@ Sintaxe Geral - PID AÇÃO (ENDEREÇO) DISPOSITIVO
 PID: identificador do processo (ex: P1, P7)
 
 
+
 AÇÃO:
 
 C: criação do processo
@@ -31,7 +32,9 @@ P: instrução de CPU (Processamento)
 I: operação de I/O (Input/Output)
 
 
+
 (ENDEREÇO): endereço virtual (em bytes) acessado na operação de leitura ou escrita
+
 
 
 DISPOSITIVO: número do dispositivo de I/O envolvido, quando aplicável
