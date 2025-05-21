@@ -175,7 +175,7 @@ struct OperacaoMemoria {
 
 # Métodos Implementados
 ## Principais Componentes
-### Gerenciador de Memória
+## Gerenciador de Memória
 
 ### ✔ Alocação/desalocação de páginas
 Objetivo: Mapear páginas virtuais (de processos) em frames da memória física.
@@ -197,7 +197,7 @@ Caso contrário, escolhe uma vítima (usando LRU ou Relógio) e a substitui.
 Objetivo: Movimentar páginas entre a RAM e o disco (simulado) quando a memória está cheia.
 
 Dois tipos de operações:
-Swap-out (para disco): Salva páginas modificadas (modificada = true) no "arquivo de swap".
+Swap-out (para disco): Salva páginas modificadas (modificada = true) no "arquivo de swap" e
 Swap-in (para RAM): Carrega páginas do disco para a memória física.
 
 ---
