@@ -84,20 +84,20 @@ A configuração do simulador é realizada na função main por meio da criaçã
 
 ```c++
 MemoryManager manager(
-            4096,     // Page size (4KB)
-            32,       // Address bits (32-bit)
-            65536,    // Physical memory (64KB)
-            1048576,  // Secondary memory (1MB)
+            4096,     // Tamanho da página (4KB)
+            32,       // Bits de endereço (32-bit)
+            65536,    // Memória física (64KB)
+            1048576,  // Memória secundária (1MB)
             MemoryManager::AlgoritimoSelecionado  // Replacement algorithm
         );
 ```
 | Parâmetro               |         | Valor                              |         | Descrição                                                                                                                                      |
 |-------------------------|---------|------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| `pageSize`              |         | `4096`                             |         | Tamanho de cada página de memória virtual, em bytes. Neste caso, 4 KB por página.                                                              |
-| `addressBits`           |         | `32`                               |         | Número de bits utilizados nos endereços virtuais. Um endereço de 32 bits permite endereçar até 4 GB.                                          |
-| `physicalMemorySize`    |         | `65536`                            |         | Tamanho total da memória física (RAM simulada), em bytes. Neste exemplo, 64 KB.                                                               |
-| `secondaryMemorySize`   |         | `1048576`                          |         | Tamanho da memória secundária (por exemplo, swap em disco), em bytes. Aqui, 1 MB.                                                              |
-| `replacementAlgorithm`  |         | `MemoryManager::AlgoritimoSelecionado` |     | Algoritmo de substituição de páginas utilizado quando a memória física estiver cheia. Pode ser `LRU` (Least Recently Used) ou `CLOCK`. |
+| `Tamanho da página`              |         | `4096`                             |         | Tamanho de cada página de memória virtual, em bytes. Neste caso, 4 KB por página.                                                              |
+| `Bits de endereço`           |         | `32`                               |         | Número de bits utilizados nos endereços virtuais. Um endereço de 32 bits permite endereçar até 4 GB.                                          |
+| `Memória física`    |         | `65536`                            |         | Tamanho total da memória física (RAM simulada), em bytes. Neste exemplo, 64 KB.                                                               |
+| `Memória secundária`   |         | `1048576`                          |         | Tamanho da memória secundária (por exemplo, swap em disco), em bytes. Aqui, 1 MB.                                                              |
+| `Algoritmo de substituição`  |         | `MemoryManager::AlgoritimoSelecionado` |     | Algoritmo de substituição de páginas utilizado quando a memória física estiver cheia. Pode ser `LRU` (Least Recently Used) ou `CLOCK`. |
 
 ##### Obs: O último parâmetro (AlgoritimoSelecionado) é uma enumeração definida na classe MemoryManager que permite selecionar o algoritmo desejado:
 
@@ -126,13 +126,13 @@ MemoryManager::LRU
 ## 2. Estruturas de Dados Principais
 ### Estruturas para Gerenciamento de Memória
 ```c++
-struct Page {
-        int page_id;
-        int process_id;
-        bool referenced;
-        bool modified;
-        time_t last_used;
-        bool present;
+struct Pagina {
+        int id_pagina;
+        int id_processo;
+        bool referenciada;
+        bool modificada;
+        time_t ultimo_acesso;
+        bool presente;
         int frame;
     };
 ```
@@ -140,34 +140,34 @@ struct Page {
 
 ```c++
 struct Frame {
-        int frame_id;
-        bool allocated;
-        int page_id;
-        int process_id;
+        int id_frame;
+        bool alocado;
+        int id_pagina;
+        int id_processo;
     };
 ```
 
 ###### A estrutura Frame representa um quadro (ou moldura) de memória física, que pode conter uma única página por vez. Cada frame possui um identificador frame_id, além de um campo booleano allocated que indica se o quadro está atualmente em uso. Também há os campos page_id e process_id, que apontam qual página está atualmente alocada naquele frame e a qual processo ela pertence. Essa estrutura é fundamental para gerenciar o uso da memória física e realizar substituições de páginas de forma eficiente.
 
 ```c++
-struct Process {
-        int process_id;
-        int size;
-        std::string status;
-        std::unordered_map<int, Page> page_table;
-        int swap_file_id;
+struct Processo {
+        int id_processo;
+        int tamanho;
+        std::string estado;
+        std::unordered_map<int, Pagina> tabela_paginas;
+        int id_arquivo_swap;
     };
 ```
 
 ###### A estrutura Process descreve um processo ativo no sistema. O campo process_id identifica o processo, enquanto size representa o tamanho total da memória requisitada por ele. O campo status descreve o estado atual do processo (como "executando", "esperando", etc.). A page_table é uma tabela de páginas representada por um unordered_map, que associa os índices das páginas virtuais às suas respectivas estruturas Page, permitindo acesso rápido às informações de mapeamento. O campo swap_file_id indica o identificador do arquivo de swap associado ao processo, utilizado quando as páginas são movidas para a memória secundária.
 
 ```c++
-struct MemoryOperation {
-        int process_id;
-        char operation_type; // 'R', 'W', 'P', 'I', 'C'
-        unsigned long address;
-        int size;
-        std::string device;
+struct OperacaoMemoria {
+        int id_processo;
+        char tipo_operacao; // 'R', 'W', 'P', 'I', 'C'
+        unsigned long endereco;
+        int tamanho;
+        std::string dispositivo;
     };
 ```
 
