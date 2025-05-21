@@ -106,6 +106,11 @@ replacementAlgorithm
 
 ---
 
+| Palavra 1 |         | Palavra 2 |
+|-----------|---------|-----------|
+| Exemplo   |         | Espaçado  |
+
+
 ## 2. Estruturas de Dados Principais
 ### Estruturas para Gerenciamento de Memória
 ```c++
