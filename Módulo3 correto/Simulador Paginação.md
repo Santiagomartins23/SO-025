@@ -177,15 +177,15 @@ struct OperacaoMemoria {
 ## Principais Componentes
 ### Gerenciador de Memória
 
-###✔ Alocação/desalocação de páginas
+### ✔ Alocação/desalocação de páginas
 Objetivo: Mapear páginas virtuais (de processos) em frames da memória física.
 
 Métodos envolvidos:
-alocar_frame(): Encontra um frame livre ou seleciona uma vítima para substituição.
-alocar_frame_para_pagina(): Associa uma página a um frame físico.
-swap_out_processo(): Remove um processo inteiro da memória para liberar espaço (swapping).
+`alocar_frame()`: Encontra um frame livre ou seleciona uma vítima para substituição.
+`alocar_frame_para_pagina()`: Associa uma página a um frame físico.
+`swap_out_processo()`: Remove um processo inteiro da memória para liberar espaço (swapping).
 
-###✔ Tratamento de page faults
+### ✔ Tratamento de page faults
 Ocorre quando: Um processo tenta acessar uma página que não está na memória física.
 
 Ações tomadas:
@@ -193,7 +193,7 @@ Identifica a página faltante.
 Se houver frames livres, carrega a página neles.
 Caso contrário, escolhe uma vítima (usando LRU ou Relógio) e a substitui.
 
-###✔ Swapping entre memória principal e secundária
+### ✔ Swapping entre memória principal e secundária
 Objetivo: Movimentar páginas entre a RAM e o disco (simulado) quando a memória está cheia.
 
 Dois tipos de operações:
