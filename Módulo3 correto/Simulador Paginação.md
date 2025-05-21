@@ -109,12 +109,12 @@ enum Algoritmo {
 ```
 Para utilizar, por exemplo, o algoritmo CLOCK, basta alterar o último argumento da criação do gerenciador:
 ```c++
-MemoryManager::CLOCK
+ GerenciadorMemoria::CLOCK
 ```
 Ou, para usar LRU:
 
 ```c++
-MemoryManager::LRU
+ GerenciadorMemoria::LRU
 ```
 
 
