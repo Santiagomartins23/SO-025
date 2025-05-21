@@ -83,12 +83,12 @@ A configuração do simulador é realizada na função main por meio da criaçã
 
 
 ```c++
-MemoryManager manager(
+GerenciadorMemoria gerenciador(
             4096,     // Tamanho da página (4KB)
             32,       // Bits de endereço (32-bit)
             65536,    // Memória física (64KB)
             1048576,  // Memória secundária (1MB)
-            MemoryManager::AlgoritimoSelecionado  // Replacement algorithm
+            GerenciadorMemoria::AlgoritimoSelecionado  // Algoritmo de substituição
         );
 ```
 | Parâmetro               |         | Valor                              |         | Descrição                                                                                                                                      |
@@ -97,7 +97,7 @@ MemoryManager manager(
 | `Bits de endereço`           |         | `32`                               |         | Número de bits utilizados nos endereços virtuais. Um endereço de 32 bits permite endereçar até 4 GB.                                          |
 | `Memória física`    |         | `65536`                            |         | Tamanho total da memória física (RAM simulada), em bytes. Neste exemplo, 64 KB.                                                               |
 | `Memória secundária`   |         | `1048576`                          |         | Tamanho da memória secundária (por exemplo, swap em disco), em bytes. Aqui, 1 MB.                                                              |
-| `Algoritmo de substituição`  |         | `MemoryManager::AlgoritimoSelecionado` |     | Algoritmo de substituição de páginas utilizado quando a memória física estiver cheia. Pode ser `LRU` (Least Recently Used) ou `CLOCK`. |
+| `Algoritmo de substituição`  |         | `GerenciadorMemoria::AlgoritimoSelecionado` |     | Algoritmo de substituição de páginas utilizado quando a memória física estiver cheia. Pode ser `LRU` (Least Recently Used) ou `CLOCK`. |
 
 ##### Obs: O último parâmetro (AlgoritimoSelecionado) é uma enumeração definida na classe MemoryManager que permite selecionar o algoritmo desejado:
 
