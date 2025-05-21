@@ -185,13 +185,13 @@ struct OperacaoMemoria {
 
 ---
 
-### Algoritmos de Substituição 
+### Algoritmos de Substituição 🔁
 Algoritmos de substituição de páginas são estratégias utilizadas pelo sistema de gerenciamento de memória virtual para decidir qual página deve ser removida da memória física quando é necessário carregar uma nova página, mas não há quadros (frames) livres disponíveis. A escolha de qual página será substituída impacta diretamente o desempenho do sistema, especialmente em cenários com alta taxa de falta de página (page fault). Nosso simulador oferece duas opções de algoritmos de substituição:
 
-- LRU (Least Recently Used)
+- #### LRU (Least Recently Used):
 Esse algoritmo remove a página que está na memória mas que não foi usada há mais tempo. A ideia por trás do LRU é que páginas usadas recentemente provavelmente serão usadas novamente em breve, enquanto páginas que não são acessadas há algum tempo podem não ser mais necessárias. No nosso código, esse comportamento é implementado por meio do campo last_used em cada página, que armazena o timestamp do último acesso. Apesar de sua precisão na escolha da página a ser substituída, o LRU possui custo computacional elevado. A manutenção das informações de uso requer atualizações frequentes e ordenações ou estruturas auxiliares
 
-- Relógio (implementação bônus)
+- #### Relógio (implementação bônus):
  Esta é uma implementação otimizada do algoritmo Segunda Chance, que simula um ponteiro girando como em um relógio. Cada página possui um bit de referência (referenced); quando uma substituição é necessária, o algoritmo percorre as páginas em ordem circular. Se encontrar uma página com o bit de referência 0, ela é removida. Se o bit for 1, o algoritmo o zera e passa para a próxima página, dando uma “segunda chance” àquela página. Essa abordagem equilibra desempenho e simplicidade, consumindo menos recursos do que o LRU completo. Embora seja mais eficiente em termos de desempenho e simplicidade em comparação com o LRU, o algoritmo de Relógio pode tomar decisões menos precisas, já que o bit de referência oferece uma noção mais genérica do uso recente da página.
 
 ---
