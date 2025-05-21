@@ -92,6 +92,18 @@ MemoryManager manager(
         );
 ```
 
+#### Parâmetro                    Valor                    Descrição
+
+pageSize
+
+addressBits
+
+physicalMemorySize
+
+secondaryMemorySize
+
+replacementAlgorithm
+
 ---
 
 ## 2. Estruturas de Dados Principais
