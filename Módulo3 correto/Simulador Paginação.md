@@ -9,7 +9,7 @@ Este projeto implementa um simulador de gerenciamento de memória virtual usando
 
 O sistema simula referências à memória (leituras e gravações) conforme especificado em arquivo de entrada, aplicando os mecanismos de memória virtual configuráveis.
 
-Arquivo de entrada em txt :
+### Arquivo de entrada em txt :
 
 O arquivo entrada.txt contém uma sequência de comandos que definem as operações a serem simuladas pelo sistema de gerenciamento de memória virtual. Cada linha representa uma ação específica de um processo, como criação, leitura, escrita ou uso de dispositivo de I/O.
 
