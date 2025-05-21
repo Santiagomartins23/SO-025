@@ -136,7 +136,7 @@ struct Pagina {
         int frame;
     };
 ```
-###### A estrutura Page representa uma página da memória virtual de um processo. Ela contém diversos atributos que facilitam o gerenciamento e o rastreamento do uso da página no sistema. O campo page_id identifica unicamente a página dentro do processo, enquanto process_id indica a qual processo essa página pertence. O atributo referenced sinaliza se a página foi acessada recentemente, sendo utilizado por algoritmos como o CLOCK. O campo modified indica se a página foi alterada (escrita), o que é essencial para saber se ela precisa ser salva em disco antes de ser substituída. O campo last_used armazena um timestamp da última utilização da página, útil para o algoritmo LRU. Já o campo present mostra se a página está carregada na memória física ou se está na memória secundária. Por fim, frame indica em qual quadro de memória física (frame) a página está mapeada, caso esteja presente.
+###### A estrutura Pagina representa uma página da memória virtual de um processo. Ela contém diversos atributos que facilitam o gerenciamento e o rastreamento do uso da página no sistema. O campo page_id identifica unicamente a página dentro do processo, enquanto process_id indica a qual processo essa página pertence. O atributo referenced sinaliza se a página foi acessada recentemente, sendo utilizado por algoritmos como o CLOCK. O campo modified indica se a página foi alterada (escrita), o que é essencial para saber se ela precisa ser salva em disco antes de ser substituída. O campo last_used armazena um timestamp da última utilização da página, útil para o algoritmo LRU. Já o campo present mostra se a página está carregada na memória física ou se está na memória secundária. Por fim, frame indica em qual quadro de memória física (frame) a página está mapeada, caso esteja presente.
 
 ```c++
 struct Frame {
@@ -159,7 +159,7 @@ struct Processo {
     };
 ```
 
-###### A estrutura Process descreve um processo ativo no sistema. O campo process_id identifica o processo, enquanto size representa o tamanho total da memória requisitada por ele. O campo status descreve o estado atual do processo (como "executando", "esperando", etc.). A page_table é uma tabela de páginas representada por um unordered_map, que associa os índices das páginas virtuais às suas respectivas estruturas Page, permitindo acesso rápido às informações de mapeamento. O campo swap_file_id indica o identificador do arquivo de swap associado ao processo, utilizado quando as páginas são movidas para a memória secundária.
+###### A estrutura Processo descreve um processo ativo no sistema. O campo process_id identifica o processo, enquanto size representa o tamanho total da memória requisitada por ele. O campo status descreve o estado atual do processo (como "executando", "esperando", etc.). A page_table é uma tabela de páginas representada por um unordered_map, que associa os índices das páginas virtuais às suas respectivas estruturas Page, permitindo acesso rápido às informações de mapeamento. O campo swap_file_id indica o identificador do arquivo de swap associado ao processo, utilizado quando as páginas são movidas para a memória secundária.
 
 ```c++
 struct OperacaoMemoria {
@@ -171,7 +171,7 @@ struct OperacaoMemoria {
     };
 ```
 
-###### Por fim, a estrutura MemoryOperation define uma operação de memória solicitada por um processo. Ela contém o process_id para identificar o processo que fez a solicitação e o operation_type, que pode ser 'R' (read/leitura), 'W' (write/escrita), 'P' (page fault/solicitação explícita de página), 'I' (I/O) ou 'C' (create/criação do processo). O campo address representa o endereço lógico acessado, enquanto size indica o tamanho da operação em bytes. O campo device, quando aplicável, identifica o dispositivo envolvido na operação, como operações de I/O. Essa estrutura é usada para simular o comportamento real de acesso à memória durante a execução de programas.
+###### Por fim, a estrutura OperacaoMemoria define uma operação de memória solicitada por um processo. Ela contém o process_id para identificar o processo que fez a solicitação e o operation_type, que pode ser 'R' (read/leitura), 'W' (write/escrita), 'P' (page fault/solicitação explícita de página), 'I' (I/O) ou 'C' (create/criação do processo). O campo address representa o endereço lógico acessado, enquanto size indica o tamanho da operação em bytes. O campo device, quando aplicável, identifica o dispositivo envolvido na operação, como operações de I/O. Essa estrutura é usada para simular o comportamento real de acesso à memória durante a execução de programas.
 
 # Métodos Implementados
 ## Principais Componentes
