@@ -99,6 +99,24 @@ MemoryManager manager(
 | `secondaryMemorySize`   |         | `1048576`                          |         | Tamanho da memória secundária (por exemplo, swap em disco), em bytes. Aqui, 1 MB.                                                              |
 | `replacementAlgorithm`  |         | `MemoryManager::AlgoritimoSelecionado` |     | Algoritmo de substituição de páginas utilizado quando a memória física estiver cheia. Pode ser `LRU` (Least Recently Used) ou `CLOCK`. |
 
+###### Obs: O último parâmetro (AlgoritimoSelecionado) é uma enumeração definida na classe MemoryManager que permite selecionar o algoritmo desejado:
+
+```c++
+enum Algoritmo {
+    LRU,
+    CLOCK
+};
+```
+Para utilizar, por exemplo, o algoritmo CLOCK, basta alterar o último argumento da criação do gerenciador:
+```c++
+MemoryManager::CLOCK
+```
+Ou, para usar LRU:
+
+```c++
+MemoryManager::LRU
+```
+
 
 ---
 
