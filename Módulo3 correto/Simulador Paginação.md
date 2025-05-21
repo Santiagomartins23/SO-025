@@ -39,7 +39,9 @@ I: operação de I/O (Input/Output)
 
 
 
-DISPOSITIVO: número do dispositivo de I/O envolvido, quando aplicável
+DISPOSITIVO: número do dispositivo de I/O envolvido, quando 
+
+
 ---
 
 ```
