@@ -12,7 +12,7 @@ O sistema simula referências à memória (leituras e gravações) conforme espe
 Arquivo de entrada em txt :
 O arquivo entrada.txt contém uma sequência de comandos que definem as operações a serem simuladas pelo sistema de gerenciamento de memória virtual. Cada linha representa uma ação específica de um processo, como criação, leitura, escrita ou uso de dispositivo de I/O.
 
-Sintaxe Geral - PID AÇÃO (ENDEREÇO) DISPOSITIVO
+##### Sintaxe Geral - PID AÇÃO (ENDEREÇO) DISPOSITIVO
 
 ---
 
