@@ -80,7 +80,7 @@ P1 W  (1026)2
 
 A configuração do simulador é realizada na função main por meio da criação de um objeto da classe MemoryManager. Esse objeto define os principais parâmetros do sistema de memória virtual a ser simulado. A seguir, mostramos o trecho de código responsável por essa configuração e explicamos cada um dos seus argumentos:
 
----
+
 
 ```c++
 MemoryManager manager(
@@ -91,7 +91,8 @@ MemoryManager manager(
             MemoryManager::AlgoritimoSelecionado  // Replacement algorithm
         );
 ```
-# EXPLICAR A ESTRUTURA DA MAIN 
+
+---
 
 ## 2. Estruturas de Dados Principais
 ### Estruturas para Gerenciamento de Memória
