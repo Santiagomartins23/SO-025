@@ -252,76 +252,362 @@ Page | Present | Frame | Ref | Mod | Last Used
 //Obs* present = presente na memória | last used = última vez usado |
 
 Carregando página y do processo x dentro do frame z
-```
 
+```
 P1 C 500
 ```
+Processo 1 criado com 1 páginas
+
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   N  |      |      |     |
+    1 |   N  |      |      |     |
+    2 |   N  |      |      |     |
+    3 |   N  |      |      |     |
+
+Estado do Processo 1:
+Tamanho: 500 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 1:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   0 |     N    |     -1 |  N |  N | 00:09:12
+----------------------------------------
+Carregando página 0 do processo 1 no Frame 0
 
 ```
 P1 R (0)2
 ```
+Leitura de memória no endereço 0 (página 0, frame 0)
+
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    1 |    0 |  S |  N
+    1 |   N  |      |      |     |
+    2 |   N  |      |      |     |
+    3 |   N  |      |      |     |
+
+Estado do Processo 1:
+Tamanho: 500 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 1:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   0 |     S    |      0 |  S |  N | 00:09:12
+----------------------------------------
 
 ```
 P1 R (1024)2
 ```
+Leitura de memória no endereço 1024 (página 0, frame 0)
+
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    1 |    0 |  S |  N
+    1 |   N  |      |      |     |
+    2 |   N  |      |      |     |
+    3 |   N  |      |      |     |
+
+Estado do Processo 1:
+Tamanho: 500 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 1:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   0 |     S    |      0 |  S |  N | 00:09:12
+----------------------------------------
 
 ```
 P1 P  (1)2
 ```
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    1 |    0 |  S |  N
+    1 |   N  |      |      |     |
+    2 |   N  |      |      |     |
+    3 |   N  |      |      |     |
 
+Estado do Processo 1:
+Tamanho: 500 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 1:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   0 |     S    |      0 |  S |  N | 00:09:12
+----------------------------------------
 ```
 P1 R (2)2
 ```
+Processo 1 executando instrução CPU:
 
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    1 |    0 |  S |  N
+    1 |   N  |      |      |     |
+    2 |   N  |      |      |     |
+    3 |   N  |      |      |     |
+
+Estado do Processo 1:
+Tamanho: 500 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 1:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   0 |     S    |      0 |  S |  N | 00:09:12
+----------------------------------------
 ```
 P1 P (2)2
 ```
+Processo 1 executando instrução CPU:
 
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    1 |    0 |  S |  N
+    1 |   N  |      |      |     |
+    2 |   N  |      |      |     |
+    3 |   N  |      |      |     |
+
+Estado do Processo 1:
+Tamanho: 500 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 1:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   0 |     S    |      0 |  S |  N | 00:17:41
+----------------------------------------
 ```
 P1 W  (1024)2
 ```
+Escrita de memória no endereço 1024 (página 0, frame 0)
 
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    1 |    0 |  S |  S
+    1 |   N  |      |      |     |
+    2 |   N  |      |      |     |
+    3 |   N  |      |      |     |
+
+Estado do Processo 1:
+Tamanho: 500 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 1:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   0 |     S    |      0 |  S |  S | 00:17:41
+----------------------------------------
 ```
 P7 C 1000
 ```
+Processo 7 criado com 1 páginas
 
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    1 |    0 |  S |  S
+    1 |   N  |      |      |     |
+    2 |   N  |      |      |     |
+    3 |   N  |      |      |     |
+
+Estado do Processo 7:
+Tamanho: 1000 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 7:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   0 |     N    |     -1 |  N |  N | 00:26:07
+----------------------------------------
+Carregando página 0 do processo 7 no Frame 1
 ```
 P7 R (4095)2
 ```
+Leitura de memória no endereço 4095 (página 0, frame 1)
 
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    1 |    0 |  S |  S
+    1 |   S  |    7 |    0 |  S |  N
+    2 |   N  |      |      |     |
+    3 |   N  |      |      |     |
+
+Estado do Processo 7:
+Tamanho: 1000 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 7:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   0 |     S    |      1 |  S |  N | 00:26:07
+----------------------------------------
 ```
 P7 R  (800)2
 ```
+Leitura de memória no endereço 800 (página 0, frame 1)
 
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    1 |    0 |  S |  S
+    1 |   S  |    7 |    0 |  S |  N
+    2 |   N  |      |      |     |
+    3 |   N  |      |      |     |
+
+Estado do Processo 7:
+Tamanho: 1000 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 7:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   0 |     S    |      1 |  S |  N | 00:26:07
+----------------------------------------
 ```
 P7 I  (2)2
 ```
+Processo 7 realizando I/O no dispositivo: 2
 
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    1 |    0 |  S |  S
+    1 |   S  |    7 |    0 |  S |  N
+    2 |   N  |      |      |     |
+    3 |   N  |      |      |     |
+
+Estado do Processo 7:
+Tamanho: 1000 bytes | Estado: esperando_io
+
+Tabela de Paginas do Processo 7:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   0 |     S    |      1 |  S |  N | 00:26:07
+----------------------------------------
 ```
 P7 R (801)2
 ```
+Leitura de memória no endereço 801 (página 0, frame 1)
 
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    1 |    0 |  S |  S
+    1 |   S  |    7 |    0 |  S |  N
+    2 |   N  |      |      |     |
+    3 |   N  |      |      |     |
+
+Estado do Processo 7:
+Tamanho: 1000 bytes | Estado: esperando_io
+
+Tabela de Paginas do Processo 7:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   0 |     S    |      1 |  S |  N | 00:26:07
+----------------------------------------
 ```
 P7 W  (4096)2
 ```
-
+Erro ao processar linha: P7 W (4096)2
+  Motivo: Número de página inválido 1 para processo 7
 ```
 P1 R (3)2
 ```
+Leitura de memória no endereço 3 (página 0, frame 0)
 
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    1 |    0 |  S |  S
+    1 |   S  |    7 |    0 |  S |  N
+    2 |   N  |      |      |     |
+    3 |   N  |      |      |     |
+
+Estado do Processo 1:
+Tamanho: 500 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 1:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   0 |     S    |      0 |  S |  S | 00:26:07
+----------------------------------------
 ```
 P1 R  (4)2
 ```
+Leitura de memória no endereço 4 (página 0, frame 0)
 
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    1 |    0 |  S |  S
+    1 |   S  |    7 |    0 |  S |  N
+    2 |   N  |      |      |     |
+    3 |   N  |      |      |     |
+
+Estado do Processo 1:
+Tamanho: 500 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 1:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   0 |     S    |      0 |  S |  S | 00:26:07
+----------------------------------------
 ```
 P1 W (1025)2
 ```
+Escrita de memória no endereço 1025 (página 0, frame 0)
 
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    1 |    0 |  S |  S
+    1 |   S  |    7 |    0 |  S |  N
+    2 |   N  |      |      |     |
+    3 |   N  |      |      |     |
+
+Estado do Processo 1:
+Tamanho: 500 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 1:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   0 |     S    |      0 |  S |  S | 00:26:07
+----------------------------------------
 ```
 P1 W  (1026)2
 ```
+Escrita de memória no endereço 1026 (página 0, frame 0)
+
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    1 |    0 |  S |  S
+    1 |   S  |    7 |    0 |  S |  N
+    2 |   N  |      |      |     |
+    3 |   N  |      |      |     |
+
+Estado do Processo 1:
+Tamanho: 500 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 1:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   0 |     S    |      0 |  S |  S | 00:26:07
+----------------------------------------
 
 ```
+
+Resumo da Simulacao:
+- Total de faltas de página: 0
+- Total de operações de swap: 2
+- Processos ativos: 2
+
+Memoria Secundaria - Simulada
+- Operações de swap ate agora: 2
+
 # Testes e Validação
 
 ## Objetivo dos Testes
