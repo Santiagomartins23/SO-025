@@ -240,6 +240,34 @@ Esse algoritmo remove a página que está na memória mas que não foi usada há
 
 # Resultado da entrada formato TXT
 
+## A saída do código está formatada da seguinte maneira :
+
+```
+Processo x criado com  n páginas 
+
+Estado da Memória Física:
+Frame | Alloc | PID  | Page | Ref | Mod 
+------|-------|------|------|-----|----
+    0 |    N  |      |      |     |
+    1 |    N  |      |      |     |
+    2 |    N  |      |      |     |
+    3 |    N  |      |      |     |
+
+//OBS* alloc = alocado | PID = ID do processo | page = página | ref = referenciado | mod = modificado |
+
+Estado do Processo x:
+Tamanho: ... bytes | Estado: ...
+
+Tabela de Páginas:
+Page | Present | Frame | Ref | Mod | Last Used
+-----|---------|-------|-----|-----|----------
+   0 |    N    |    -1 |  N |  N | 23:27:42
+----------------------------------------
+//Obs* present = presente | last used = última vez usado |
+
+Carregando página y do processo x dentro do frame z
+```
+
 P1 C 500
 ```
 
