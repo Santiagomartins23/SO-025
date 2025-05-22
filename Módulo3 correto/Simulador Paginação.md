@@ -643,7 +643,7 @@ P1 R (8192)1
 Esperado:
 Ocorrência de page faults, substituição de páginas se não houver frames livres.
 
-### Caso 3: Swap-out de processo 
+### Caso 3: Swap-out de processo - joa
 Entrada:
 Code
 P1 C 5000
