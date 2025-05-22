@@ -375,10 +375,4 @@ Bit de modificação da página deve ser ativado após a escrita.
 ### Caso 5: Alternância entre algoritmos de substituição
 Testar a mesma sequência de comandos com LRU e CLOCK e comparar resultados.
 
-## 3.4. Procedimento de Teste
-Preparar arquivos de entrada correspondentes a cada caso de teste.
-Executar o simulador para cada caso, registrando a saída gerada.
-Comparar a saída com os resultados esperados descritos acima.
-Anotar eventuais divergências e analisar a causa.
-
 # Conclusão
