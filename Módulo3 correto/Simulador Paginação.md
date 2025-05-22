@@ -633,7 +633,7 @@ P1 R (0)1
 Esperado:
 Processo criado, página alocada, leitura sem page fault se página já está carregada.
 
-### Caso 2: Page Fault e Substituição
+### Caso 2: Page Fault e Substituição - eu
 Entrada:
 Code
 P1 C 5000
@@ -643,7 +643,7 @@ P1 R (8192)1
 Esperado:
 Ocorrência de page faults, substituição de páginas se não houver frames livres.
 
-### Caso 3: Swap-out de processo
+### Caso 3: Swap-out de processo 
 Entrada:
 Code
 P1 C 5000
@@ -659,7 +659,7 @@ P1 W (1024)1
 Esperado:
 Bit de modificação da página deve ser ativado após a escrita.
 
-### Caso 5: Alternância entre algoritmos de substituição
+### Caso 5: Alternância entre algoritmos de substituição - GEBs
 Testar a mesma sequência de comandos com LRU e CLOCK e comparar resultados.
 
 # Conclusão
