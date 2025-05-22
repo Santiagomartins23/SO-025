@@ -222,7 +222,8 @@ Esse algoritmo remove a página que está na memória mas que não foi usada há
 
 ### Execução
 
-`./simulador entrada.txt`
+- `./main entrada.txt 0` - Algoritimo Relógio
+- `./main entrada.txt 1` - LRU
 
 # Resultado e Análise da entrada formato TXT
 
