@@ -213,30 +213,6 @@ Esse algoritmo remove a página que está na memória mas que não foi usada há
 
 ---
 
-### Simulador
-
--Leitura e interpretação do arquivo de entrada
-
--Simulação da execução dos processos
-
--Geração de saídas e estatísticas
-
-## Fluxo Principal
--Configuração inicial dos parâmetros de memória
-
--Leitura do arquivo de entrada com sequência de operações
-
-## Para cada operação:
-
--Processa criação de processos (tag 'C')
-
--Executa referências à memória (tags 'R'/'W')
-
--Processa instruções de CPU/I/O (tags 'P'/'I')
-
--Atualiza estruturas de dados e estatísticas
-
--Exibe resultados finais
 
 # Resultado da entrada formato TXT
 
