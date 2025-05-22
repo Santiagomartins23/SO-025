@@ -263,7 +263,7 @@ Page | Present | Frame | Ref | Mod | Last Used
 -----|---------|-------|-----|-----|----------
    0 |    N    |    -1 |  N |  N | 23:27:42
 ----------------------------------------
-//Obs* present = presente | last used = última vez usado |
+//Obs* present = presente na memória | last used = última vez usado |
 
 Carregando página y do processo x dentro do frame z
 ```
