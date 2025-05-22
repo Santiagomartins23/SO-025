@@ -380,3 +380,5 @@ Preparar arquivos de entrada correspondentes a cada caso de teste.
 Executar o simulador para cada caso, registrando a saída gerada.
 Comparar a saída com os resultados esperados descritos acima.
 Anotar eventuais divergências e analisar a causa.
+
+# Conclusão
