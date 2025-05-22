@@ -212,9 +212,19 @@ Esse algoritmo remove a página que está na memória mas que não foi usada há
  Esta é uma implementação otimizada do algoritmo Segunda Chance, que simula um ponteiro girando como em um relógio. Cada página possui um bit de referência (referenced); quando uma substituição é necessária, o algoritmo percorre as páginas em ordem circular. Se encontrar uma página com o bit de referência 0, ela é removida. Se o bit for 1, o algoritmo o zera e passa para a próxima página, dando uma “segunda chance” àquela página. Essa abordagem equilibra desempenho e simplicidade, consumindo menos recursos do que o LRU completo. Embora seja mais eficiente em termos de desempenho e simplicidade em comparação com o LRU, o algoritmo de Relógio pode tomar decisões menos precisas, já que o bit de referência oferece uma noção mais genérica do uso recente da página.
 
 ---
+# Instrução de Execução 
 
+## Estrutura de Arquivos
 
-# Resultado da entrada formato TXT
+- main.cpp (ou nome do arquivo principal do simulador)
+- Outros arquivos de código-fonte e cabeçalho (.cpp, .h)
+- Arquivo de entrada de operações: entrada.txt
+
+### Execução
+
+`./simulador entrada.txt`
+
+# Resultado e Análise da entrada formato TXT
 
 ## A saída do código está formatada da seguinte maneira :
 
@@ -312,3 +322,61 @@ P1 W  (1026)2
 ```
 
 ```
+# Testes e Validação
+
+## Objetivo dos Testes
+Esta seção tem como objetivo validar o funcionamento correto do simulador de gerenciamento de memória virtual, garantindo que os algoritmos de paginação, alocação, substituição e swap estejam operando conforme esperado.
+
+## 3.2. Estratégia de Testes
+Foram definidos diferentes cenários de teste para cobrir os principais casos de uso do simulador:
+
+Criação de processos com diferentes tamanhos de memória
+Execução de operações de leitura e escrita em endereços distintos
+Ocorrência e tratamento de page faults
+Ação dos algoritmos de substituição (LRU e CLOCK)
+Operações de swap-in e swap-out
+Situações de limite, como falta de frames livres
+
+## 3.3. Casos de Teste
+### Caso 1: Criação e acesso simples
+Entrada:
+Code
+P1 C 1024
+P1 R (0)1
+Esperado:
+Processo criado, página alocada, leitura sem page fault se página já está carregada.
+
+### Caso 2: Page Fault e Substituição
+Entrada:
+Code
+P1 C 5000
+P1 R (0)1
+P1 R (4096)1
+P1 R (8192)1
+Esperado:
+Ocorrência de page faults, substituição de páginas se não houver frames livres.
+
+### Caso 3: Swap-out de processo
+Entrada:
+Code
+P1 C 5000
+P2 C 5000
+Esperado:
+Quando não houver mais frames, um processo pode ser removido (swap-out) para liberar espaço.
+
+### Caso 4: Operação de escrita e bit de modificação
+Entrada:
+Code
+P1 C 2048
+P1 W (1024)1
+Esperado:
+Bit de modificação da página deve ser ativado após a escrita.
+
+### Caso 5: Alternância entre algoritmos de substituição
+Testar a mesma sequência de comandos com LRU e CLOCK e comparar resultados.
+
+## 3.4. Procedimento de Teste
+Preparar arquivos de entrada correspondentes a cada caso de teste.
+Executar o simulador para cada caso, registrando a saída gerada.
+Comparar a saída com os resultados esperados descritos acima.
+Anotar eventuais divergências e analisar a causa.
