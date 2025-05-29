@@ -633,15 +633,126 @@ P1 R (0)1
 Esperado:
 Processo criado, página alocada, leitura sem page fault se página já está carregada.
 
-### Caso 2: Page Fault e Substituição - eu
+### Caso 2: Page Fault
 Entrada:
 Code
-P1 C 5000
-P1 R (0)1
-P1 R (4096)1
-P1 R (8192)1
-Esperado:
-Ocorrência de page faults, substituição de páginas se não houver frames livres.
+P1 C 5000 - Criação do processo 1 com 5000 bytes de memória.
+P1 R (0)1 - Leitura no endereço virtual 0, no processo 1
+P1 R (4096)1 - Leitura no endereço virtual 4096, ainda do processo 1.
+
+#### Situação real: 
+```
+Processo 1 criado com 2 páginas
+
+Estado da Memória Física:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   N  |
+    1 |   N  |
+    2 |   N  |
+    3 |   N  |
+
+Estado do Processo 1:
+Tamanho: 5000 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 1:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   1 |     N    |     -1 |  N |  N | 18:32:07
+   0 |     N    |     -1 |  N |  N | 18:32:07
+----------------------------------------
+
+=== PAGE FAULT DETECTADO ===
+Processo: 1
+Página: 0
+Alocando no Frame: -1
+
+Carregando página 0 do processo 1 no Frame 0
+Leitura de memória no endereço 0 (página 0, frame 0)
+
+Estado da Memória Física:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    1 |    0 |  S |  N
+    1 |   N  |
+    2 |   N  |
+    3 |   N  |
+
+Estado do Processo 1:
+Tamanho: 5000 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 1:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   1 |     N    |     -1 |  N |  N | 18:32:07
+   0 |     S    |      0 |  S |  N | 18:32:07
+----------------------------------------
+
+=== PAGE FAULT DETECTADO ===
+Processo: 1
+Página: 1
+Alocando no Frame: -1
+
+Carregando página 1 do processo 1 no Frame 1
+Leitura de memória no endereço 4096 (página 1, frame 1)
+
+Estado da Memória Física:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    1 |    0 |  S |  N
+    1 |   S  |    1 |    1 |  S |  N
+    2 |   N  |
+    3 |   N  |
+
+Estado do Processo 1:
+Tamanho: 5000 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 1:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   1 |     S    |      1 |  S |  N | 18:32:07
+   0 |     S    |      0 |  S |  N | 18:32:07
+----------------------------------------
+
+Resumo da Simulacao:
+Total de faltas de página: 2
+Total de operações de swap: 2
+Processos ativos: 1
+
+[Memoria Secundaria - Simulada]
+Operações de swap ate agora: 2
+```
+
+#### Etapas explicadas:
+##### 🗂️ Alocação Inicial:
+ - Como cada página tem 4 KB (4096 bytes), o processo de 5000 bytes ocupa duas páginas:
+
+            Página 0: endereços de 0 até 4095.
+
+            Página 1: endereços de 4096 até 4999.
+
+Nenhuma página está inicialmente carregada na memória física. O sistema começa com todos os frames livres.
+
+##### 📌 Primeira Acesso: P1 R (0)1
+O endereço virtual 0 pertence à página 0.
+
+Como a página 0 ainda não está na memória, ocorre um Page Fault.
+
+#### 🔁 Page Fault:
+- O sistema detecta a ausência da página 0 na memória.
+- Aloca a página 0 no frame 0.
+- Marca essa página como referenciada (Ref = S) e não modificada (Mod = N), pois é uma leitura.
+- Atualiza a tabela de páginas do processo e o estado da memória física.
+
+##### 📌 Segundo Acesso: P1 R (4096)1
+- O endereço 4096 está na página 1.
+Página 1 ainda não está carregada → novo Page Fault
+
+#### 🔁 Page Fault novamente:
+Alocação da página 1 no frame 1.
+Marca como referenciada (Ref = S) e não modificada (Mod = N).
+Agora ambas as páginas do processo estão na memória.
+
 
 ### Caso 3: Swap-out de processo - joa
 Entrada:
