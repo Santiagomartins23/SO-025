@@ -634,8 +634,8 @@ Esperado:
 Processo criado, página alocada, leitura sem page fault se página já está carregada.
 
 ### Caso 2: Page Fault
-Entrada:
-Code
+
+arquivo de entrada:
 P1 C 5000 - Criação do processo 1 com 5000 bytes de memória.
 P1 R (0)1 - Leitura no endereço virtual 0, no processo 1
 P1 R (4096)1 - Leitura no endereço virtual 4096, ainda do processo 1.
