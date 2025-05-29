@@ -1190,16 +1190,7 @@ LRU manteve todos bits ativos
 
 ## 5. Conclusões
 ### 5.1 Precisão vs. Eficiência
-- LRU:
 
-Vantagem: Precisão histórica
-
-Desvantagem: Alto custo computacional (atualizações constantes)
-
-- Clock:
-
-Vantagem: Baixo custo O(1)
-
-Desvantagem: Pode substituir páginas ativas (bits zerados)
+No trade‐off entre precisão e eficiência, o LRU destaca‐se por sua precisão histórica, mantendo um registro exato da ordem de acesso às páginas e garantindo que sempre será substituída a página menos recentemente usada. Essa precisão, porém, tem um alto custo computacional, pois exige atualizações constantes da estrutura de dados que rastreia os acessos. Em contraste, o Clock oferece um custo O(1) muito baixo, usando apenas um bit de referência e um ponteiro circular para dar “segunda chance” às páginas. A desvantagem é que, ao zerar bits de referência durante a rotação, o Clock pode acidentalmente substituir páginas que ainda estão ativas.
 
 # Conclusão
