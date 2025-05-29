@@ -988,7 +988,7 @@ Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
    0 |     S    |      1 |  S |  N | 15:55:28
 ----------------------------------------
 ```
-Agora, como todos os bits de Ref estavam 0 (tirando o do frame 0, que foi recentemente substituído) o próximo frame que o ponteiro do apontasse iria ser substituído, logo, o próximo frame (frame 1)
+Agora, como todos os bits de Ref estavam 0 (tirando o do frame 0, que foi recentemente substituído) o próximo frame que o ponteiro apontasse iria ser substituído, logo, o próximo frame (frame 1)
 que carregava página 1 do processo 1 foi substituído e agora carrega página 0 do processo 1 e seu bit de Ref é 1. O ponteiro avança para o próximo frame.
 
 P1 W (1025)2:
@@ -1016,7 +1016,7 @@ Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
    0 |     S    |      1 |  S |  N | 15:55:28
 ----------------------------------------
 ```
-Denovo, há falta de página e a página do processo 1 responsável pelo endereço 1025 não está sendo carregada por nenhum frame da Memória Física, sendo assim, é necessário substituir um frame. O ponteiro está 
+De novo, há falta de página e a página do processo 1 responsável pelo endereço 1025 não está sendo carregada por nenhum frame da Memória Física, sendo assim, é necessário substituir um frame. O ponteiro está 
 apontando para o frame 2 que tem bit de Ref 0 ou N, logo, é esse frame que será substituído e a página 1 do processo 1 será adicionada. Seu bit de Ref se torna 1 ou S.
 
 ### 🎓Resumo Final:
