@@ -771,8 +771,9 @@ Este exemplo simula **dois page faults** sequenciais gerados por um processo que
 ### Caso 3: Swap-out de processo - joa
 Entrada:
 Code
-P1 C 5000
-P2 C 5000
+P1 C 2048
+P7 C 8192
+P7 W 4099 (Nesse passo a tabela de frames do espaço físico estará cheia, assim necessitando um swap-out para que essa nova página criada seja alocada por um frame)
 Esperado:
 Quando não houver mais frames, um processo pode ser removido (swap-out) para liberar espaço.
 
