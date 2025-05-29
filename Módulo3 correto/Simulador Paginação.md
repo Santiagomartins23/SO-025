@@ -776,7 +776,7 @@ Quando não houver mais frames, um processo pode ser removido (swap-out) para li
 
 ### Situação real usando algoritmo LRU:
 
-Estado da Memória Fisica e da Tabela de Páginas do P7 antes do passo (P7 W 4099, primeira substituição), a Memória Física está cheia e não tem página do endereço 4099 carregada na Memória Física.
+Estado da Memória Fisica antes do passo P7 W (4099)2 (Primeira substituição), a Memória Física está cheia e não tem página do endereço 4099 carregada na Memória Física.
 
 ```
 Estado da Memória Fisica:
@@ -787,21 +787,6 @@ Frame | Aloc | PID  | Pag  | Ref | Mod
     2 |   S  |    7 |    3 |  S |  N
     3 |   S  |    7 |    0 |  S |  N
 
-Estado do Processo 7:
-Tamanho: 8192 bytes | Estado: esperando_io
-
-Tabela de Paginas do Processo 7:
-Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
------|----------|--------|-----|-----|--------------
-   7 |     N    |     -1 |  N |  N | 15:23:19
-   6 |     N    |     -1 |  N |  N | 15:23:19
-   5 |     N    |     -1 |  N |  N | 15:23:19
-   4 |     N    |     -1 |  N |  N | 15:23:19
-   3 |     S    |      2 |  S |  N | 15:23:19
-   2 |     N    |     -1 |  N |  N | 15:23:19
-   1 |     N    |     -1 |  N |  N | 15:23:19
-   0 |     S    |      3 |  S |  N | 15:23:19
-----------------------------------------
 ```
 
 P7 W (4099)2:
