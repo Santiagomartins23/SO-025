@@ -768,14 +768,181 @@ Este exemplo simula **dois page faults** sequenciais gerados por um processo que
 - A política de alocação inicial é simples (os primeiros frames livres são usados), e os estados das páginas (presença, referência, modificação) são atualizados com precisão.
 
 
-### Caso 3: Swap-out de processo - joa
+### Caso 3: Swap-out de processo
 Entrada:
-Code
+
 P1 C 2048
+
 P7 C 8192
+
 P7 W 4099 (Nesse passo a tabela de frames do espaço físico estará cheia, assim necessitando um swap-out para que essa nova página criada seja alocada por um frame)
+
 Esperado:
 Quando não houver mais frames, um processo pode ser removido (swap-out) para liberar espaço.
+
+###Situação real usando algoritmo LRU:
+
+Estado da Memória Fisica e da Tabela de Páginas do P7 antes do passo (P7 W 4099), a Memória Física está cheia e não tem página do endereço 4099 carregada na Memória Física.
+
+```
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    1 |    0 |  S |  N
+    1 |   S  |    1 |    1 |  S |  S
+    2 |   S  |    7 |    3 |  S |  N
+    3 |   S  |    7 |    0 |  S |  N
+
+Estado do Processo 7:
+Tamanho: 8192 bytes | Estado: esperando_io
+
+Tabela de Paginas do Processo 7:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   7 |     N    |     -1 |  N |  N | 15:23:19
+   6 |     N    |     -1 |  N |  N | 15:23:19
+   5 |     N    |     -1 |  N |  N | 15:23:19
+   4 |     N    |     -1 |  N |  N | 15:23:19
+   3 |     S    |      2 |  S |  N | 15:23:19
+   2 |     N    |     -1 |  N |  N | 15:23:19
+   1 |     N    |     -1 |  N |  N | 15:23:19
+   0 |     S    |      3 |  S |  N | 15:23:19
+----------------------------------------
+```
+
+P7 W 4099:
+```
+Escrita de memória no endereço 4099 (página 4, frame 0)
+
+Carregando página 4 do processo 7 no Frame 0
+Falta de página - Frame 0 substituído
+
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    7 |    4 |  S |  S
+    1 |   S  |    1 |    1 |  S |  S
+    2 |   S  |    7 |    3 |  S |  N
+    3 |   S  |    7 |    0 |  S |  N
+
+Estado do Processo 7:
+Tamanho: 8192 bytes | Estado: esperando_io
+
+Tabela de Paginas do Processo 7:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   7 |     N    |     -1 |  N |  N | 15:23:19
+   6 |     N    |     -1 |  N |  N | 15:23:19
+   5 |     N    |     -1 |  N |  N | 15:23:19
+   4 |     S    |      0 |  S |  S | 15:23:19
+   3 |     S    |      2 |  S |  N | 15:23:19
+   2 |     N    |     -1 |  N |  N | 15:23:19
+   1 |     N    |     -1 |  N |  N | 15:23:19
+   0 |     S    |      3 |  S |  N | 15:23:19
+----------------------------------------
+```
+Com a Memória Física cheia, o algoritmo LRU procura e escolhe o frame que foi menos recentemente usado, ou seja, o que está mais tempo sem ser usado. Nesse caso, o frame 0 que carregava a página 0 do P1
+foi usado pela últimam vez e (P1 W (2)), sendo assim, ela é transferida para a memória secundária e substituída pela página 4 do processo P7.
+
+
+P1 W (3):
+```
+Leitura de memória no endereço 3 (página 0, frame 1)
+
+Salvando página 1 do processo 1 do Frame 1 para armazenamento secundário
+Carregando página 0 do processo 1 no Frame 1
+Falta de página - Frame 1 substituído
+
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    7 |    4 |  S |  S
+    1 |   S  |    1 |    0 |  S |  N
+    2 |   S  |    7 |    3 |  S |  N
+    3 |   S  |    7 |    0 |  S |  N
+
+Estado do Processo 1:
+Tamanho: 2048 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 1:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   1 |     N    |     -1 |  N |  S | 15:23:19
+   0 |     S    |      1 |  S |  N | 15:23:19
+----------------------------------------
+```
+O acesso ao endereço 3 do processo P1 corresponde à página 0. No momento do acesso, a página 0 não estava presente na memória, causando um page fault. O LRU seleciona a página que ficou mais tempo sem ser usada.
+Nesse caso, a página 1 do processo 1, localizada no frame 1, foi a menos recentemente usada e, portanto, foi substituída.
+
+P1 W 1025:
+```
+Escrita de memória no endereço 1025 (página 1, frame 2)
+
+Carregando página 1 do processo 1 no Frame 2
+Falta de página - Frame 2 substituído
+
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    7 |    4 |  S |  S
+    1 |   S  |    1 |    0 |  S |  N
+    2 |   S  |    1 |    1 |  S |  S
+    3 |   S  |    7 |    0 |  S |  N
+
+Estado do Processo 1:
+Tamanho: 2048 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 1:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   1 |     S    |      2 |  S |  S | 15:23:19
+   0 |     S    |      1 |  S |  N | 15:23:19
+----------------------------------------
+```
+O acesso ao endereço 1025 do processo P1 corresponde à página 1. No momento do acesso, a página 1 não estava presente na memória, causando um page fault. O LRU seleciona a página que ficou mais tempo sem ser usada.
+Nesse caso, a página 3 do processo 7, localizada no frame 2, foi a menos recentemente usada e, portanto, foi substituída.
+
+###Resumo Final:
+
+```
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    7 |    4 |  S |  S
+    1 |   S  |    1 |    0 |  S |  N
+    2 |   S  |    1 |    1 |  S |  S
+    3 |   S  |    7 |    0 |  S |  N
+
+
+Tabela de Paginas do Processo 1:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   1 |     S    |      2 |  S |  S | 15:23:19
+   0 |     S    |      1 |  S |  N | 15:23:19
+----------------------------------------
+
+Tabela de Paginas do Processo 7:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   7 |     N    |     -1 |  N |  N | 15:23:19
+   6 |     N    |     -1 |  N |  N | 15:23:19
+   5 |     N    |     -1 |  N |  N | 15:23:19
+   4 |     S    |      0 |  S |  S | 15:23:19
+   3 |     S    |     -1 |  S |  N | 15:23:19
+   2 |     N    |     -1 |  N |  N | 15:23:19
+   1 |     N    |     -1 |  N |  N | 15:23:19
+   0 |     S    |      3 |  S |  N | 15:23:19
+----------------------------------------
+
+Resumo da Simulacao:
+Total de faltas de página: 7
+Total de operações de swap: 8
+Processos ativos: 2
+
+[Memoria Secundaria - Simulada]
+Operações de swap ate agora: 8
+```
+
 
 ### Caso 4: Operação de escrita e bit de modificação
 Entrada:
