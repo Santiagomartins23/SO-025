@@ -635,7 +635,7 @@ Processo criado, página alocada, leitura sem page fault se página já está ca
 
 ### Caso 2: Page Fault
 
-arquivo de entrada:
+Arquivo de entrada:
 
 P1 C 5000  (Criação do processo 1 com 5000 bytes de memória)
 
