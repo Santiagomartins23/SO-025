@@ -783,7 +783,7 @@ Quando não houver mais frames, um processo pode ser removido (swap-out) para li
 
 ### Situação real usando algoritmo LRU:
 
-Estado da Memória Fisica e da Tabela de Páginas do P7 antes do passo (P7 W 4099), a Memória Física está cheia e não tem página do endereço 4099 carregada na Memória Física.
+Estado da Memória Fisica e da Tabela de Páginas do P7 antes do passo (P7 W 4099, primeira substituição), a Memória Física está cheia e não tem página do endereço 4099 carregada na Memória Física.
 
 ```
 Estado da Memória Fisica:
@@ -944,6 +944,142 @@ Processos ativos: 2
 Operações de swap ate agora: 8
 ```
 
+### Situação real usando algoritmo RELOGIO:
+Antes de P7 W 4099 as tabelas de páginas e da Memória Física são iguais nos dois algoritmos.
+
+P7 W 4099:
+```
+Escrita de memória no endereço 4099 (página 4, frame 0)
+
+Carregando página 4 do processo 7 no Frame 0
+Falta de página - Frame 0 substituído
+
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    7 |    4 |  S |  S
+    1 |   S  |    1 |    1 |  N |  S
+    2 |   S  |    7 |    3 |  N |  N
+    3 |   S  |    7 |    0 |  N |  N
+
+Estado do Processo 7:
+Tamanho: 8192 bytes | Estado: esperando_io
+
+Tabela de Paginas do Processo 7:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   7 |     N    |     -1 |  N |  N | 15:55:28
+   6 |     N    |     -1 |  N |  N | 15:55:28
+   5 |     N    |     -1 |  N |  N | 15:55:28
+   4 |     S    |      0 |  S |  S | 15:55:28
+   3 |     S    |      2 |  N |  N | 15:55:28
+   2 |     N    |     -1 |  N |  N | 15:55:28
+   1 |     N    |     -1 |  N |  N | 15:55:28
+   0 |     S    |      3 |  N |  N | 15:55:28
+----------------------------------------
+```
+O ponteiro passa por todos os frames, já que o bit de Ref é 1 para todos, mudando esses bits para 0 até que ele completa a volta e volta para o frame 0, que agora esta com Ref 0 ou N, sendo assim, ele 
+é substituído.
+
+P1 W 3:
+```
+Leitura de memória no endereço 3 (página 0, frame 1)
+
+Salvando página 1 do processo 1 do Frame 1 para armazenamento secundário
+Carregando página 0 do processo 1 no Frame 1
+Falta de página - Frame 1 substituído
+
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    7 |    4 |  S |  S
+    1 |   S  |    1 |    0 |  S |  N
+    2 |   S  |    7 |    3 |  N |  N
+    3 |   S  |    7 |    0 |  N |  N
+
+Estado do Processo 1:
+Tamanho: 2048 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 1:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   1 |     N    |     -1 |  N |  S | 15:55:28
+   0 |     S    |      1 |  S |  N | 15:55:28
+----------------------------------------
+```
+Agora, como todos os bits de Ref estavam 0 (tirando o do frame 0, que foi recentemente substituído) o próximo frame que o ponteiro do apontasse iria ser substituído, logo, o próximo frame (frame 1)
+que carregava página 1 do processo 1 foi substituído e agora carrega página 0 do processo 1 e seu bit de Ref é 1. O ponteiro avança para o próximo frame.
+
+P1 W 1025:
+```
+Escrita de memória no endereço 1025 (página 1, frame 2)
+
+Carregando página 1 do processo 1 no Frame 2
+Falta de página - Frame 2 substituído
+
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    7 |    4 |  S |  S
+    1 |   S  |    1 |    0 |  S |  N
+    2 |   S  |    1 |    1 |  S |  S
+    3 |   S  |    7 |    0 |  N |  N
+
+Estado do Processo 1:
+Tamanho: 2048 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 1:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   1 |     S    |      2 |  S |  S | 15:55:28
+   0 |     S    |      1 |  S |  N | 15:55:28
+----------------------------------------
+```
+Denovo, há falta de página e a página do processo 1 responsável pelo endereço 1025 não está sendo carregada por nenhum frame da Memória Física, sendo assim, é necessário substituir um frame. O ponteiro está 
+apontando para o frame 2 que tem bit de Ref 0 ou N, logo, é esse frame que será substituído e a página 1 do processo 1 será adicionada. Seu bit de Ref se torna 1 ou S.
+
+### Resumo Final:
+
+```
+Estado da Memória Fisica:
+Frame | Aloc | PID  | Pag  | Ref | Mod
+------|------|------|------|-----|----
+    0 |   S  |    7 |    4 |  S |  S
+    1 |   S  |    1 |    0 |  S |  N
+    2 |   S  |    1 |    1 |  S |  S
+    3 |   S  |    7 |    0 |  N |  N
+
+Estado do Processo 1:
+Tamanho: 2048 bytes | Estado: pronto
+
+Tabela de Paginas do Processo 1:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   1 |     S    |      2 |  S |  S | 15:55:28
+   0 |     S    |      1 |  S |  N | 15:55:28
+----------------------------------------
+
+Tabela de Paginas do Processo 7:
+Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
+-----|----------|--------|-----|-----|--------------
+   7 |     N    |     -1 |  N |  N | 15:55:28
+   6 |     N    |     -1 |  N |  N | 15:55:28
+   5 |     N    |     -1 |  N |  N | 15:55:28
+   4 |     S    |      0 |  S |  S | 15:55:28
+   3 |     S    |     -1 |  N |  N | 15:55:28
+   2 |     N    |     -1 |  N |  N | 15:55:28
+   1 |     N    |     -1 |  N |  N | 15:55:28
+   0 |     S    |      3 |  N |  N | 15:55:28
+----------------------------------------
+
+Resumo da Simulacao:
+Total de faltas de página: 7
+Total de operações de swap: 8
+Processos ativos: 2
+
+[Memoria Secundaria - Simulada]
+Operações de swap ate agora: 8
+```
 
 ### Caso 4: Operação de escrita e bit de modificação
 Entrada:
