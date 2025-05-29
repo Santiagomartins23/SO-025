@@ -637,11 +637,11 @@ Processo criado, página alocada, leitura sem page fault se página já está ca
 
 arquivo de entrada:
 
-P1 C 5000 - Criação do processo 1 com 5000 bytes de memória.
+P1 C 5000  (Criação do processo 1 com 5000 bytes de memória)
 
-P1 R (0)1 - Leitura no endereço virtual 0, no processo 1
+P1 R (0)1  (Leitura no endereço virtual 0, no processo 1)
 
-P1 R (4096)1 - Leitura no endereço virtual 4096, ainda do processo 1.
+P1 R (4096)1  (Leitura no endereço virtual 4096, ainda do processo 1)
 
 #### Situação real: 
 ```
@@ -726,7 +726,7 @@ Processos ativos: 1
 Operações de swap ate agora: 2
 ```
 
-#### Etapas explicadas:
+#### Situação real explicada:
 ##### 🗂️ Alocação Inicial:
  - Como cada página tem 4 KB (4096 bytes), o processo de 5000 bytes ocupa duas páginas:
 
@@ -755,6 +755,17 @@ Página 1 ainda não está carregada → novo Page Fault
 Alocação da página 1 no frame 1.
 Marca como referenciada (Ref = S) e não modificada (Mod = N).
 Agora ambas as páginas do processo estão na memória.
+
+
+###### 🎓 Conclusão:
+
+Este exemplo simula **dois page faults** sequenciais gerados por um processo que acessa duas páginas distintas **não carregadas na memória**. Ele ilustra perfeitamente o funcionamento do mecanismo de paginação por demanda em sistemas operacionais modernos:
+
+- O sistema só carrega uma página quando ela é acessada.
+
+- Cada acesso a uma página não presente causa uma interrupção (page fault), que exige a alocação de um frame e, se necessário, o uso da memória secundária (swap).
+
+- A política de alocação inicial é simples (os primeiros frames livres são usados), e os estados das páginas (presença, referência, modificação) são atualizados com precisão.
 
 
 ### Caso 3: Swap-out de processo - joa
