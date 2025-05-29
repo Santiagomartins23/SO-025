@@ -1062,15 +1062,144 @@ Processos ativos: 2
 Operações de swap ate agora: 8
 ```
 
-### Caso 4: Operação de escrita e bit de modificação
-Entrada:
-Code
-P1 C 2048
-P1 W (1024)1
-Esperado:
-Bit de modificação da página deve ser ativado após a escrita.
+# Alternância entre algoritmos de substituição
+## Objetivo : 
+### Esta documentação demonstra as diferenças fundamentais entre os algoritmos LRU (Least Recently Used) e Clock através de um caso prático de simulação. O foco é evidenciar como o tratamento dos bits de referência afeta as decisões de substituição de páginas.
 
-### Caso 5: Alternância entre algoritmos de substituição - GEBs
-Testar a mesma sequência de comandos com LRU e CLOCK e comparar resultados.
+## 1. Cenário de Teste
+### Configuração do Sistema
+- Memória física: 4 frames (16 KB total)
+
+- Tamanho de página: 4 KB
+
+### Processos:
+
+- P1: 1 página (4096 bytes)
+
+- P2: 1 página (4096 bytes)
+
+- P3: 3 páginas (12288 bytes)
+
+### Sequência de Operações (arquivo alternancia.txt)
+```
+P1 C 4096 → Cria P1
+
+  P1 R (0)2 → Acesso P1-p0 (carrega Frame 0)
+
+P2 C 4096 → Cria P2
+
+P2 R (0)2 → Acesso P2-p0 (carrega Frame 1)
+
+P3 C 12288 → Cria P3
+
+P3 R (0)2 → Acesso P3-p0 (carrega Frame 2)
+
+P3 R (4096)2 → Acesso P3-p1 (carrega Frame 3)
+
+P3 R (8192)2 → Acesso P3-p2 (substituição)
+
+P3 R (12288)2 → Acesso P3-p3 (substituição)
+
+P1 R (0)2 → Reacesso P1-p0 (teste decisivo)
+```
+## 2. Comportamento dos Algoritmos
+### 2.1 Mecanismo LRU
+Lógica: Mantém histórico exato de acessos. A página não usada há mais tempo é substituída.
+
+- Substituições:
+
+Para P3-p2: Substitui P1-p0 (Frame 0) - página mais antiga
+
+Para P3-p3: Substitui P2-p0 (Frame 1)
+
+Reacesso P1-p0:
+
+Causa falta de página (P1-p0 foi removida)
+
+Substitui P3-p0 (Frame 2) para recarregar P1-p0 no Frame 1
+
+### 2.2 Mecanismo Clock
+Lógica: Ponteiro circular que zera bits de referência durante a busca.
+
+- Substituições:
+
+Para P3-p2: Percorre frames: Frame 0 (P1-p0, R=1 → zera bit)
+
+Frame 1 (P2-p0, R=1 → zera bit)
+
+Frame 2 (P3-p0, R=1 → zera bit)
+
+Frame 3 (P3-p1, R=1 → zera bit)
+
+Segunda volta: Substitui Frame 0 (P1-p0, R=0)
+
+Para P3-p3: Substitui Frame 1 (P2-p0, R=0)
+
+Reacesso P1-p0:
+
+Causa falta de página (P1-p0 foi removida)
+
+Substitui Frame 2 (P3-p0, R=0) para recarregar P1-p0
+
+## 3. Estados Finais Comparados
+### 3.1 Saída LRU
+```
+Frame | Aloc | PID | Pag | Ref | Mod
+------|-----|-----|-----|-----|----
+0     | S   | 3   | 8   | S   | N   # P3-p2 (substituiu P1-p0)
+1     | S   | 1   | 0   | S   | N   # P1-p0 (recarregado)
+2     | S   | 3   | 0   | S   | N   # P3-p0 
+3     | S   | 3   | 4   | S   | N   # P3-p1
+```
+### 3.2 Saída Clock
+```
+Frame | Aloc | PID | Pag | Ref | Mod
+------|-----|-----|-----|-----|----
+0     | S   | 3   | 8   | S   | N   # P3-p2 (substituiu P1-p0)
+1     | S   | 1   | 0   | S   | N   # P1-p0 (recarregado)
+2     | S   | 3   | 0   | N   | N   # P3-p0 (bit zerado)
+3     | S   | 3   | 4   | N   | N   # P3-p1 (bit zerado)
+```
+## 4. Análise Técnica das Diferenças
+### 4.1 Tratamento de Bits de Referência
+
+Para o tratamento de bits de referência o LRU mantém bit sempre ativo para páginas presentes,e há impacto no histórico de uso.
+Já o Clock, zera bits durante busca por vítimas e "esquece"  acessos antigos após ciclo completo.
+
+### 4.2 Escolha de Vítimas
+- LRU:
+
+Prioriza idade exata da página
+
+No exemplo: Substituiu P1-p0 primeiro (mais antiga)
+
+- Clock:
+
+Prioriza posição do ponteiro + bit zerado
+
+No exemplo: Zerou todos os bits antes de substituir P1-p0
+
+### 4.3 Efeito no Reacesso
+Ambos recarregaram P1-p0 no Frame 1
+
+- Diferença crítica:
+
+Clock zerou bits de P3-p0 e P3-p1 durante a busca
+
+LRU manteve todos bits ativos
+
+## 5. Conclusões
+### 5.1 Precisão vs. Eficiência
+- LRU:
+
+Vantagem: Precisão histórica
+
+Desvantagem: Alto custo computacional (atualizações constantes)
+
+- Clock:
+
+Vantagem: Baixo custo O(1)
+
+Desvantagem: Pode substituir páginas ativas (bits zerados)
 
 # Conclusão
