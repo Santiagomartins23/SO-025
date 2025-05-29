@@ -769,7 +769,8 @@ Este exemplo simula **dois page faults** sequenciais gerados por um processo que
 
 
 ### Caso 3: Swap-out de processo
-Entrada:
+ Entrada:
+A entrada será o arquivo.txt, porém com algumas modificações:
 
 P1 C 2048
 
@@ -777,10 +778,10 @@ P7 C 8192
 
 P7 W 4099 (Nesse passo a tabela de frames do espaço físico estará cheia, assim necessitando um swap-out para que essa nova página criada seja alocada por um frame)
 
-Esperado:
+ Esperado:
 Quando não houver mais frames, um processo pode ser removido (swap-out) para liberar espaço.
 
-###Situação real usando algoritmo LRU:
+### Situação real usando algoritmo LRU:
 
 Estado da Memória Fisica e da Tabela de Páginas do P7 antes do passo (P7 W 4099), a Memória Física está cheia e não tem página do endereço 4099 carregada na Memória Física.
 
@@ -902,7 +903,7 @@ Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
 O acesso ao endereço 1025 do processo P1 corresponde à página 1. No momento do acesso, a página 1 não estava presente na memória, causando um page fault. O LRU seleciona a página que ficou mais tempo sem ser usada.
 Nesse caso, a página 3 do processo 7, localizada no frame 2, foi a menos recentemente usada e, portanto, foi substituída.
 
-###Resumo Final:
+### Resumo Final:
 
 ```
 Estado da Memória Fisica:
