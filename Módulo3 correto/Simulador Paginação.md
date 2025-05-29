@@ -959,8 +959,8 @@ Pag  | Presente | Frame | Ref | Mod | Ultimo Acesso
    0 |     S    |      3 |  N |  N | 15:55:28
 ----------------------------------------
 ```
-O ponteiro passa por todos os frames, já que o bit de Ref é 1 para todos, mudando esses bits para 0 até que ele completa a volta e volta para o frame 0, que agora esta com Ref 0 ou N, sendo assim, ele 
-é substituído.
+O ponteiro de substituição do algoritmo Relógio passa por todos os frames, já que o bit de Ref é 1 para todos, mudando esses bits para 0 até que ele completa a volta e volta para o frame 0,
+que agora esta com Ref 0 ou N, sendo assim, ele é substituído.
 
 P1 W (3)2:
 ```
