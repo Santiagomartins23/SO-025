@@ -1184,13 +1184,11 @@ Ambos recarregaram P1-p0 no Frame 1
 
 - Diferença crítica:
 
-Clock zerou bits de P3-p0 e P3-p1 durante a busca
+Clock zerou bits de P3-p0 e P3-p1 durante a busca, equanto o LRU manteve todos bits ativos
 
-LRU manteve todos bits ativos
-
-## 5. Conclusões
-### 5.1 Precisão vs. Eficiência
+## 💡 5. Conclusão
+### 5.1 Precisão vs Eficiência
 
 No trade‐off entre precisão e eficiência, o LRU destaca‐se por sua precisão histórica, mantendo um registro exato da ordem de acesso às páginas e garantindo que sempre será substituída a página menos recentemente usada. Essa precisão, porém, tem um alto custo computacional, pois exige atualizações constantes da estrutura de dados que rastreia os acessos. Em contraste, o Clock oferece um custo O(1) muito baixo, usando apenas um bit de referência e um ponteiro circular para dar “segunda chance” às páginas. A desvantagem é que, ao zerar bits de referência durante a rotação, o Clock pode acidentalmente substituir páginas que ainda estão ativas.
 
-# Conclusão
+
