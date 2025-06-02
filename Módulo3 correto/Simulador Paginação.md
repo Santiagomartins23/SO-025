@@ -1063,11 +1063,11 @@ Operações de swap ate agora: 8
 ```
 
 ## Caso 3
-## Objetivo : 
+#### Objetivo : 
 ### Esta documentação demonstra as diferenças fundamentais entre os algoritmos LRU (Least Recently Used) e Clock através de um caso prático de simulação. O foco é evidenciar como o tratamento dos bits de referência afeta as decisões de substituição de páginas.
 
-## 1. Cenário de Teste
-### Configuração do Sistema
+##  Cenário de Teste
+### 🗂️ Configuração do Sistema
 - Memória física: 4 frames (16 KB total)
 
 - Tamanho de página: 4 KB
@@ -1102,7 +1102,7 @@ P3 R (12288)2 → Acesso P3-p3 (substituição)
 
 P1 R (0)2 → Reacesso P1-p0 (teste decisivo)
 ```
-## 2. Comportamento dos Algoritmos
+## 🧠 2. Comportamento dos Algoritmos
 ### 2.1 Mecanismo LRU
 Lógica: Mantém histórico exato de acessos. A página não usada há mais tempo é substituída.
 
@@ -1141,7 +1141,7 @@ Causa falta de página (P1-p0 foi removida)
 
 Substitui Frame 2 (P3-p0, R=0) para recarregar P1-p0
 
-## 3. Estados Finais Comparados
+## 📄 3. Estados Finais Comparados
 ### 3.1 Saída LRU
 ```
 Frame | Aloc | PID | Pag | Ref | Mod
@@ -1160,7 +1160,7 @@ Frame | Aloc | PID | Pag | Ref | Mod
 2     | S   | 3   | 0   | N   | N   # P3-p0 (bit zerado)
 3     | S   | 3   | 4   | N   | N   # P3-p1 (bit zerado)
 ```
-## 4. Análise Técnica das Diferenças
+## 🕵️ 4. Análise Técnica das Diferenças
 ### 4.1 Tratamento de Bits de Referência
 
 Para o tratamento de bits de referência o LRU mantém bit sempre ativo para páginas presentes,e há impacto no histórico de uso.
