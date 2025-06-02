@@ -1062,7 +1062,7 @@ Processos ativos: 2
 Operações de swap ate agora: 8
 ```
 
-# Alternância entre algoritmos de substituição
+## Caso 3
 ## Objetivo : 
 ### Esta documentação demonstra as diferenças fundamentais entre os algoritmos LRU (Least Recently Used) e Clock através de um caso prático de simulação. O foco é evidenciar como o tratamento dos bits de referência afeta as decisões de substituição de páginas.
 
