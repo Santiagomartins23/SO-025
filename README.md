@@ -6,7 +6,9 @@
 #### Integrantes do grupo
 
 Gabirel Heumer
+
 Jõao Pedro Baratella Mattos
+
 Santiago Vera Martins
 
 Bem-vindo ao repositório do projeto da disciplina de Sistemas Operacionais.
